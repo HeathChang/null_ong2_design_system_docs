@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --site-bg: 255 255 255;
+  --site-fg: 15 23 42;
+  --site-muted: 100 116 139;
+  --site-border: 226 232 240;
+  --site-font-sans: 'Inter', 'Pretendard';
+  --site-font-mono: 'JetBrains Mono';
+}
+
+html,
+body {
+  background-color: rgb(var(--site-bg));
+  color: rgb(var(--site-fg));
+}

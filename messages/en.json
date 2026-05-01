@@ -1,0 +1,743 @@
+{
+  "site": {
+    "title": "null_ong2 Design System",
+    "description": "A design system catalog with live examples and copyable code snippets."
+  },
+  "nav": {
+    "home": "Home",
+    "gettingStarted": "Getting Started",
+    "components": "Components",
+    "tokens": "Design Tokens",
+    "theming": "Theming",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "primary": "Primary navigation"
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "ko": "한국어",
+    "en": "English",
+    "zh": "中文"
+  },
+  "footer": {
+    "rights": "MIT License",
+    "github": "GitHub",
+    "npm": "npm"
+  },
+  "home": {
+    "hero": {
+      "title": "Production-ready React design system",
+      "subtitle": "Get started in 5 seconds with live examples and copyable code.",
+      "cta": "Get Started"
+    },
+    "features": {
+      "title": "Features",
+      "zeroConfig": {
+        "title": "Zero-config",
+        "description": "Just install and use. No CSS imports or ThemeProvider required."
+      },
+      "typeSafe": {
+        "title": "Type-safe",
+        "description": "Written in TypeScript strict mode. All Props types are exported."
+      },
+      "a11y": {
+        "title": "Accessibility built-in",
+        "description": "ARIA attributes, keyboard navigation, and semantic HTML by default."
+      },
+      "treeShakable": {
+        "title": "Tree-shakable",
+        "description": "Only the components you use end up in your bundle."
+      }
+    },
+    "quickLook": {
+      "title": "Quick Look",
+      "subtitle": "A preview of commonly used components.",
+      "alertMessage": "Welcome to the design system.",
+      "inputLabel": "Email",
+      "inputPlaceholder": "example@mail.com",
+      "switchLabel": "Enable notifications"
+    }
+  },
+  "codeBlock": {
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "categories": {
+    "layout": "Layout",
+    "typography": "Typography",
+    "core": "Core UI",
+    "form": "Form",
+    "feedback": "Feedback",
+    "dataDisplay": "Data Display",
+    "navigation": "Navigation",
+    "overlay": "Overlay"
+  },
+  "propsTable": {
+    "caption": "Props",
+    "headings": {
+      "name": "Prop",
+      "type": "Type",
+      "default": "Default",
+      "required": "Required",
+      "description": "Description"
+    },
+    "requiredYes": "Required",
+    "empty": "This component has no props."
+  },
+  "demoBlock": {
+    "preview": "Preview",
+    "showCode": "Show code",
+    "hideCode": "Hide code",
+    "openInStorybook": "Open in Storybook"
+  },
+  "gettingStarted": {
+    "title": "Getting Started",
+    "intro": "Adopt the design system in your project in under 5 minutes.",
+    "install": {
+      "title": "Installation",
+      "intro": "Install with npm. React 18 or higher is required."
+    },
+    "firstUse": {
+      "title": "First Example",
+      "intro": "The simplest setup combining Button and Input."
+    },
+    "toastProvider": {
+      "title": "ToastProvider Setup",
+      "intro": "Wrap your app root with ToastProvider to use Toast."
+    },
+    "theming": {
+      "title": "Token Customization",
+      "intro": "Override --ds-* variables in your global CSS to theme the system."
+    },
+    "faq": {
+      "title": "FAQ",
+      "items": {
+        "1": {
+          "question": "Is it compatible with Next.js App Router?",
+          "answer": "Yes. The package ships with the 'use client' directive so you can import it directly in RSC environments."
+        },
+        "2": {
+          "question": "Is dark mode supported?",
+          "answer": "Currently (v0.2) only light tokens ship. Dark mode is on the v2 roadmap."
+        },
+        "3": {
+          "question": "Is tree-shaking supported?",
+          "answer": "It ships as ES modules so only the components you import end up in your bundle."
+        },
+        "4": {
+          "question": "How do I import TypeScript types?",
+          "answer": "All Props types are named exports. e.g. import type { ButtonProps } from 'null_ong2-design-system'."
+        },
+        "5": {
+          "question": "How do I change the theme colors?",
+          "answer": "Override --ds-color-primary-* variables inside :root in your global CSS."
+        }
+      }
+    }
+  },
+  "tokens": {
+    "title": "Design Tokens",
+    "intro": "Every CSS variable that ds@0.2.x injects into :root. Override these in your global CSS to retheme.",
+    "colors": {
+      "title": "Colors",
+      "groups": {
+        "primary": "Primary (brand)",
+        "neutral": "Neutral",
+        "success": "Success",
+        "warning": "Warning",
+        "danger": "Danger",
+        "info": "Info"
+      }
+    },
+    "spacing": {
+      "title": "Spacing",
+      "numeric": "Numeric tokens",
+      "aliases": "Semantic aliases"
+    },
+    "radius": { "title": "Radius" },
+    "typography": {
+      "title": "Typography",
+      "size": "Font Size",
+      "weight": "Font Weight",
+      "sample": "Sample text"
+    },
+    "zIndex": { "title": "Z-index" }
+  },
+  "theming": {
+    "title": "Theming",
+    "intro": "ds exposes every visual value as a CSS variable. Override variables in :root in your global CSS and the theme propagates instantly.",
+    "overview": {
+      "title": "How it works",
+      "body": "ds components are written with var(--ds-*) references instead of hardcoded values, so when a consuming project re-defines a variable in :root, every component picks up the new value immediately."
+    },
+    "example": {
+      "title": "Override example",
+      "intro": "Switch the brand color to purple and round the corners further."
+    },
+    "scope": {
+      "title": "Scoped overrides",
+      "body": "Re-define variables on a parent selector (instead of :root) to scope the theme to a subtree. Useful for partial themes within a page."
+    },
+    "futureBuilder": {
+      "title": "Live theme builder (v2)",
+      "body": "Picking colors with instant preview + :root CSS extraction is on the v2 roadmap. For now, copy the snippet above into your project's global CSS."
+    }
+  },
+  "componentsIndex": {
+    "title": "Components",
+    "intro": "Catalog of every component grouped by category.",
+    "empty": "No component pages registered yet."
+  },
+  "components": {
+    "spinner": {
+      "description": "Rotating loading indicator.",
+      "props": {
+        "size": "Spinner size. 'xs' 12px / 'sm' 16px / 'md' 24px / 'lg' 32px.",
+        "label": "Screen-reader label. Defaults to 'Loading'."
+      },
+      "examples": { "default": "Default", "sizes": "Sizes", "inline": "Inside button", "inherit": "Inherits color" },
+      "do": { "1": "Show it the moment async work begins so users know progress is happening.", "2": "Make the label specific (e.g. 'Loading data')." },
+      "dont": { "1": "Don't flash a spinner for sub-200ms work — it just looks broken.", "2": "Don't leave users on a spinner forever. Time out and show an error." },
+      "a11y": "Spinner uses role='status' and aria-label so assistive tech reads progress. Color inherits via currentColor — set parent color to tint."
+    },
+    "skeleton": {
+      "description": "Shimmering placeholder shown while content loads.",
+      "props": {
+        "width": "Width. Number = px, string = CSS value.",
+        "height": "Height.",
+        "variant": "Shape. 'rectangular' (default) / 'text' (1em tall) / 'circle'."
+      },
+      "examples": { "default": "Default", "text": "Text lines", "circle": "Circle (avatar)", "card": "Card layout" },
+      "do": { "1": "Match the dimensions of the real content to avoid layout shift.", "2": "Vary widths across multiple lines for a natural text feel." },
+      "dont": { "1": "For sub-1s responses, prefer Spinner over Skeleton.", "2": "Don't hardcode pixels only — use % or fr to keep responsive layouts intact." },
+      "a11y": "Skeleton is aria-hidden='true' so screen readers skip it. Replace it with the real content as it arrives."
+    },
+    "alert": {
+      "description": "Inline notification banner with built-in icons for 4 variants.",
+      "props": {
+        "variant": "Notification kind. 'info' / 'success' / 'warning' / 'danger'.",
+        "title": "Optional title.",
+        "children": "Message body.",
+        "icon": "Custom icon. Falls back to a variant-specific default."
+      },
+      "examples": { "default": "Default info", "variants": "Variants", "withTitle": "With title", "save": "Save success" },
+      "do": { "1": "Tell users what to do next, especially in error alerts.", "2": "Reserve warning/danger for time-sensitive situations." },
+      "dont": { "1": "Don't auto-dismiss Alert like a toast — Toast is the right tool there.", "2": "More than 5 same-variant alerts on a screen and users tune them out." },
+      "a11y": "warning/danger get role='alert' for immediate announcement; info/success get role='status' for non-intrusive announcement. ARIA is set automatically."
+    },
+    "avatar": {
+      "description": "Avatar with image and initials fallback. 5 sizes, circle or square.",
+      "props": {
+        "src": "Image URL.",
+        "name": "Name. Used for alt and initials fallback.",
+        "alt": "Image alt (overrides name when set).",
+        "size": "Size. 'xs'–'xl'.",
+        "shape": "Shape. 'circle' (default) / 'square'."
+      },
+      "examples": { "default": "Default", "fallback": "Image fallback", "sizes": "Sizes", "userList": "User list" },
+      "do": { "1": "Always pass name so the initials fallback works when the image fails.", "2": "Use a uniform size across lists for clean alignment." },
+      "dont": { "1": "Don't omit alt — screen readers won't convey meaning.", "2": "Don't drop arbitrary images in without a size — they break alignment."
+      },
+      "a11y": "Avatar communicates meaning via img alt or aria-label. The initials fallback also exposes the user's name via aria-label."
+    },
+    "badge": {
+      "description": "Compact status or count label.",
+      "props": {
+        "variant": "Visual style. 'neutral' / 'primary' / 'success' / 'warning' / 'danger' / 'info'.",
+        "size": "Size. 'sm' or 'md' (default).",
+        "dot": "When true, shows just a colored dot (no text)."
+      },
+      "examples": { "default": "Default", "variants": "Variants", "dot": "Dot", "notification": "Notification count" },
+      "do": { "1": "Match variant to meaning (success=done, danger=error).", "2": "Cap large counts as '99+' so the label can't break out." },
+      "dont": { "1": "Don't make Badge clickable — Button is right for actions.", "2": "More than 5 badges in a row dilutes attention." },
+      "a11y": "Badge text is the meaning. For dot variant, give the parent element an aria-label."
+    },
+    "carousel": {
+      "description": "One-slide-at-a-time carousel with autoplay, indicators, and arrows.",
+      "props": {
+        "items": "Array of slide nodes.",
+        "index": "Current index (controlled).",
+        "defaultIndex": "Initial index (default 0).",
+        "onChange": "Change handler.",
+        "autoPlayInterval": "Autoplay interval in ms. 0 disables autoplay.",
+        "loop": "Infinite loop (default true).",
+        "showArrows": "Show prev/next arrows (default true).",
+        "showIndicators": "Show dot indicators (default true)."
+      },
+      "examples": { "default": "Default", "autoplay": "Autoplay", "noLoop": "Without loop", "banner": "Banner" },
+      "do": { "1": "Use autoplay intervals of at least 4 seconds so users have time to read.", "2": "Keep slides to 5 or fewer so indicators remain meaningful." },
+      "dont": { "1": "Don't put critical info only in a carousel — slides past the first see steep drop-offs.", "2": "Don't autoplay faster than 3s — it's an accessibility violation." },
+      "a11y": "Carousel uses role='region' with aria-label, and slides communicate active state via aria-hidden. Arrows and indicators are keyboard accessible."
+    },
+    "tabs": {
+      "description": "Compound tabs with arrow-key navigation, supporting horizontal and vertical orientations.",
+      "props": {
+        "Root.value": "Active tab (controlled).",
+        "Root.defaultValue": "Initial active tab.",
+        "Root.onChange": "Tab change handler.",
+        "Root.orientation": "'horizontal' (default) or 'vertical'.",
+        "Trigger.value": "Identifier for the trigger.",
+        "Trigger.disabled": "Disabled state."
+      },
+      "examples": { "default": "Default", "vertical": "Vertical", "disabled": "Disabled tab", "settings": "Settings panel" },
+      "do": { "1": "Tabs read best at 4 or fewer. Beyond that, prefer side navigation.", "2": "Keep each label to 1–2 words." },
+      "dont": { "1": "Don't use tabs for page-level routing — tabs are for the same context.", "2": "Don't nest tabs inside tabs." },
+      "a11y": "Tabs implement the full WAI-ARIA tabs pattern (tablist/tab/tabpanel + aria-selected/aria-controls). Arrow keys move between triggers."
+    },
+    "modal": {
+      "description": "Overlay dialog with focus trap, Escape-to-close, and overlay-click-to-close built in.",
+      "props": {
+        "isOpen": "Open state (required).",
+        "onClose": "Close handler (required).",
+        "title": "Title (optional).",
+        "children": "Body content.",
+        "footer": "Footer (e.g. button group).",
+        "size": "Size. 'sm' / 'md' (default) / 'lg' / 'xl'.",
+        "closeOnOverlayClick": "Close on overlay click (default true).",
+        "closeOnEscape": "Close on Escape (default true).",
+        "showCloseButton": "Show close button (default true)."
+      },
+      "examples": { "default": "Open and close", "destructive": "Confirm deletion", "noClose": "Force confirmation", "long": "Scrolling body" },
+      "do": { "1": "Always provide a title so the user knows the dialog's purpose.", "2": "For destructive actions, place secondary (Cancel) + danger (Confirm) in the footer." },
+      "dont": { "1": "Don't nest modals — users get lost.", "2": "Don't use modals for one-off info; a page or a toast is often enough." },
+      "a11y": "Modal sets role='dialog' + aria-modal='true' and traps focus inside, so keyboard users can't tab outside the dialog. Escape and overlay-click are enabled by default."
+    },
+    "tooltip": {
+      "description": "Tiny overlay shown on hover/focus. Position auto-computed via @floating-ui.",
+      "props": {
+        "content": "Tooltip content (required).",
+        "children": "Trigger element (required, single element).",
+        "placement": "Placement. 'top' (default) plus 11 others.",
+        "delay": "Open delay in ms (default 200).",
+        "disabled": "Disable the tooltip (default false)."
+      },
+      "examples": { "default": "Default", "placement": "Placement", "delay": "Delay", "shortcut": "Shortcut hint" },
+      "do": { "1": "Reserve Tooltip for supplementary info — critical info must always be visible.", "2": "Short text like keyboard shortcuts or icon meanings is the sweet spot." },
+      "dont": { "1": "Don't put interactive elements (buttons, links) inside Tooltip — they're not keyboard reachable.", "2": "Don't hide critical info that's only available on hover; touch users can't access it." },
+      "a11y": "Tooltip is linked to the trigger via aria-describedby so screen readers read the supplementary text. Keyboard focus also opens it."
+    },
+    "dropdownMenu": {
+      "description": "Click-triggered dropdown menu with arrow-key and Enter/Space support.",
+      "props": {
+        "trigger": "Trigger element (required).",
+        "items": "Menu items array (required). DropdownMenuItem[].",
+        "placement": "Menu placement (default 'bottom-start')."
+      },
+      "examples": { "default": "Default", "destructive": "With destructive action", "disabled": "Some disabled", "actions": "Row actions" },
+      "do": { "1": "Mark destructive actions with destructive: true for a clear visual cue.", "2": "Group items visually when there are 5+ entries." },
+      "dont": { "1": "Don't put form inputs inside DropdownMenu — menus are for actions.", "2": "If the trigger is icon-only, always provide aria-label." },
+      "a11y": "DropdownMenu uses role='menu' / role='menuitem'. Arrow keys move between items, Enter/Space activates. Outside click and Escape close it."
+    },
+    "toast": {
+      "description": "Global notification system. Wrap your app root in ToastProvider, then call useToast.",
+      "props": {
+        "ToastProvider.position": "Display position. 'top-left' / 'top-right' / 'top-center' / 'bottom-left' / 'bottom-right' (default) / 'bottom-center'.",
+        "ToastProvider.maxToasts": "Max concurrent toasts (default 5).",
+        "useToast.show": "Generic toast (toast.show(message, options)).",
+        "useToast.success": "Success variant.",
+        "useToast.warning": "Warning variant.",
+        "useToast.danger": "Error variant.",
+        "useToast.info": "Info variant.",
+        "useToast.dismiss": "Dismiss a specific toast."
+      },
+      "examples": { "default": "Success/failure", "danger": "Error toast", "duration": "Long duration", "stack": "Stacked toasts" },
+      "do": { "1": "Keep toasts to a single concise line.", "2": "Scale duration with message length — longer messages need 5–7s." },
+      "dont": { "1": "Don't surface form-validation errors via toast — show them next to the input.", "2": "Don't show more than 5 simultaneous toasts. Cap with maxToasts." },
+      "a11y": "The toast container is role='region' and individual toasts use role='alert' (warning/danger) or role='status' (info/success) so screen readers announce appropriately."
+    },
+    "text": {
+      "description": "Body text component supporting size, weight, and color tokens.",
+      "props": {
+        "as": "Rendered element (default 'p').",
+        "size": "FontSizeKey (xs–4xl, default base).",
+        "weight": "FontWeightKey (normal/medium/semibold/bold, default normal).",
+        "color": "Semantic color. 'default'/'muted'/'primary'/'success'/'warning'/'danger'.",
+        "align": "textAlign.",
+        "truncate": "When true, truncates to one line with ellipsis."
+      },
+      "examples": { "default": "Default", "sizes": "Sizes", "colors": "Colors", "truncate": "Truncate" },
+      "do": { "1": "Use semantic color names so meaning carries through (danger = error).", "2": "For long body, lean on the default size + line-height — they're already readable." },
+      "dont": { "1": "Don't use Text size='4xl' for a heading — semantics differ. Use Heading.", "2": "Don't pass arbitrary hex to color — semantic tokens first." },
+      "a11y": "Text renders as p by default, so screen readers treat it as a paragraph. When using as=\"span\" inline, you may need extra ARIA to convey meaning."
+    },
+    "heading": {
+      "description": "Section heading component. Set the semantic level (as) and the visual size (size) independently.",
+      "props": {
+        "as": "Heading level. 'h1'–'h6' (default 'h2').",
+        "size": "Visual font size. Auto-derived from level when omitted.",
+        "color": "Text color (CSS variable or color value).",
+        "align": "textAlign."
+      },
+      "examples": { "default": "Default h2", "h1Page": "Page title (h1)", "decoupled": "Decoupled level/size", "section": "Section header" },
+      "do": { "1": "Use exactly one as='h1' for the top-level page title.", "2": "If a small visual is needed, use as='h2' size='sm' — keep semantics intact." },
+      "dont": { "1": "Don't skip heading levels for styling (no h1 → h3 directly).", "2": "Don't reuse h2 for every search-result item — handle it visually only." },
+      "a11y": "Heading renders as semantic h1–h6 elements that screen readers use for landmark navigation. Keep the order so users can scan the page quickly."
+    },
+    "label": {
+      "description": "Label associated with a form input.",
+      "props": {
+        "htmlFor": "id of the linked input.",
+        "required": "Show required marker. When true, adds a red asterisk."
+      },
+      "examples": { "default": "Default", "required": "Required marker", "withInput": "With Input", "fieldset": "fieldset/legend pattern" },
+      "do": { "1": "Match htmlFor to the input id exactly so clicking the label focuses it.", "2": "Just use the label prop on Input/Textarea/Select — no need for a separate Label." },
+      "dont": { "1": "Don't float Label as an in-input placeholder — it disappears on focus and breaks accessibility.", "2": "Don't use placeholder alone without a label — screen readers lose meaning." },
+      "a11y": "Label is explicitly linked to its input via htmlFor, so click moves focus and screen readers announce the field name."
+    },
+    "box": {
+      "description": "General-purpose layout container. A polymorphic component whose rendered element you can change via the as prop.",
+      "props": {
+        "as": "HTML element or component to render. Defaults to div.",
+        "padding": "Padding on all sides. Accepts SpacingKey (0–16, xs–2xl).",
+        "paddingX": "Horizontal padding.",
+        "paddingY": "Vertical padding.",
+        "margin": "Margin on all sides.",
+        "marginX": "Horizontal margin.",
+        "marginY": "Vertical margin.",
+        "borderRadius": "Border radius. RadiusKey (none, sm–2xl, full).",
+        "bg": "Background color. Accepts CSS variable or raw color value.",
+        "display": "display property.",
+        "width": "Width (CSS value).",
+        "height": "Height (CSS value).",
+        "overflow": "overflow property."
+      },
+      "examples": {
+        "default": "Default",
+        "as": "Render as another element",
+        "spacing": "Padding options",
+        "card": "Card pattern"
+      },
+      "do": {
+        "1": "Use design tokens (SpacingKey, RadiusKey) for consistency.",
+        "2": "Make use of the as prop to render semantic elements (section, article)."
+      },
+      "dont": {
+        "1": "Don't pass arbitrary px/% to padding/margin. Use the tokens.",
+        "2": "Don't shoehorn every layout into Box — pick Flex/Stack/Grid where they fit better."
+      },
+      "a11y": "Box renders a div by default and carries no semantics. For meaningful regions, set as=\"section\" or as=\"article\" appropriately."
+    },
+    "flex": {
+      "description": "Flexbox layout component. Polymorphic with gap-token support.",
+      "props": {
+        "as": "Rendered element (default div).",
+        "direction": "flex-direction (e.g. 'row', 'column').",
+        "align": "alignItems.",
+        "justify": "justifyContent.",
+        "wrap": "flexWrap.",
+        "gap": "Gap between children (SpacingKey).",
+        "columnGap": "Column gap.",
+        "rowGap": "Row gap.",
+        "flex": "Shorthand flex."
+      },
+      "examples": {
+        "default": "Default",
+        "spaceBetween": "Space between",
+        "wrap": "Wrap",
+        "header": "Page header"
+      },
+      "do": {
+        "1": "Use Flex when alignment is meaningful. For pure stacking, Stack reads better.",
+        "2": "Prefer gap tokens over child margins."
+      },
+      "dont": {
+        "1": "Don't compute child widths with precise percentages — that defeats Flex's value.",
+        "2": "For complex 2D layouts, Grid is correct."
+      },
+      "a11y": "Flex renders a div, so set semantics via as. If horizontal scrolling appears, consider overflow: auto for keyboard users."
+    },
+    "stack": {
+      "description": "Stacks children at a consistent gap. The most-used layout component.",
+      "props": {
+        "as": "Rendered element.",
+        "spacing": "Gap between children (SpacingKey, default md).",
+        "direction": "Stacking direction: 'column' or 'row' (default column).",
+        "align": "Cross-axis alignment.",
+        "justify": "Main-axis alignment."
+      },
+      "examples": {
+        "default": "Default vertical stack",
+        "horizontal": "Horizontal",
+        "tightening": "Spacing variations",
+        "userBlock": "User block"
+      },
+      "do": {
+        "1": "Reach for Stack first for linear stacking — clearer than Flex.",
+        "2": "Use spacing tokens for a consistent rhythm."
+      },
+      "dont": {
+        "1": "If you need space-between alignment, Flex justify=\"space-between\" is clearer than Stack.",
+        "2": "Mixed vertical+horizontal layouts are usually better as Grid than nested Stacks."
+      },
+      "a11y": "Stack renders a div. Add semantics via as=\"ul\" or as=\"section\" when meaningful."
+    },
+    "grid": {
+      "description": "CSS Grid layout. Pass a number to columns for equal columns, or a string for direct grid-template-columns.",
+      "props": {
+        "as": "Rendered element.",
+        "columns": "Number of columns or grid-template-columns string.",
+        "rows": "Number of rows or grid-template-rows string.",
+        "gap": "Cell gap (SpacingKey).",
+        "columnGap": "Column gap.",
+        "rowGap": "Row gap.",
+        "align": "Cell vertical alignment.",
+        "justify": "Cell horizontal alignment."
+      },
+      "examples": {
+        "default": "Equal 3 columns",
+        "responsive": "Responsive auto-fill",
+        "asymmetric": "Asymmetric ratios",
+        "products": "Product grid"
+      },
+      "do": {
+        "1": "For uniform card lists, pass a number to columns.",
+        "2": "For responsive cards, use 'repeat(auto-fill, minmax(...))'."
+      },
+      "dont": {
+        "1": "Don't use Grid for unidirectional stacks — Stack is lighter and clearer.",
+        "2": "Don't pass arbitrary px values into minmax — use tokens or meaningful ratios."
+      },
+      "a11y": "Grid is purely visual. Convey meaning with semantic children (article, li, etc.)."
+    },
+    "container": {
+      "description": "Constrains content to a max width and centers it. Pick a width via the maxWidth prop (sm–2xl).",
+      "props": {
+        "as": "Rendered element.",
+        "maxWidth": "Max width. sm 640px / md 768px / lg 1024px / xl 1280px / 2xl 1536px / full 100%."
+      },
+      "examples": {
+        "default": "Default (lg, 1024px)",
+        "narrow": "Narrow content",
+        "wide": "Wide dashboard",
+        "page": "Page main"
+      },
+      "do": {
+        "1": "Use maxWidth=\"sm\" or \"md\" for long-form text to keep line length readable.",
+        "2": "Set as=\"main\" so the page's main content is semantically marked."
+      },
+      "dont": {
+        "1": "Don't use Container for full-bleed regions like headers/footers.",
+        "2": "Don't nest multiple Containers — one Container per page is the norm."
+      },
+      "a11y": "Container has no semantics by itself. Use as=\"main\" / as=\"article\" / etc. matching the page structure."
+    },
+    "input": {
+      "description": "A text input with built-in support for label, hint, and error message.",
+      "props": {
+        "id": "Input id used to link the label automatically.",
+        "label": "Label text. When provided, the Label component is rendered automatically.",
+        "hint": "Hint message shown beneath the input when no error is present.",
+        "error": "Error message. When non-empty, applies error style and renders with role='alert'.",
+        "required": "Whether the field is required. Adds a red asterisk to the label.",
+        "type": "HTML input type — supports email, password, number, etc.",
+        "placeholder": "Placeholder text shown when the value is empty.",
+        "disabled": "Disabled state."
+      },
+      "examples": {
+        "default": "Default",
+        "types": "Input types",
+        "hintError": "Hint and error",
+        "disabled": "Disabled",
+        "signup": "Signup form"
+      },
+      "do": {
+        "1": "Write specific error messages like 'Must be at least 8 characters', not 'Invalid'.",
+        "2": "Always link label to input via id; never replace a label with placeholder alone."
+      },
+      "dont": {
+        "1": "Avoid abstract error messages like 'Error occurred' — users won't know what to fix.",
+        "2": "Don't mark required fields with only an asterisk. Set the required prop too."
+      },
+      "a11y": "Input is linked to its label via id so screen readers announce the field correctly. In error state, aria-invalid='true' and aria-describedby are added automatically. Hints are also linked via aria-describedby."
+    },
+    "textarea": {
+      "description": "Multi-line text input following the same label/hint/error pattern as Input.",
+      "props": {
+        "id": "Textarea id.",
+        "label": "Label text.",
+        "hint": "Hint message.",
+        "error": "Error message.",
+        "required": "Whether the field is required.",
+        "rows": "Initial number of rows.",
+        "disabled": "Disabled state."
+      },
+      "examples": {
+        "default": "Default",
+        "withHint": "With hint",
+        "error": "Error state",
+        "review": "Review form"
+      },
+      "do": {
+        "1": "For long input, set rows large enough to give visible breathing room.",
+        "2": "If there's a character limit, surface it in the hint, e.g. 'Up to 500 characters'."
+      },
+      "dont": {
+        "1": "Don't use Textarea for short single-line input — Input is correct there.",
+        "2": "Don't force resize: none — let users adjust the height."
+      },
+      "a11y": "Textarea is linked to its label via id and gets aria-invalid in error state. Default resize: vertical lets keyboard users adjust height too."
+    },
+    "checkbox": {
+      "description": "Checkbox supporting both controlled and uncontrolled usage.",
+      "props": {
+        "id": "Checkbox id.",
+        "label": "Label rendered next to the checkbox.",
+        "checked": "Checked state (controlled).",
+        "defaultChecked": "Initial checked state (uncontrolled).",
+        "onChange": "Change handler. Receives boolean as the first argument.",
+        "disabled": "Disabled state."
+      },
+      "examples": {
+        "default": "Default",
+        "controlled": "Controlled",
+        "disabled": "Disabled",
+        "agreements": "Terms agreement"
+      },
+      "do": {
+        "1": "Always pair a checkbox with a clear label.",
+        "2": "Group related checkboxes using fieldset/legend to express the relationship."
+      },
+      "dont": {
+        "1": "Use Switch for binary ON/OFF settings; Checkbox is for multi-select."
+        ,
+        "2": "Don't disable required-agreement checkboxes — surface an error instead."
+      },
+      "a11y": "Checkbox renders as semantic input[type=checkbox] and toggles via Space. Disabled state is also reflected via aria-disabled."
+    },
+    "radio": {
+      "description": "Radio button — only one radio in the same name group can be selected.",
+      "props": {
+        "id": "Radio id.",
+        "name": "Group name. Radios in the same group share this name.",
+        "value": "Value passed to onChange when selected.",
+        "label": "Label rendered next to the radio.",
+        "checked": "Selected state (controlled).",
+        "onChange": "Change handler. Receives the string value as the first argument.",
+        "disabled": "Disabled state."
+      },
+      "examples": {
+        "default": "Default group",
+        "controlled": "Controlled",
+        "disabled": "Some disabled",
+        "payment": "Payment method"
+      },
+      "do": {
+        "1": "Prefer Radio over Select when there are 5 or fewer options.",
+        "2": "Give all radios in a group the exact same name."
+      },
+      "dont": {
+        "1": "If there are exactly 2 toggle-style options, use Switch instead of Radio.",
+        "2": "Don't leave a non-required radio group entirely unselected — provide a default."
+      },
+      "a11y": "Radio renders as input[type=radio] and supports arrow-key navigation within the group. Label/id linkage tells screen readers the group's purpose."
+    },
+    "select": {
+      "description": "Dropdown select. Options are passed via the options prop.",
+      "props": {
+        "id": "Select id.",
+        "label": "Label text.",
+        "options": "Array of options. SelectOption[] with value/label/disabled.",
+        "placeholder": "Placeholder option text.",
+        "hint": "Hint message.",
+        "error": "Error message.",
+        "required": "Whether the field is required.",
+        "disabled": "Disabled state."
+      },
+      "examples": {
+        "default": "Default",
+        "placeholder": "With placeholder",
+        "error": "Error state",
+        "country": "Country selector"
+      },
+      "do": {
+        "1": "Use Select when there are 6 or more options. For fewer, Radio reads better.",
+        "2": "Use a placeholder only when there is no sensible default."
+      },
+      "dont": {
+        "1": "Don't use code-only abbreviations as labels — use names users understand.",
+        "2": "Don't show a placeholder for a required field but skip the required prop."
+      },
+      "a11y": "Select uses the native select element, so OS-level accessibility and mobile UX are guaranteed. aria-invalid is added automatically in error state."
+    },
+    "switch": {
+      "description": "Instant ON/OFF toggle. Use it for settings that take effect immediately, unlike Checkbox.",
+      "props": {
+        "id": "Switch id.",
+        "label": "Label rendered next to the toggle.",
+        "size": "Toggle size. sm 28×16, md 36×20, lg 44×24 pixels.",
+        "checked": "State (controlled).",
+        "defaultChecked": "Initial state (uncontrolled).",
+        "onChange": "Change handler. Receives boolean as the first argument.",
+        "disabled": "Disabled state."
+      },
+      "examples": {
+        "default": "Default",
+        "sizes": "Sizes",
+        "disabled": "Disabled",
+        "settings": "Settings panel"
+      },
+      "do": {
+        "1": "Use Switch for instantly applied ON/OFF. For form-submit settings, Checkbox is correct.",
+        "2": "Label the switch by what's enabled when ON, e.g. 'Enable notifications'."
+      },
+      "dont": {
+        "1": "Don't add 'On/Off' helper text — the visual state already conveys it.",
+        "2": "If the user batches several toggles before applying, Checkbox + Apply button is the right pattern."
+      },
+      "a11y": "Switch renders as input[role=switch] so screen readers announce a toggle. Space toggles it via keyboard, and aria-checked communicates the current state."
+    },
+    "button": {
+      "description": "A button that triggers a user action. Supports 4 variants, 3 sizes, plus loading, disabled, and icon states.",
+      "props": {
+        "variant": "Visual style. Use 'primary' for the most prominent action.",
+        "size": "Button height: 'sm' = 32px, 'md' = 40px, 'lg' = 48px.",
+        "isLoading": "When true, shows a spinner and disables the click. aria-busy is set automatically.",
+        "disabled": "When true, the button is visually and functionally disabled.",
+        "leftIcon": "Icon node rendered to the left of the label. Accepts any ReactNode.",
+        "rightIcon": "Icon node rendered to the right of the label."
+      },
+      "examples": {
+        "default": "Default",
+        "variants": "Variants",
+        "sizes": "Sizes",
+        "states": "States",
+        "withIcon": "With Icon",
+        "realWorld": "Real-world — form submit"
+      },
+      "do": {
+        "1": "Use action verbs as labels ('Save', 'Delete') so users know exactly what happens.",
+        "2": "Wrap destructive actions (deletion) in the danger variant for a clear visual cue."
+      },
+      "dont": {
+        "1": "Avoid multiple primary buttons on the same page or section — they compete for attention.",
+        "2": "Don't pass both isLoading and disabled together. isLoading already disables interaction."
+      },
+      "a11y": "Button renders as a semantic <button> element and responds to Enter/Space. While isLoading is true, aria-busy='true' and aria-disabled='true' are applied automatically so assistive tech announces progress. For icon-only buttons, add aria-label to convey meaning."
+    }
+  },
+  "componentPage": {
+    "import": "Import",
+    "quickLook": "Quick Look",
+    "apiReference": "API Reference",
+    "examples": "Examples",
+    "bestPractices": "Best Practices",
+    "a11yNotes": "Accessibility Notes",
+    "related": "Related Components",
+    "tabs": {
+      "default": "Default",
+      "variants": "Variants",
+      "states": "States",
+      "real-world": "Real-world"
+    },
+    "do": "DO",
+    "dont": "DON'T",
+    "status": {
+      "stable": "Stable",
+      "beta": "Beta",
+      "deprecated": "Deprecated"
+    },
+    "noExamples": "No examples available yet.",
+    "noBestPractices": "No best practices listed yet.",
+    "noRelated": "No related components."
+  }
+}
