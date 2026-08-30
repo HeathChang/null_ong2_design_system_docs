@@ -1,7 +1,7 @@
 import 'server-only';
 import { codeToHtml } from 'shiki';
 
-export type CodeLanguage = 'tsx' | 'ts' | 'css' | 'bash' | 'json';
+export type CodeLanguage = 'tsx' | 'ts' | 'css' | 'html' | 'bash' | 'json';
 
 interface HighlightOptions {
   code: string;

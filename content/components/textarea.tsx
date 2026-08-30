@@ -17,7 +17,7 @@ export const textareaDoc: ComponentDoc = {
   descriptionKey: 'components.textarea.description',
   importStatement: `import { Textarea } from 'null_ong2-design-system';`,
   props: [
-    { name: 'id', type: 'string', default: '—', required: false, descriptionKey: 'components.textarea.props.id' },
+    { name: 'id', type: 'string', default: 'auto', required: false, descriptionKey: 'components.textarea.props.id' },
     { name: 'label', type: 'string', default: '—', required: false, descriptionKey: 'components.textarea.props.label' },
     { name: 'hint', type: 'string', default: '—', required: false, descriptionKey: 'components.textarea.props.hint' },
     { name: 'error', type: 'string', default: '—', required: false, descriptionKey: 'components.textarea.props.error' },

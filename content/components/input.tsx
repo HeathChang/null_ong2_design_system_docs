@@ -30,7 +30,7 @@ export const inputDoc: ComponentDoc = {
   descriptionKey: 'components.input.description',
   importStatement: `import { Input } from 'null_ong2-design-system';`,
   props: [
-    { name: 'id', type: 'string', default: '—', required: false, descriptionKey: 'components.input.props.id' },
+    { name: 'id', type: 'string', default: 'auto', required: false, descriptionKey: 'components.input.props.id' },
     { name: 'label', type: 'string', default: '—', required: false, descriptionKey: 'components.input.props.label' },
     { name: 'hint', type: 'string', default: '—', required: false, descriptionKey: 'components.input.props.hint' },
     { name: 'error', type: 'string', default: '—', required: false, descriptionKey: 'components.input.props.error' },

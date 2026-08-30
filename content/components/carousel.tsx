@@ -48,6 +48,7 @@ export const carouselDoc: ComponentDoc = {
     { name: 'loop', type: 'boolean', default: 'true', required: false, descriptionKey: 'components.carousel.props.loop' },
     { name: 'showArrows', type: 'boolean', default: 'true', required: false, descriptionKey: 'components.carousel.props.showArrows' },
     { name: 'showIndicators', type: 'boolean', default: 'true', required: false, descriptionKey: 'components.carousel.props.showIndicators' },
+    { name: 'ariaLabel', type: 'string', default: 'locale', required: false, descriptionKey: 'components.carousel.props.ariaLabel' },
   ],
   examples: [
     {

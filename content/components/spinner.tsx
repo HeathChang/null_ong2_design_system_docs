@@ -22,7 +22,7 @@ export const spinnerDoc: ComponentDoc = {
   importStatement: `import { Spinner } from 'null_ong2-design-system';`,
   props: [
     { name: 'size', type: "'xs' | 'sm' | 'md' | 'lg'", default: "'md'", required: false, descriptionKey: 'components.spinner.props.size' },
-    { name: 'label', type: 'string', default: "'로딩 중'", required: false, descriptionKey: 'components.spinner.props.label' },
+    { name: 'label', type: 'string', default: 'locale', required: false, descriptionKey: 'components.spinner.props.label' },
   ],
   examples: [
     { tab: 'default', titleKey: 'components.spinner.examples.default', preview: <Spinner />, code: DEFAULT_CODE },

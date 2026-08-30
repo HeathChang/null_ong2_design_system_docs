@@ -1,11 +1,31 @@
+/**
+ * 문서 사이트가 표시하는 디자인 토큰 표.
+ *
+ * 값은 디자인 시스템의 `src/styles/tokens.css`를 그대로 옮긴 것이다.
+ * v0.3.1부터 색 토큰은 라이트/다크 두 값을 가지므로 둘 다 싣는다.
+ */
+
 export interface ColorToken {
   name: string;
-  hex: string;
-  description?: string;
+  /** 라이트 테마 값 (CSS 색 문자열) */
+  light: string;
+  /** 다크 테마 값 */
+  dark: string;
+  /** 역할 토큰의 쓰임새 설명 키 (있는 경우) */
+  descriptionKey?: string;
 }
 
+export type ColorGroupKey =
+  | 'primary'
+  | 'neutral'
+  | 'role'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'info';
+
 export interface ColorGroup {
-  groupKey: 'primary' | 'neutral' | 'success' | 'warning' | 'danger' | 'info';
+  groupKey: ColorGroupKey;
   colors: ColorToken[];
 }
 
@@ -13,66 +33,109 @@ export const COLOR_GROUPS: ColorGroup[] = [
   {
     groupKey: 'primary',
     colors: [
-      { name: '--ds-color-primary-50', hex: '#eff6ff' },
-      { name: '--ds-color-primary-100', hex: '#dbeafe' },
-      { name: '--ds-color-primary-200', hex: '#bfdbfe' },
-      { name: '--ds-color-primary-500', hex: '#3b82f6' },
-      { name: '--ds-color-primary-600', hex: '#2563eb' },
-      { name: '--ds-color-primary-700', hex: '#1d4ed8' },
+      { name: '--ds-color-primary-50', light: '#eff6ff', dark: '#172554' },
+      { name: '--ds-color-primary-100', light: '#dbeafe', dark: '#1e3a8a' },
+      { name: '--ds-color-primary-200', light: '#bfdbfe', dark: '#1d4ed8' },
+      { name: '--ds-color-primary-500', light: '#3b82f6', dark: '#3b82f6' },
+      { name: '--ds-color-primary-600', light: '#2563eb', dark: '#60a5fa' },
+      { name: '--ds-color-primary-700', light: '#1d4ed8', dark: '#93c5fd' },
+      { name: '--ds-color-primary-800', light: '#1e40af', dark: '#bfdbfe' },
     ],
   },
   {
     groupKey: 'neutral',
     colors: [
-      { name: '--ds-color-neutral-0', hex: '#ffffff' },
-      { name: '--ds-color-neutral-50', hex: '#f9fafb' },
-      { name: '--ds-color-neutral-100', hex: '#f3f4f6' },
-      { name: '--ds-color-neutral-200', hex: '#e5e7eb' },
-      { name: '--ds-color-neutral-300', hex: '#d1d5db' },
-      { name: '--ds-color-neutral-400', hex: '#9ca3af' },
-      { name: '--ds-color-neutral-500', hex: '#6b7280' },
-      { name: '--ds-color-neutral-600', hex: '#4b5563' },
-      { name: '--ds-color-neutral-700', hex: '#374151' },
-      { name: '--ds-color-neutral-800', hex: '#1f2937' },
-      { name: '--ds-color-neutral-900', hex: '#111827' },
+      { name: '--ds-color-neutral-0', light: '#ffffff', dark: '#111827' },
+      { name: '--ds-color-neutral-50', light: '#f9fafb', dark: '#1f2937' },
+      { name: '--ds-color-neutral-100', light: '#f3f4f6', dark: '#273449' },
+      { name: '--ds-color-neutral-200', light: '#e5e7eb', dark: '#374151' },
+      { name: '--ds-color-neutral-300', light: '#d1d5db', dark: '#4b5563' },
+      { name: '--ds-color-neutral-400', light: '#9ca3af', dark: '#6b7280' },
+      { name: '--ds-color-neutral-500', light: '#6b7280', dark: '#9ca3af' },
+      { name: '--ds-color-neutral-600', light: '#4b5563', dark: '#cbd5e1' },
+      { name: '--ds-color-neutral-700', light: '#374151', dark: '#e2e8f0' },
+      { name: '--ds-color-neutral-800', light: '#1f2937', dark: '#f1f5f9' },
+      { name: '--ds-color-neutral-900', light: '#111827', dark: '#f8fafc' },
+    ],
+  },
+  {
+    groupKey: 'role',
+    colors: [
+      {
+        name: '--ds-color-on-primary',
+        light: '#ffffff',
+        dark: '#0b1220',
+        descriptionKey: 'tokens.colors.role.onPrimary',
+      },
+      {
+        name: '--ds-color-on-danger',
+        light: '#ffffff',
+        dark: '#2a0d0d',
+        descriptionKey: 'tokens.colors.role.onDanger',
+      },
+      {
+        name: '--ds-color-control-knob',
+        light: '#ffffff',
+        dark: '#ffffff',
+        descriptionKey: 'tokens.colors.role.controlKnob',
+      },
+      {
+        name: '--ds-color-overlay-backdrop',
+        light: 'rgb(0 0 0 / 0.5)',
+        dark: 'rgb(0 0 0 / 0.7)',
+        descriptionKey: 'tokens.colors.role.overlayBackdrop',
+      },
+      {
+        name: '--ds-color-shimmer',
+        light: 'rgb(255 255 255 / 0.6)',
+        dark: 'rgb(255 255 255 / 0.08)',
+        descriptionKey: 'tokens.colors.role.shimmer',
+      },
+      {
+        name: '--ds-color-surface-translucent',
+        light: 'rgb(255 255 255 / 0.85)',
+        dark: 'rgb(17 24 39 / 0.85)',
+        descriptionKey: 'tokens.colors.role.surfaceTranslucent',
+      },
     ],
   },
   {
     groupKey: 'success',
     colors: [
-      { name: '--ds-color-success', hex: '#22c55e' },
-      { name: '--ds-color-success-bg', hex: '#f0fdf4' },
-      { name: '--ds-color-success-border', hex: '#86efac' },
-      { name: '--ds-color-success-text', hex: '#166534' },
+      { name: '--ds-color-success', light: '#22c55e', dark: '#22c55e' },
+      { name: '--ds-color-success-bg', light: '#f0fdf4', dark: '#052e16' },
+      { name: '--ds-color-success-border', light: '#86efac', dark: '#166534' },
+      { name: '--ds-color-success-text', light: '#166534', dark: '#86efac' },
     ],
   },
   {
     groupKey: 'warning',
     colors: [
-      { name: '--ds-color-warning', hex: '#f59e0b' },
-      { name: '--ds-color-warning-bg', hex: '#fffbeb' },
-      { name: '--ds-color-warning-border', hex: '#fcd34d' },
-      { name: '--ds-color-warning-text', hex: '#92400e' },
+      { name: '--ds-color-warning', light: '#f59e0b', dark: '#f59e0b' },
+      { name: '--ds-color-warning-bg', light: '#fffbeb', dark: '#2e1a02' },
+      { name: '--ds-color-warning-border', light: '#fcd34d', dark: '#92400e' },
+      { name: '--ds-color-warning-text', light: '#92400e', dark: '#fcd34d' },
     ],
   },
   {
     groupKey: 'danger',
     colors: [
-      { name: '--ds-color-danger', hex: '#ef4444' },
-      { name: '--ds-color-danger-50', hex: '#fef2f2' },
-      { name: '--ds-color-danger-600', hex: '#dc2626' },
-      { name: '--ds-color-danger-bg', hex: '#fef2f2' },
-      { name: '--ds-color-danger-border', hex: '#fca5a5' },
-      { name: '--ds-color-danger-text', hex: '#991b1b' },
+      { name: '--ds-color-danger', light: '#ef4444', dark: '#ef4444' },
+      { name: '--ds-color-danger-50', light: '#fef2f2', dark: '#2a0d0d' },
+      { name: '--ds-color-danger-600', light: '#dc2626', dark: '#f87171' },
+      { name: '--ds-color-danger-700', light: '#b91c1c', dark: '#fca5a5' },
+      { name: '--ds-color-danger-bg', light: '#fef2f2', dark: '#2a0d0d' },
+      { name: '--ds-color-danger-border', light: '#fca5a5', dark: '#991b1b' },
+      { name: '--ds-color-danger-text', light: '#991b1b', dark: '#fca5a5' },
     ],
   },
   {
     groupKey: 'info',
     colors: [
-      { name: '--ds-color-info', hex: '#3b82f6' },
-      { name: '--ds-color-info-bg', hex: '#eff6ff' },
-      { name: '--ds-color-info-border', hex: '#93c5fd' },
-      { name: '--ds-color-info-text', hex: '#1e40af' },
+      { name: '--ds-color-info', light: '#3b82f6', dark: '#3b82f6' },
+      { name: '--ds-color-info-bg', light: '#eff6ff', dark: '#0c1e3e' },
+      { name: '--ds-color-info-border', light: '#93c5fd', dark: '#1e40af' },
+      { name: '--ds-color-info-text', light: '#1e40af', dark: '#93c5fd' },
     ],
   },
 ];
@@ -154,16 +217,108 @@ export const FONT_WEIGHT_TOKENS: FontWeightToken[] = [
   { name: '--ds-font-weight-bold', value: 700, alias: 'bold' },
 ];
 
+export interface TextToken {
+  name: string;
+  value: string;
+}
+
+export const FONT_FAMILY_TOKENS: TextToken[] = [
+  {
+    name: '--ds-font-sans',
+    value: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+  },
+  {
+    name: '--ds-font-mono',
+    value: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+  },
+];
+
+export const LINE_HEIGHT_TOKENS: TextToken[] = [
+  { name: '--ds-line-height-tight', value: '1.25' },
+  { name: '--ds-line-height-snug', value: '1.375' },
+  { name: '--ds-line-height-normal', value: '1.5' },
+  { name: '--ds-line-height-relaxed', value: '1.625' },
+];
+
+export const TRANSITION_TOKENS: TextToken[] = [
+  { name: '--ds-transition-fast', value: '100ms ease' },
+  { name: '--ds-transition-base', value: '150ms ease' },
+  { name: '--ds-transition-slow', value: '300ms ease' },
+];
+
+export const BORDER_TOKENS: TextToken[] = [
+  { name: '--ds-border-width', value: '1px' },
+  { name: '--ds-border-color', value: 'var(--ds-color-neutral-200)' },
+];
+
+export interface ThemedToken {
+  name: string;
+  light: string;
+  dark: string;
+}
+
+/** 포커스 링은 다크에서 배경 대비를 맞추려고 색과 불투명도가 함께 바뀐다. */
+export const FOCUS_RING_TOKENS: ThemedToken[] = [
+  {
+    name: '--ds-focus-ring-color',
+    light: 'rgb(59 130 246 / 0.5)',
+    dark: 'rgb(147 197 253 / 0.6)',
+  },
+  {
+    name: '--ds-focus-ring-danger-color',
+    light: 'rgb(239 68 68 / 0.5)',
+    dark: 'rgb(252 165 165 / 0.6)',
+  },
+  {
+    name: '--ds-focus-ring',
+    light: '0 0 0 3px var(--ds-focus-ring-color)',
+    dark: '0 0 0 3px var(--ds-focus-ring-color)',
+  },
+];
+
+/**
+ * 디자인 토큰이 아니라 스타일시트가 로드됐는지 확인하는 표식.
+ * 개발 모드에서 `styles.css` import 누락을 콘솔로 알리는 데 쓴다.
+ */
+export const LOADED_MARKER_TOKEN: TextToken = { name: '--ds-loaded', value: '1' };
+
 export interface ZIndexToken {
   name: string;
   value: number;
+  /** 이 레이어를 쓰는 컴포넌트 */
+  usageKey: string;
 }
 
 export const Z_INDEX_TOKENS: ZIndexToken[] = [
-  { name: '--ds-z-base', value: 0 },
-  { name: '--ds-z-dropdown', value: 10 },
-  { name: '--ds-z-sticky', value: 20 },
-  { name: '--ds-z-overlay', value: 50 },
-  { name: '--ds-z-modal', value: 100 },
-  { name: '--ds-z-toast', value: 1000 },
+  { name: '--ds-z-base', value: 0, usageKey: 'tokens.zIndex.usage.base' },
+  { name: '--ds-z-dropdown', value: 10, usageKey: 'tokens.zIndex.usage.dropdown' },
+  { name: '--ds-z-sticky', value: 20, usageKey: 'tokens.zIndex.usage.sticky' },
+  { name: '--ds-z-overlay', value: 50, usageKey: 'tokens.zIndex.usage.overlay' },
+  { name: '--ds-z-modal', value: 100, usageKey: 'tokens.zIndex.usage.modal' },
+  { name: '--ds-z-popover', value: 200, usageKey: 'tokens.zIndex.usage.popover' },
+  { name: '--ds-z-toast', value: 1000, usageKey: 'tokens.zIndex.usage.toast' },
+];
+
+export interface ShadowToken {
+  name: string;
+  light: string;
+  dark: string;
+}
+
+export const SHADOW_TOKENS: ShadowToken[] = [
+  {
+    name: '--ds-shadow-sm',
+    light: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+    dark: '0 1px 2px 0 rgb(0 0 0 / 0.4)',
+  },
+  {
+    name: '--ds-shadow-md',
+    light: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+    dark: '0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.5)',
+  },
+  {
+    name: '--ds-shadow-lg',
+    light: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
+    dark: '0 10px 15px -3px rgb(0 0 0 / 0.6), 0 4px 6px -4px rgb(0 0 0 / 0.6)',
+  },
 ];

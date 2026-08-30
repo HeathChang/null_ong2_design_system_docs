@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/lib/i18n/navigation';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { ThemeToggle } from './ThemeToggle';
 import { MobileNav } from './MobileNav';
 
 export async function Header() {
@@ -18,7 +19,10 @@ export async function Header() {
             {t('title')}
           </Link>
         </div>
-        <LanguageSwitcher />
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <LanguageSwitcher />
+        </div>
       </div>
     </header>
   );

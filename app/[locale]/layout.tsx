@@ -8,6 +8,7 @@ import { Header } from '@/components/Header';
 import { Sidebar } from '@/components/Sidebar';
 import { Footer } from '@/components/Footer';
 import { LOCALES, type Locale } from '@/lib/i18n/routing';
+import { THEME_INIT_SCRIPT } from '@/lib/theme';
 import 'null_ong2-design-system/styles.css';
 import '../globals.css';
 
@@ -42,14 +43,21 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    /*
+     * 테마 스크립트가 하이드레이션 전에 <html>의 data-theme를 바꾸므로
+     * 서버 HTML과 다를 수 있다. 이 속성 차이는 의도된 것이다.
+     */
+    <html lang={locale} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      </head>
       <body className="flex min-h-screen flex-col font-sans antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>
             <Header />
             <div className="mx-auto flex w-full max-w-screen-xl flex-1">
               <Sidebar />
-              <div className="flex-1">{children}</div>
+              <div className="min-w-0 flex-1">{children}</div>
             </div>
             <Footer />
           </Providers>

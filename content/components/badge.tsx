@@ -1,5 +1,5 @@
 import { Badge, Stack } from 'null_ong2-design-system';
-import type { ComponentDoc } from '@/lib/types';
+import type { CodeComment, ComponentDoc } from '@/lib/types';
 
 const DEFAULT_CODE = `<Badge>New</Badge>`;
 const VARIANTS_CODE = `<Stack direction="row" spacing="sm">
@@ -15,6 +15,8 @@ const DOT_CODE = `<Stack direction="row" spacing="sm">
   <Badge variant="danger" dot />
   <Badge variant="warning" dot />
 </Stack>`;
+const dotWithTextCode = (c: CodeComment) => `{/* ${c('components.badge.code.dotSr')} */}
+<Badge variant="danger" dot>3</Badge>`;
 const NOTIFICATION_CODE = `<Stack direction="row" spacing="md" align="center">
   <Badge variant="danger">99+</Badge>
   <Badge variant="primary">12</Badge>
@@ -32,6 +34,7 @@ export const badgeDoc: ComponentDoc = {
     { name: 'variant', type: "'neutral' | 'primary' | 'success' | 'warning' | 'danger' | 'info'", default: "'neutral'", required: false, descriptionKey: 'components.badge.props.variant' },
     { name: 'size', type: "'sm' | 'md'", default: "'md'", required: false, descriptionKey: 'components.badge.props.size' },
     { name: 'dot', type: 'boolean', default: 'false', required: false, descriptionKey: 'components.badge.props.dot' },
+    { name: 'children', type: 'ReactNode', default: '—', required: false, descriptionKey: 'components.badge.props.children' },
   ],
   examples: [
     { tab: 'default', titleKey: 'components.badge.examples.default', preview: <Badge>New</Badge>, code: DEFAULT_CODE },
@@ -61,6 +64,16 @@ export const badgeDoc: ComponentDoc = {
         </Stack>
       ),
       code: DOT_CODE,
+    },
+    {
+      tab: 'states',
+      titleKey: 'components.badge.examples.dotWithText',
+      preview: (
+        <Stack direction="row" spacing="sm" align="center">
+          <Badge variant="danger" dot>3</Badge>
+        </Stack>
+      ),
+      code: dotWithTextCode,
     },
     {
       tab: 'real-world',

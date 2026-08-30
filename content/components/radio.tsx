@@ -36,7 +36,7 @@ export const radioDoc: ComponentDoc = {
   descriptionKey: 'components.radio.description',
   importStatement: `import { Radio } from 'null_ong2-design-system';`,
   props: [
-    { name: 'id', type: 'string', default: '—', required: false, descriptionKey: 'components.radio.props.id' },
+    { name: 'id', type: 'string', default: 'auto', required: false, descriptionKey: 'components.radio.props.id' },
     { name: 'name', type: 'string', default: '—', required: false, descriptionKey: 'components.radio.props.name' },
     { name: 'value', type: 'string', default: '—', required: false, descriptionKey: 'components.radio.props.value' },
     { name: 'label', type: 'string', default: '—', required: false, descriptionKey: 'components.radio.props.label' },

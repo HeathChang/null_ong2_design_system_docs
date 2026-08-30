@@ -37,6 +37,7 @@ export const toastDoc: ComponentDoc = {
   importStatement: `import { ToastProvider, useToast } from 'null_ong2-design-system';`,
   props: [
     { name: 'ToastProvider.position', type: "'top-left' | 'top-right' | 'top-center' | 'bottom-left' | 'bottom-right' | 'bottom-center'", default: "'bottom-right'", required: false, descriptionKey: 'components.toast.props.ToastProvider.position' },
+    { name: 'ToastProvider.children', type: 'ReactNode', default: '—', required: true, descriptionKey: 'components.toast.props.ToastProvider.children' },
     { name: 'ToastProvider.maxToasts', type: 'number', default: '5', required: false, descriptionKey: 'components.toast.props.ToastProvider.maxToasts' },
     { name: 'useToast.show', type: '(message, options?) => string', default: '—', required: false, descriptionKey: 'components.toast.props.useToast.show' },
     { name: 'useToast.success', type: '(message, options?) => string', default: '—', required: false, descriptionKey: 'components.toast.props.useToast.success' },

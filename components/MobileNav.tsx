@@ -34,12 +34,13 @@ export function MobileNav() {
 
   return (
     <>
+      {/* 패널은 열렸을 때만 마운트된다. 닫힌 동안 aria-controls를 두면 없는 id를 가리킨다. */}
       <button
         type="button"
         onClick={() => setIsOpen(true)}
         aria-label={t('openMenu')}
         aria-expanded={isOpen}
-        aria-controls="mobile-nav-panel"
+        {...(isOpen && { 'aria-controls': 'mobile-nav-panel' })}
         className="inline-flex h-9 w-9 items-center justify-center rounded-md text-site-fg hover:bg-site-muted/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 md:hidden"
       >
         <span aria-hidden="true">☰</span>

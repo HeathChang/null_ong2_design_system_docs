@@ -11,13 +11,16 @@
     "theming": "Theming",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "primary": "Primary navigation"
+    "primary": "Primary navigation",
+    "i18n": "i18n",
+    "runtimeApi": "Runtime API"
   },
   "languageSwitcher": {
     "label": "Language",
     "ko": "한국어",
     "en": "English",
-    "zh": "中文"
+    "zh": "中文",
+    "ja": "日本語"
   },
   "footer": {
     "rights": "MIT License",
@@ -27,35 +30,55 @@
   "home": {
     "hero": {
       "title": "Production-ready React design system",
-      "subtitle": "Get started in 5 seconds with live examples and copyable code.",
+      "subtitle": "26 components that ship with light and dark themes, four languages, and verified accessibility.",
       "cta": "Get Started"
     },
     "features": {
       "title": "Features",
-      "zeroConfig": {
-        "title": "Zero-config",
-        "description": "Just install and use. No CSS imports or ThemeProvider required."
-      },
       "typeSafe": {
         "title": "Type-safe",
-        "description": "Written in TypeScript strict mode. All Props types are exported."
+        "description": "Written under TypeScript strict. Every props type and every value-list constant is exported."
       },
       "a11y": {
-        "title": "Accessibility built-in",
-        "description": "ARIA attributes, keyboard navigation, and semantic HTML by default."
+        "title": "Accessibility built in",
+        "description": "WAI-ARIA patterns, keyboard operation, focus management and 4.5:1 contrast are the defaults. CI runs axe on every build."
       },
       "treeShakable": {
         "title": "Tree-shakable",
-        "description": "Only the components you use end up in your bundle."
+        "description": "Importing only Button costs 2.44 kB. Components you never import never reach the bundle."
+      },
+      "rscReady": {
+        "title": "Import straight into RSC",
+        "description": "The package carries its own 'use client' directive, so it imports directly inside Next.js App Router server components."
+      },
+      "darkMode": {
+        "title": "Dark mode",
+        "description": "Follows the OS setting automatically, or force it with data-theme. Your own components follow along as long as they use tokens."
+      },
+      "i18n": {
+        "title": "Localized built-in strings",
+        "description": "Built-in labels like close and loading ship in ko · en · ja · zh, and any key can be overridden."
       }
     },
     "quickLook": {
       "title": "Quick Look",
-      "subtitle": "A preview of commonly used components.",
+      "subtitle": "A preview of the most-used components. Use the theme buttons in the header to see them in dark mode.",
       "alertMessage": "Welcome to the design system.",
       "inputLabel": "Email",
       "inputPlaceholder": "example@mail.com",
       "switchLabel": "Enable notifications"
+    },
+    "bundle": {
+      "title": "Bundle size",
+      "subtitle": "Measured with size-limit (minified + brotli). React is a peer dependency and is not counted.",
+      "caption": "Bundle size per import",
+      "headings": {
+        "import": "Import",
+        "size": "Size"
+      }
+    },
+    "code": {
+      "styleOnce": "once, at your app entry point"
     }
   },
   "codeBlock": {
@@ -92,52 +115,82 @@
   },
   "gettingStarted": {
     "title": "Getting Started",
-    "intro": "Adopt the design system in your project in under 5 minutes.",
+    "intro": "From install to your first screen in five minutes. One stylesheet import is the only required setup.",
     "install": {
       "title": "Installation",
-      "intro": "Install with npm. React 18 or higher is required."
+      "intro": "Install from npm. React 18 or newer is required."
     },
     "firstUse": {
       "title": "First Example",
-      "intro": "The simplest setup combining Button and Input."
+      "intro": "The simplest possible combination of Button and Input. Labels, hints and errors are wired up even when you do not pass an id."
     },
     "toastProvider": {
       "title": "ToastProvider Setup",
-      "intro": "Wrap your app root with ToastProvider to use Toast."
+      "intro": "Wrap your app root in ToastProvider to use toasts. Put DesignSystemProvider outside it so the toast region label is localized too."
     },
     "theming": {
       "title": "Token Customization",
-      "intro": "Override --ds-* variables in your global CSS to theme the system."
+      "intro": "Override the --ds-* variables in your global CSS to retheme. Adjust the 600/700/800 steps together so button states keep meeting the contrast requirement."
     },
     "faq": {
       "title": "FAQ",
       "items": {
         "1": {
-          "question": "Is it compatible with Next.js App Router?",
-          "answer": "Yes. The package ships with the 'use client' directive so you can import it directly in RSC environments."
+          "question": "Is it compatible with the Next.js App Router?",
+          "answer": "Yes. The package includes the 'use client' directive so it imports directly into server components. Import the stylesheet once in your root layout."
         },
         "2": {
           "question": "Is dark mode supported?",
-          "answer": "Currently (v0.2) only light tokens ship. Dark mode is on the v2 roadmap."
+          "answer": "Since v0.3.1, yes. By default it follows the OS prefers-color-scheme setting, and you can force it with <html data-theme=\"dark\"> or class=\"dark\". Token roles are identical in both themes (neutral-0 is always the surface, neutral-900 is always the text), so components you built on tokens switch along with it."
         },
         "3": {
-          "question": "Is tree-shaking supported?",
-          "answer": "It ships as ES modules so only the components you import end up in your bundle."
+          "question": "Does tree-shaking work?",
+          "answer": "Yes. v0.3.1 removed the generated code bundlers were mistaking for side effects, so it actually works now. import { Button } measures 2.44 kB (minified + brotli)."
         },
         "4": {
-          "question": "How do I import TypeScript types?",
-          "answer": "All Props types are named exports. e.g. import type { ButtonProps } from 'null_ong2-design-system'."
+          "question": "How do I import the TypeScript types?",
+          "answer": "Most props types are named exports, e.g. import type { ButtonProps } from 'null_ong2-design-system'. The exceptions are Box, Flex, Grid, Stack, Container and Text: they are generic over the as prop and export no props type, so derive one with ComponentProps<typeof Box>. The full list lives on the Runtime API page."
         },
         "5": {
           "question": "How do I change the theme colors?",
-          "answer": "Override --ds-color-primary-* variables inside :root in your global CSS."
+          "answer": "Override the --ds-color-primary-* variables under :root in your global CSS. If you also use dark mode, override the same variables in the dark selectors as well."
+        },
+        "6": {
+          "question": "What happens if I forget the stylesheet import?",
+          "answer": "Components render unstyled. In development the package checks a CSS load marker (--ds-loaded) and logs a one-time notice; in production builds it does nothing."
+        },
+        "7": {
+          "question": "Can I reword the strings the components read out?",
+          "answer": "Yes. Pass only the keys you want to change to the strings prop of DesignSystemProvider and the rest keep their locale values. For a language that is not built in, supply a full DsStrings object."
         }
       }
+    },
+    "styles": {
+      "title": "Import the stylesheet (required)",
+      "intro": "Component CSS is not injected into the JS bundle. Import it once at your app entry point.",
+      "note": "Auto-injection was removed in v0.2.2 because it caused a flash of unstyled content under SSR (Next.js App Router and friends). Without this import components render unstyled; in development the package logs a one-time notice."
+    },
+    "darkMode": {
+      "title": "Dark mode",
+      "intro": "With no configuration it follows the OS prefers-color-scheme setting. To drive it yourself, set data-theme on <html>.",
+      "more": "See the theming page for a toggle implementation and FOUC prevention →"
+    },
+    "i18n": {
+      "title": "Built-in string language",
+      "intro": "Sets the language of labels the components produce themselves — close, loading, slide and so on. Without the provider everything stays Korean, so existing code needs no change.",
+      "more": "See the i18n page for the full key list and overrides →"
+    },
+    "code": {
+      "orEntry": "or pages/_app.tsx (Pages Router), main.tsx (Vite/CRA)",
+      "autoId": "label and error stay wired up even without an id",
+      "followOs": "With no configuration it follows the OS prefers-color-scheme.",
+      "controlIt": "To drive it yourself, one attribute on <html>",
+      "providerOptional": "Without the provider everything stays Korean. ko · en · ja · zh are built in."
     }
   },
   "tokens": {
     "title": "Design Tokens",
-    "intro": "Every CSS variable that ds@0.2.x injects into :root. Override these in your global CSS to retheme.",
+    "intro": "Every CSS custom property the design system injects into :root. Override them from your global CSS to retheme.",
     "colors": {
       "title": "Colors",
       "groups": {
@@ -146,7 +199,20 @@
         "success": "Success",
         "warning": "Warning",
         "danger": "Danger",
-        "info": "Info"
+        "info": "Info",
+        "role": "Role"
+      },
+      "intro": "Since v0.3.1 every color token carries a light and a dark value. The left chip is light, the right chip is dark.",
+      "light": "Light",
+      "dark": "Dark",
+      "role": {
+        "intro": "Tokens named after their job rather than their value. They absorb the lightness inversion of dark mode so component CSS never has to change. In your own components, reach for these instead of neutral-0 whenever you need a foreground color on a filled surface.",
+        "onPrimary": "Foreground on a primary surface (button text and similar).",
+        "onDanger": "Foreground on a danger surface.",
+        "controlKnob": "The color laid on top of a filled control — a checkmark, a switch knob.",
+        "overlayBackdrop": "The dim behind a modal.",
+        "shimmer": "The skeleton shimmer highlight.",
+        "surfaceTranslucent": "A translucent surface laid over content, such as the carousel arrows."
       }
     },
     "spacing": {
@@ -154,33 +220,111 @@
       "numeric": "Numeric tokens",
       "aliases": "Semantic aliases"
     },
-    "radius": { "title": "Radius" },
+    "radius": {
+      "title": "Radius"
+    },
     "typography": {
       "title": "Typography",
       "size": "Font Size",
       "weight": "Font Weight",
-      "sample": "Sample text"
+      "sample": "Sample text",
+      "family": "Font family",
+      "lineHeight": "Line height"
     },
-    "zIndex": { "title": "Z-index" }
+    "zIndex": {
+      "title": "Z-index",
+      "intro": "A single ladder governs stacking. Tooltips and dropdown menus render into a body portal, so they must sit above the modal layer to avoid being clipped.",
+      "headings": {
+        "token": "Token",
+        "value": "Value",
+        "usage": "Used by"
+      },
+      "usage": {
+        "base": "Base layer.",
+        "dropdown": "In-flow stacking such as inline dropdowns.",
+        "sticky": "Sticky headers and toolbars.",
+        "overlay": "The modal backdrop dim.",
+        "modal": "Modal dialogs.",
+        "popover": "Tooltip and DropdownMenu (body portal).",
+        "toast": "The toast container — always on top."
+      },
+      "caption": "Z-index tokens and where they are used"
+    },
+    "shadow": {
+      "title": "Shadow",
+      "intro": "Dark mode uses deeper values so elevation stays readable against a dark background. The preview shows the light value."
+    },
+    "transition": {
+      "title": "Transition",
+      "intro": "How fast components move between states. When the OS \"reduce motion\" setting is on, component CSS overrides these and effectively removes the transitions."
+    },
+    "borderFocus": {
+      "title": "Border · Focus ring",
+      "intro": "Border defaults and the keyboard focus indicator. The focus ring gets lighter and more opaque in dark mode so it stays visible against a dark background."
+    },
+    "internal": {
+      "body": "{name} is not a design token but a marker confirming the stylesheet actually loaded (value {value}). It backs the one-time development warning about a missing styles.css import, so leave it alone."
+    }
   },
   "theming": {
     "title": "Theming",
-    "intro": "ds exposes every visual value as a CSS variable. Override variables in :root in your global CSS and the theme propagates instantly.",
+    "intro": "Every visual value is exposed as a CSS variable. Override them in your global CSS and the theme changes immediately; dark mode comes along with no extra work.",
     "overview": {
       "title": "How it works",
-      "body": "ds components are written with var(--ds-*) references instead of hardcoded values, so when a consuming project re-defines a variable in :root, every component picks up the new value immediately."
+      "body": "Component CSS never bakes in token values at build time — it references var(--ds-*). Redefine a variable of the same name in your project and every component picks up the new value at once. Dark mode works the same way: not a line of component CSS changes, only the token values behind the selector."
     },
     "example": {
       "title": "Override example",
-      "intro": "Switch the brand color to purple and round the corners further."
+      "intro": "Recolor the brand to purple and soften the corners. Buttons use 600 at rest, 700 on hover and 800 on press, so adjust all three steps to keep the state changes visible."
     },
     "scope": {
       "title": "Scoped overrides",
-      "body": "Re-define variables on a parent selector (instead of :root) to scope the theme to a subtree. Useful for partial themes within a page."
+      "body": "Redefine the variables on a parent selector instead of :root and they apply only inside that subtree. data-theme also works on any element, not just <html>, so a single section of a page can be dark on its own."
     },
     "futureBuilder": {
       "title": "Live theme builder (v2)",
-      "body": "Picking colors with instant preview + :root CSS extraction is on the v2 roadmap. For now, copy the snippet above into your project's global CSS."
+      "body": "Picking colors with a live preview and exporting the :root CSS automatically is on the v2 roadmap. For now, copy the code block above and apply it by hand."
+    },
+    "darkMode": {
+      "title": "Dark mode",
+      "body": "Token roles are identical to light — neutral-0 is always the surface, neutral-900 is always the text. Only the lightness flips, so anything that references tokens, including components you wrote, adapts on its own.",
+      "tryIt": "Try it right now with the theme buttons in this page's header. The site UI and the components in the examples below all switch from the same single data-theme attribute.",
+      "activation": {
+        "title": "Turning it on",
+        "body": "All three approaches are supported. class and data-theme behave identically, so pick whichever fits your project."
+      },
+      "roleTokens": {
+        "title": "Use the role tokens",
+        "body": "In dark mode neutral-0 is no longer white — it is the dark surface color. Using neutral-0 as text on a filled background makes that text the same color as the background. Reach for role tokens named after their job, such as --ds-color-on-primary."
+      },
+      "overriding": {
+        "title": "Override both sides",
+        "body": "Overriding a token under :root only changes the light value; the dark selectors are declared later, so the original dark value still wins. If you change light, change dark too."
+      },
+      "toggle": {
+        "title": "Building a toggle",
+        "body": "A three-way light / dark / system toggle is the practical choice. The key detail is that 'system' removes the attribute to hand control back to the OS — that is not the same as forcing light."
+      },
+      "fouc": {
+        "title": "Preventing the first-paint flash",
+        "body": "Waiting for React to hydrate paints one light frame before switching to dark. Read the stored choice synchronously in <head> and set the attribute first. The server HTML will differ, so <html> needs suppressHydrationWarning."
+      }
+    },
+    "code": {
+      "brandPurple": "Recolor the brand to purple",
+      "rounder": "Soften the corners",
+      "customFont": "Custom font",
+      "activationAuto": "Do nothing and it follows the OS setting (prefers-color-scheme)",
+      "activationDark": "Force dark",
+      "activationLight": "Pin to light (stays light even when the OS is dark)",
+      "lightValue": "Light value",
+      "darkValue": "Dark value — override dark wherever you overrode light",
+      "systemRemovesAttr": "For system, remove the attribute to hand control back to the OS.",
+      "foucSync": "app/layout.tsx — runs synchronously in <head>.",
+      "scopedSelector": "Define them on any selector instead of :root and they apply only inside that subtree.",
+      "scopedAnyElement": "data-theme works on any element, not just <html>",
+      "scopedInside": "only the components in here use the dark tokens",
+      "roleTokenWhy": "neutral-0 becomes the dark surface color in dark mode. Use a role token for foregrounds."
     }
   },
   "componentsIndex": {
@@ -193,12 +337,23 @@
       "description": "Rotating loading indicator.",
       "props": {
         "size": "Spinner size. 'xs' 12px / 'sm' 16px / 'md' 24px / 'lg' 32px.",
-        "label": "Screen-reader label. Defaults to 'Loading'."
+        "label": "Screen-reader label. Omitted, it falls back to the current locale's 'Loading'."
       },
-      "examples": { "default": "Default", "sizes": "Sizes", "inline": "Inside button", "inherit": "Inherits color" },
-      "do": { "1": "Show it the moment async work begins so users know progress is happening.", "2": "Make the label specific (e.g. 'Loading data')." },
-      "dont": { "1": "Don't flash a spinner for sub-200ms work — it just looks broken.", "2": "Don't leave users on a spinner forever. Time out and show an error." },
-      "a11y": "Spinner uses role='status' and aria-label so assistive tech reads progress. Color inherits via currentColor — set parent color to tint."
+      "examples": {
+        "default": "Default",
+        "sizes": "Sizes",
+        "inline": "Inside button",
+        "inherit": "Inherits color"
+      },
+      "do": {
+        "1": "Show it the moment async work begins so users know progress is happening.",
+        "2": "Make the label specific (e.g. 'Loading data')."
+      },
+      "dont": {
+        "1": "Don't flash a spinner for sub-200ms work — it just looks broken.",
+        "2": "Don't leave users on a spinner forever. Time out and show an error."
+      },
+      "a11y": "Spinner reports progress through role='status' and aria-label. Its color inherits currentColor, so set it from the parent. When 'reduce motion' is on it does not stop — it slows to a 3-second rotation, keeping the in-progress signal while reducing the discomfort."
     },
     "skeleton": {
       "description": "Shimmering placeholder shown while content loads.",
@@ -207,9 +362,20 @@
         "height": "Height.",
         "variant": "Shape. 'rectangular' (default) / 'text' (1em tall) / 'circle'."
       },
-      "examples": { "default": "Default", "text": "Text lines", "circle": "Circle (avatar)", "card": "Card layout" },
-      "do": { "1": "Match the dimensions of the real content to avoid layout shift.", "2": "Vary widths across multiple lines for a natural text feel." },
-      "dont": { "1": "For sub-1s responses, prefer Spinner over Skeleton.", "2": "Don't hardcode pixels only — use % or fr to keep responsive layouts intact." },
+      "examples": {
+        "default": "Default",
+        "text": "Text lines",
+        "circle": "Circle (avatar)",
+        "card": "Card layout"
+      },
+      "do": {
+        "1": "Match the dimensions of the real content to avoid layout shift.",
+        "2": "Vary widths across multiple lines for a natural text feel."
+      },
+      "dont": {
+        "1": "For sub-1s responses, prefer Spinner over Skeleton.",
+        "2": "Don't hardcode pixels only — use % or fr to keep responsive layouts intact."
+      },
       "a11y": "Skeleton is aria-hidden='true' so screen readers skip it. Replace it with the real content as it arrives."
     },
     "alert": {
@@ -220,72 +386,140 @@
         "children": "Message body.",
         "icon": "Custom icon. Falls back to a variant-specific default."
       },
-      "examples": { "default": "Default info", "variants": "Variants", "withTitle": "With title", "save": "Save success" },
-      "do": { "1": "Tell users what to do next, especially in error alerts.", "2": "Reserve warning/danger for time-sensitive situations." },
-      "dont": { "1": "Don't auto-dismiss Alert like a toast — Toast is the right tool there.", "2": "More than 5 same-variant alerts on a screen and users tune them out." },
+      "examples": {
+        "default": "Default info",
+        "variants": "Variants",
+        "withTitle": "With title",
+        "save": "Save success"
+      },
+      "do": {
+        "1": "Tell users what to do next, especially in error alerts.",
+        "2": "Reserve warning/danger for time-sensitive situations."
+      },
+      "dont": {
+        "1": "Don't auto-dismiss Alert like a toast — Toast is the right tool there.",
+        "2": "More than 5 same-variant alerts on a screen and users tune them out."
+      },
       "a11y": "warning/danger get role='alert' for immediate announcement; info/success get role='status' for non-intrusive announcement. ARIA is set automatically."
     },
     "avatar": {
       "description": "Avatar with image and initials fallback. 5 sizes, circle or square.",
       "props": {
         "src": "Image URL.",
-        "name": "Name. Used for alt and initials fallback.",
+        "name": "The person's name, used for alt text and the initials fallback. Initials are split on grapheme boundaries, so emoji are never cut in half.",
         "alt": "Image alt (overrides name when set).",
         "size": "Size. 'xs'–'xl'.",
         "shape": "Shape. 'circle' (default) / 'square'."
       },
-      "examples": { "default": "Default", "fallback": "Image fallback", "sizes": "Sizes", "userList": "User list" },
-      "do": { "1": "Always pass name so the initials fallback works when the image fails.", "2": "Use a uniform size across lists for clean alignment." },
-      "dont": { "1": "Don't omit alt — screen readers won't convey meaning.", "2": "Don't drop arbitrary images in without a size — they break alignment."
+      "examples": {
+        "default": "Default",
+        "fallback": "Image fallback",
+        "sizes": "Sizes",
+        "userList": "User list"
       },
-      "a11y": "Avatar communicates meaning via img alt or aria-label. The initials fallback also exposes the user's name via aria-label."
+      "do": {
+        "1": "Always provide name so the initials fallback works when the image fails to load.",
+        "2": "Use a uniform size across lists for clean alignment."
+      },
+      "dont": {
+        "1": "Don't omit alt — screen readers won't convey meaning.",
+        "2": "Don't drop arbitrary images in without a size — they break alignment."
+      },
+      "a11y": "Avatar carries meaning through img alt or aria-label. The initials fallback has role='img' plus aria-label so the name is announced, and when neither name nor alt is given it falls back to the current locale's 'User avatar'. Changing src to a new value clears the previous failure and retries."
     },
     "badge": {
       "description": "Compact status or count label.",
       "props": {
         "variant": "Visual style. 'neutral' / 'primary' / 'success' / 'warning' / 'danger' / 'info'.",
         "size": "Size. 'sm' or 'md' (default).",
-        "dot": "When true, shows just a colored dot (no text)."
+        "dot": "Renders only a dot, with no text. Children passed alongside it are hidden visually but still announced by screen readers.",
+        "children": "The badge content. Combined with dot it is hidden visually and left for screen readers only."
       },
-      "examples": { "default": "Default", "variants": "Variants", "dot": "Dot", "notification": "Notification count" },
-      "do": { "1": "Match variant to meaning (success=done, danger=error).", "2": "Cap large counts as '99+' so the label can't break out." },
-      "dont": { "1": "Don't make Badge clickable — Button is right for actions.", "2": "More than 5 badges in a row dilutes attention." },
-      "a11y": "Badge text is the meaning. For dot variant, give the parent element an aria-label."
+      "examples": {
+        "default": "Default",
+        "variants": "Variants",
+        "dot": "Dot",
+        "notification": "Notification count",
+        "dotWithText": "Dot with screen-reader text"
+      },
+      "do": {
+        "1": "Match variant to meaning (success=done, danger=error).",
+        "2": "Cap large counts as '99+' so the label can't break out."
+      },
+      "dont": {
+        "1": "Don't make Badge clickable — Button is right for actions.",
+        "2": "More than 5 badges in a row dilutes attention."
+      },
+      "a11y": "A Badge conveys its meaning through its text content. Even as a dot, children you pass survive as visually hidden text, so <Badge dot>3</Badge> does not silently drop the '3'.",
+      "code": {
+        "dotSr": "Only the dot is visible, but '3' is still announced by screen readers."
+      }
     },
     "carousel": {
-      "description": "One-slide-at-a-time carousel with autoplay, indicators, and arrows.",
+      "description": "Shows one slide at a time, with autoplay, indicators, arrows and a play/pause control.",
       "props": {
         "items": "Array of slide nodes.",
-        "index": "Current index (controlled).",
+        "index": "The current index (controlled). Values outside the slide range are clamped back to a real slide.",
         "defaultIndex": "Initial index (default 0).",
         "onChange": "Change handler.",
-        "autoPlayInterval": "Autoplay interval in ms. 0 disables autoplay.",
+        "autoPlayInterval": "Autoplay interval in ms. 0 disables it (default 0).",
         "loop": "Infinite loop (default true).",
         "showArrows": "Show prev/next arrows (default true).",
-        "showIndicators": "Show dot indicators (default true)."
+        "showIndicators": "Dot indicators (default true).",
+        "ariaLabel": "Accessible label for the carousel region. Omitted, it falls back to the current locale's 'Carousel'."
       },
-      "examples": { "default": "Default", "autoplay": "Autoplay", "noLoop": "Without loop", "banner": "Banner" },
-      "do": { "1": "Use autoplay intervals of at least 4 seconds so users have time to read.", "2": "Keep slides to 5 or fewer so indicators remain meaningful." },
-      "dont": { "1": "Don't put critical info only in a carousel — slides past the first see steep drop-offs.", "2": "Don't autoplay faster than 3s — it's an accessibility violation." },
-      "a11y": "Carousel uses role='region' with aria-label, and slides communicate active state via aria-hidden. Arrows and indicators are keyboard accessible."
+      "examples": {
+        "default": "Default",
+        "autoplay": "Autoplay",
+        "noLoop": "Without loop",
+        "banner": "Banner"
+      },
+      "do": {
+        "1": "Use autoplay intervals of at least 4 seconds so users have time to read.",
+        "2": "Keep slides to 5 or fewer so indicators remain meaningful."
+      },
+      "dont": {
+        "1": "Don't put critical info only in a carousel — slides past the first see steep drop-offs.",
+        "2": "Do not set autoplay below three seconds — it moves on before anyone can read it."
+      },
+      "a11y": "Identified by role='region' plus aria-roledescription='carousel'. Off-screen slides are marked inert, so they leave both the tab order and the accessibility tree entirely. Indicators follow the tablist convention (roving tabindex, arrows, Home/End) and keep a 24×24 hit area. Autoplay pauses on hover, on focus and via the stop button, and never starts at all when the OS 'reduce motion' setting is on (WCAG 2.2.2)."
     },
     "tabs": {
       "description": "Compound tabs with arrow-key navigation, supporting horizontal and vertical orientations.",
       "props": {
-        "Root.value": "Active tab (controlled).",
-        "Root.defaultValue": "Initial active tab.",
-        "Root.onChange": "Tab change handler.",
-        "Root.orientation": "'horizontal' (default) or 'vertical'.",
-        "Trigger.value": "Identifier for the trigger.",
-        "Trigger.disabled": "Disabled state."
+        "List": {
+          "aria-label": "Accessible label for the tab bar (tablist). Always distinguish them when a screen holds more than one tab group."
+        },
+        "Root": {
+          "value": "Active tab (controlled).",
+          "defaultValue": "The initially active tab. Omitted, the first Trigger is selected automatically.",
+          "onChange": "Tab change handler.",
+          "orientation": "Orientation: 'horizontal' (default) or 'vertical'. The arrow-key mapping changes with it.",
+          "children": "Tabs.List and Tabs.Panel — the children that form the compound structure."
+        },
+        "Trigger": {
+          "value": "Identifier for the trigger.",
+          "disabled": "Disabled state."
+        }
       },
-      "examples": { "default": "Default", "vertical": "Vertical", "disabled": "Disabled tab", "settings": "Settings panel" },
-      "do": { "1": "Tabs read best at 4 or fewer. Beyond that, prefer side navigation.", "2": "Keep each label to 1–2 words." },
-      "dont": { "1": "Don't use tabs for page-level routing — tabs are for the same context.", "2": "Don't nest tabs inside tabs." },
-      "a11y": "Tabs implement the full WAI-ARIA tabs pattern (tablist/tab/tabpanel + aria-selected/aria-controls). Arrow keys move between triggers."
+      "examples": {
+        "default": "Default",
+        "vertical": "Vertical",
+        "disabled": "Disabled tab",
+        "settings": "Settings panel"
+      },
+      "do": {
+        "1": "Tabs read best at 4 or fewer. Beyond that, prefer side navigation.",
+        "2": "Keep each label to 1–2 words."
+      },
+      "dont": {
+        "1": "Don't use tabs for page-level routing — tabs are for the same context.",
+        "2": "Don't nest tabs inside tabs."
+      },
+      "a11y": "Implements the full ARIA pattern with role=tablist/tab/tabpanel and aria-selected/aria-controls. Keyboard: left/right (up/down when vertical) wraps around, Home/End jump to the ends. Because the first tab is selected automatically even without defaultValue, the roving tabindex never collapses into a tab bar no keyboard can reach. The panel shows a focus ring when it receives focus."
     },
     "modal": {
-      "description": "Overlay dialog with focus trap, Escape-to-close, and overlay-click-to-close built in.",
+      "description": "An overlay dialog. Focus trap, close on Escape, close on overlay click, background scroll lock and background assistive-technology blocking are all applied automatically.",
       "props": {
         "isOpen": "Open state (required).",
         "onClose": "Close handler (required).",
@@ -293,57 +527,111 @@
         "children": "Body content.",
         "footer": "Footer (e.g. button group).",
         "size": "Size. 'sm' / 'md' (default) / 'lg' / 'xl'.",
-        "closeOnOverlayClick": "Close on overlay click (default true).",
+        "closeOnOverlayClick": "Close when the overlay is clicked (default true). It only closes when the press started on the overlay, so dragging a text selection out of the body and releasing outside will not close it.",
         "closeOnEscape": "Close on Escape (default true).",
-        "showCloseButton": "Show close button (default true)."
+        "showCloseButton": "Show close button (default true).",
+        "initialFocusRef": "The element that receives focus when the dialog opens. Omitted, focus goes to the first focusable element inside (usually the close button). Use it to land on 'Cancel' in a destructive confirmation."
       },
-      "examples": { "default": "Open and close", "destructive": "Confirm deletion", "noClose": "Force confirmation", "long": "Scrolling body" },
-      "do": { "1": "Always provide a title so the user knows the dialog's purpose.", "2": "For destructive actions, place secondary (Cancel) + danger (Confirm) in the footer." },
-      "dont": { "1": "Don't nest modals — users get lost.", "2": "Don't use modals for one-off info; a page or a toast is often enough." },
-      "a11y": "Modal sets role='dialog' + aria-modal='true' and traps focus inside, so keyboard users can't tab outside the dialog. Escape and overlay-click are enabled by default."
+      "examples": {
+        "default": "Open and close",
+        "destructive": "Confirm deletion",
+        "noClose": "Force confirmation",
+        "long": "Scrolling body",
+        "initialFocus": "Initial focus"
+      },
+      "do": {
+        "1": "Always provide a title so the user knows the dialog's purpose.",
+        "2": "For destructive actions build the footer from secondary (Cancel) plus danger (Confirm), and point initialFocusRef at Cancel."
+      },
+      "dont": {
+        "1": "Don't nest modals — users get lost.",
+        "2": "Don't use modals for one-off info; a page or a toast is often enough."
+      },
+      "a11y": "Carries role='dialog' with aria-modal='true' and traps keyboard focus inside the dialog. A focus trap only blocks Tab, so the background also gets aria-hidden and inert to stop screen-reader rotor and swipe navigation (the toast container is excluded). Background scroll is locked with position: fixed so it works on iOS Safari too, and the scroll position is restored on close. When dialogs are stacked, Escape only reaches the topmost one.",
+      "code": {
+        "longScroll": "A long body scrolls inside the dialog."
+      }
     },
     "tooltip": {
-      "description": "Tiny overlay shown on hover/focus. Position auto-computed via @floating-ui.",
+      "description": "A small overlay with supporting text on hover or focus. It renders into a body portal so an overflow ancestor cannot clip it.",
       "props": {
         "content": "Tooltip content (required).",
-        "children": "Trigger element (required, single element).",
+        "children": "The trigger element (required, a single React element). Passing a string or multiple elements raises an error that tells you exactly what to fix.",
         "placement": "Placement. 'top' (default) plus 11 others.",
         "delay": "Open delay in ms (default 200).",
-        "disabled": "Disable the tooltip (default false)."
+        "disabled": "Disables the tooltip (default false). Flipping it to true while open closes the tooltip immediately."
       },
-      "examples": { "default": "Default", "placement": "Placement", "delay": "Delay", "shortcut": "Shortcut hint" },
-      "do": { "1": "Reserve Tooltip for supplementary info — critical info must always be visible.", "2": "Short text like keyboard shortcuts or icon meanings is the sweet spot." },
-      "dont": { "1": "Don't put interactive elements (buttons, links) inside Tooltip — they're not keyboard reachable.", "2": "Don't hide critical info that's only available on hover; touch users can't access it." },
-      "a11y": "Tooltip is linked to the trigger via aria-describedby so screen readers read the supplementary text. Keyboard focus also opens it."
+      "examples": {
+        "default": "Default",
+        "placement": "Placement",
+        "delay": "Delay",
+        "shortcut": "Shortcut hint"
+      },
+      "do": {
+        "1": "Reserve Tooltip for supplementary info — critical info must always be visible.",
+        "2": "Short text like keyboard shortcuts or icon meanings is the sweet spot."
+      },
+      "dont": {
+        "1": "Don't put interactive elements (buttons, links) inside Tooltip — they're not keyboard reachable.",
+        "2": "Don't hide critical info that's only available on hover; touch users can't access it."
+      },
+      "a11y": "floating-ui's role hook wires the trigger's aria-describedby and the tooltip's id to the same value, so screen readers read the description. It also appears on keyboard focus and closes on Escape. Inside clipping ancestors such as a modal body or a carousel viewport, the body portal plus a fixed strategy keeps it fully visible."
     },
     "dropdownMenu": {
-      "description": "Click-triggered dropdown menu with arrow-key and Enter/Space support.",
+      "description": "A click-triggered dropdown menu. Keyboard behavior follows the WAI-ARIA APG menu pattern, and it renders into a body portal.",
       "props": {
-        "trigger": "Trigger element (required).",
+        "trigger": "The trigger element (required, a single React element).",
         "items": "Menu items array (required). DropdownMenuItem[].",
         "placement": "Menu placement (default 'bottom-start')."
       },
-      "examples": { "default": "Default", "destructive": "With destructive action", "disabled": "Some disabled", "actions": "Row actions" },
-      "do": { "1": "Mark destructive actions with destructive: true for a clear visual cue.", "2": "Group items visually when there are 5+ entries." },
-      "dont": { "1": "Don't put form inputs inside DropdownMenu — menus are for actions.", "2": "If the trigger is icon-only, always provide aria-label." },
-      "a11y": "DropdownMenu uses role='menu' / role='menuitem'. Arrow keys move between items, Enter/Space activates. Outside click and Escape close it."
+      "examples": {
+        "default": "Default",
+        "destructive": "With destructive action",
+        "disabled": "Some disabled",
+        "actions": "Row actions"
+      },
+      "do": {
+        "1": "Mark destructive actions with destructive: true for a clear visual cue.",
+        "2": "Group items visually when there are 5+ entries."
+      },
+      "dont": {
+        "1": "Don't put form inputs inside DropdownMenu — menus are for actions.",
+        "2": "If the trigger is icon-only, always provide aria-label."
+      },
+      "a11y": "Uses role='menu' and role='menuitem'. Opening from the trigger with up/down or Enter/Space moves focus to the first (or last) item; up/down wraps and skips disabled items. Escape or an outside click closes it and returns focus to the trigger. Arrow keys never land on a stale item after the list shrinks. It renders into a body portal so overflow ancestors cannot clip it."
     },
     "toast": {
       "description": "Global notification system. Wrap your app root in ToastProvider, then call useToast.",
       "props": {
-        "ToastProvider.position": "Display position. 'top-left' / 'top-right' / 'top-center' / 'bottom-left' / 'bottom-right' (default) / 'bottom-center'.",
-        "ToastProvider.maxToasts": "Max concurrent toasts (default 5).",
-        "useToast.show": "Generic toast (toast.show(message, options)).",
-        "useToast.success": "Success variant.",
-        "useToast.warning": "Warning variant.",
-        "useToast.danger": "Error variant.",
-        "useToast.info": "Info variant.",
-        "useToast.dismiss": "Dismiss a specific toast."
+        "ToastProvider": {
+          "position": "Display position. 'top-left' / 'top-right' / 'top-center' / 'bottom-left' / 'bottom-right' (default) / 'bottom-center'.",
+          "maxToasts": "Maximum number shown at once (default 5). Values of 0 or less are clamped up to 1.",
+          "children": "The app tree the provider wraps. Toasts themselves render into a portal outside this tree."
+        },
+        "useToast": {
+          "show": "Generic toast (toast.show(message, options)).",
+          "success": "Success variant.",
+          "warning": "Warning variant.",
+          "danger": "Error variant.",
+          "info": "Info variant.",
+          "dismiss": "Dismiss a specific toast."
+        }
       },
-      "examples": { "default": "Success/failure", "danger": "Error toast", "duration": "Long duration", "stack": "Stacked toasts" },
-      "do": { "1": "Keep toasts to a single concise line.", "2": "Scale duration with message length — longer messages need 5–7s." },
-      "dont": { "1": "Don't surface form-validation errors via toast — show them next to the input.", "2": "Don't show more than 5 simultaneous toasts. Cap with maxToasts." },
-      "a11y": "The toast container is role='region' and individual toasts use role='alert' (warning/danger) or role='status' (info/success) so screen readers announce appropriately."
+      "examples": {
+        "default": "Success/failure",
+        "danger": "Error toast",
+        "duration": "Long duration",
+        "stack": "Stacked toasts"
+      },
+      "do": {
+        "1": "Keep toasts to a single concise line.",
+        "2": "Scale duration with message length — longer messages need 5–7s."
+      },
+      "dont": {
+        "1": "Don't surface form-validation errors via toast — show them next to the input.",
+        "2": "Do not show more than five toasts at once — cap it with maxToasts."
+      },
+      "a11y": "The toast container stays mounted with role='region' and aria-live='polite' even when empty — a live region has to exist before its content for a screen reader to announce changes. warning and danger additionally escalate to role='alert' because they need immediate attention. Hovering or focusing the container pauses the auto-dismiss timer, and leaving resumes from the time that was left (WCAG 2.2.1)."
     },
     "text": {
       "description": "Body text component supporting size, weight, and color tokens.",
@@ -355,9 +643,20 @@
         "align": "textAlign.",
         "truncate": "When true, truncates to one line with ellipsis."
       },
-      "examples": { "default": "Default", "sizes": "Sizes", "colors": "Colors", "truncate": "Truncate" },
-      "do": { "1": "Use semantic color names so meaning carries through (danger = error).", "2": "For long body, lean on the default size + line-height — they're already readable." },
-      "dont": { "1": "Don't use Text size='4xl' for a heading — semantics differ. Use Heading.", "2": "Don't pass arbitrary hex to color — semantic tokens first." },
+      "examples": {
+        "default": "Default",
+        "sizes": "Sizes",
+        "colors": "Colors",
+        "truncate": "Truncate"
+      },
+      "do": {
+        "1": "Use semantic color names so meaning carries through (danger = error).",
+        "2": "For long body, lean on the default size + line-height — they're already readable."
+      },
+      "dont": {
+        "1": "Don't use Text size='4xl' for a heading — semantics differ. Use Heading.",
+        "2": "Don't pass arbitrary hex to color — semantic tokens first."
+      },
       "a11y": "Text renders as p by default, so screen readers treat it as a paragraph. When using as=\"span\" inline, you may need extra ARIA to convey meaning."
     },
     "heading": {
@@ -368,9 +667,20 @@
         "color": "Text color (CSS variable or color value).",
         "align": "textAlign."
       },
-      "examples": { "default": "Default h2", "h1Page": "Page title (h1)", "decoupled": "Decoupled level/size", "section": "Section header" },
-      "do": { "1": "Use exactly one as='h1' for the top-level page title.", "2": "If a small visual is needed, use as='h2' size='sm' — keep semantics intact." },
-      "dont": { "1": "Don't skip heading levels for styling (no h1 → h3 directly).", "2": "Don't reuse h2 for every search-result item — handle it visually only." },
+      "examples": {
+        "default": "Default h2",
+        "h1Page": "Page title (h1)",
+        "decoupled": "Decoupled level/size",
+        "section": "Section header"
+      },
+      "do": {
+        "1": "Use exactly one as='h1' for the top-level page title.",
+        "2": "If a small visual is needed, use as='h2' size='sm' — keep semantics intact."
+      },
+      "dont": {
+        "1": "Don't skip heading levels for styling (no h1 → h3 directly).",
+        "2": "Don't reuse h2 for every search-result item — handle it visually only."
+      },
       "a11y": "Heading renders as semantic h1–h6 elements that screen readers use for landmark navigation. Keep the order so users can scan the page quickly."
     },
     "label": {
@@ -379,9 +689,20 @@
         "htmlFor": "id of the linked input.",
         "required": "Show required marker. When true, adds a red asterisk."
       },
-      "examples": { "default": "Default", "required": "Required marker", "withInput": "With Input", "fieldset": "fieldset/legend pattern" },
-      "do": { "1": "Match htmlFor to the input id exactly so clicking the label focuses it.", "2": "Just use the label prop on Input/Textarea/Select — no need for a separate Label." },
-      "dont": { "1": "Don't float Label as an in-input placeholder — it disappears on focus and breaks accessibility.", "2": "Don't use placeholder alone without a label — screen readers lose meaning." },
+      "examples": {
+        "default": "Default",
+        "required": "Required marker",
+        "withInput": "With Input",
+        "fieldset": "fieldset/legend pattern"
+      },
+      "do": {
+        "1": "Match htmlFor to the input id exactly so clicking the label focuses it.",
+        "2": "Just use the label prop on Input/Textarea/Select — no need for a separate Label."
+      },
+      "dont": {
+        "1": "Don't float Label as an in-input placeholder — it disappears on focus and breaks accessibility.",
+        "2": "Don't use placeholder alone without a label — screen readers lose meaning."
+      },
       "a11y": "Label is explicitly linked to its input via htmlFor, so click moves focus and screen readers announce the field name."
     },
     "box": {
@@ -399,7 +720,8 @@
         "display": "display property.",
         "width": "Width (CSS value).",
         "height": "Height (CSS value).",
-        "overflow": "overflow property."
+        "overflow": "overflow property.",
+        "position": "The position property."
       },
       "examples": {
         "default": "Default",
@@ -524,10 +846,10 @@
     "input": {
       "description": "A text input with built-in support for label, hint, and error message.",
       "props": {
-        "id": "Input id used to link the label automatically.",
+        "id": "The input's id. Omitted, a unique id is generated internally to connect the label, hint and error.",
         "label": "Label text. When provided, the Label component is rendered automatically.",
         "hint": "Hint message shown beneath the input when no error is present.",
-        "error": "Error message. When non-empty, applies error style and renders with role='alert'.",
+        "error": "Error message. When non-empty the field turns red and the message is announced with role='alert'.",
         "required": "Whether the field is required. Adds a red asterisk to the label.",
         "type": "HTML input type — supports email, password, number, etc.",
         "placeholder": "Placeholder text shown when the value is empty.",
@@ -542,18 +864,18 @@
       },
       "do": {
         "1": "Write specific error messages like 'Must be at least 8 characters', not 'Invalid'.",
-        "2": "Always link label to input via id; never replace a label with placeholder alone."
+        "2": "The label prop wires the association for you. Never let a placeholder stand in for a label."
       },
       "dont": {
         "1": "Avoid abstract error messages like 'Error occurred' — users won't know what to fix.",
         "2": "Don't mark required fields with only an asterisk. Set the required prop too."
       },
-      "a11y": "Input is linked to its label via id so screen readers announce the field correctly. In error state, aria-invalid='true' and aria-describedby are added automatically. Hints are also linked via aria-describedby."
+      "a11y": "The label and input are connected by id so screen readers announce the field name. Even without an id the internal unique id keeps the association, so several fields side by side never collide. In the error state aria-invalid='true' is applied and the error and hint are linked through aria-describedby — and an aria-describedby you pass yourself is merged in rather than overwritten."
     },
     "textarea": {
       "description": "Multi-line text input following the same label/hint/error pattern as Input.",
       "props": {
-        "id": "Textarea id.",
+        "id": "The textarea's id. Omitted, a unique id is generated internally to connect the label, hint and error.",
         "label": "Label text.",
         "hint": "Hint message.",
         "error": "Error message.",
@@ -575,12 +897,12 @@
         "1": "Don't use Textarea for short single-line input — Input is correct there.",
         "2": "Don't force resize: none — let users adjust the height."
       },
-      "a11y": "Textarea is linked to its label via id and gets aria-invalid in error state. Default resize: vertical lets keyboard users adjust height too."
+      "a11y": "Follows the same conventions as Input — generated id, aria-invalid on error, aria-describedby for the error and hint, and merging with an aria-describedby you pass. resize: vertical is the default, so the size is adjustable from the keyboard alone."
     },
     "checkbox": {
       "description": "Checkbox supporting both controlled and uncontrolled usage.",
       "props": {
-        "id": "Checkbox id.",
+        "id": "The checkbox's id. The label stays explicitly connected even if you omit it.",
         "label": "Label rendered next to the checkbox.",
         "checked": "Checked state (controlled).",
         "defaultChecked": "Initial checked state (uncontrolled).",
@@ -598,16 +920,15 @@
         "2": "Group related checkboxes using fieldset/legend to express the relationship."
       },
       "dont": {
-        "1": "Use Switch for binary ON/OFF settings; Checkbox is for multi-select."
-        ,
+        "1": "Use Switch for binary ON/OFF settings; Checkbox is for multi-select.",
         "2": "Don't disable required-agreement checkboxes — surface an error instead."
       },
-      "a11y": "Checkbox renders as semantic input[type=checkbox] and toggles via Space. Disabled state is also reflected via aria-disabled."
+      "a11y": "Renders a semantic input[type=checkbox] toggled with Space. Even without an id the internal unique id links it to the label, so clicking the label always works."
     },
     "radio": {
       "description": "Radio button — only one radio in the same name group can be selected.",
       "props": {
-        "id": "Radio id.",
+        "id": "The radio's id. The label stays explicitly connected even if you omit it.",
         "name": "Group name. Radios in the same group share this name.",
         "value": "Value passed to onChange when selected.",
         "label": "Label rendered next to the radio.",
@@ -629,15 +950,15 @@
         "1": "If there are exactly 2 toggle-style options, use Switch instead of Radio.",
         "2": "Don't leave a non-required radio group entirely unselected — provide a default."
       },
-      "a11y": "Radio renders as input[type=radio] and supports arrow-key navigation within the group. Label/id linkage tells screen readers the group's purpose."
+      "a11y": "Renders input[type=radio], so arrow keys move within the group. Even without an id the internal unique id links it to the label."
     },
     "select": {
       "description": "Dropdown select. Options are passed via the options prop.",
       "props": {
-        "id": "Select id.",
+        "id": "The select's id. Omitted, a unique id is generated internally to connect the label, hint and error.",
         "label": "Label text.",
         "options": "Array of options. SelectOption[] with value/label/disabled.",
-        "placeholder": "Placeholder option text.",
+        "placeholder": "Text for the leading guidance option. With no value or defaultValue, that option is the initial selection.",
         "hint": "Hint message.",
         "error": "Error message.",
         "required": "Whether the field is required.",
@@ -651,18 +972,18 @@
       },
       "do": {
         "1": "Use Select when there are 6 or more options. For fewer, Radio reads better.",
-        "2": "Use a placeholder only when there is no sensible default."
+        "2": "Use a placeholder only when there is no obvious default. Passing one makes the guidance text appear first without needing a separate defaultValue."
       },
       "dont": {
         "1": "Don't use code-only abbreviations as labels — use names users understand.",
         "2": "Don't show a placeholder for a required field but skip the required prop."
       },
-      "a11y": "Select uses the native select element, so OS-level accessibility and mobile UX are guaranteed. aria-invalid is added automatically in error state."
+      "a11y": "Built on the native select element, so platform accessibility and mobile UX come for free. The label is connected even without an id, and in the error state aria-invalid and aria-describedby are applied automatically and merged with any aria-describedby you pass."
     },
     "switch": {
       "description": "Instant ON/OFF toggle. Use it for settings that take effect immediately, unlike Checkbox.",
       "props": {
-        "id": "Switch id.",
+        "id": "The switch's id. The label stays explicitly connected even if you omit it.",
         "label": "Label rendered next to the toggle.",
         "size": "Toggle size. sm 28×16, md 36×20, lg 44×24 pixels.",
         "checked": "State (controlled).",
@@ -684,14 +1005,14 @@
         "1": "Don't add 'On/Off' helper text — the visual state already conveys it.",
         "2": "If the user batches several toggles before applying, Checkbox + Apply button is the right pattern."
       },
-      "a11y": "Switch renders as input[role=switch] so screen readers announce a toggle. Space toggles it via keyboard, and aria-checked communicates the current state."
+      "a11y": "Renders input[role=switch] so screen readers recognize it as a toggle. Space toggles it and aria-checked reports the state. The label is connected even without an id."
     },
     "button": {
       "description": "A button that triggers a user action. Supports 4 variants, 3 sizes, plus loading, disabled, and icon states.",
       "props": {
         "variant": "Visual style. Use 'primary' for the most prominent action.",
         "size": "Button height: 'sm' = 32px, 'md' = 40px, 'lg' = 48px.",
-        "isLoading": "When true, shows a spinner and disables the click. aria-busy is set automatically.",
+        "isLoading": "When true a spinner is shown and clicks are disabled. aria-busy and aria-disabled are applied automatically.",
         "disabled": "When true, the button is visually and functionally disabled.",
         "leftIcon": "Icon node rendered to the left of the label. Accepts any ReactNode.",
         "rightIcon": "Icon node rendered to the right of the label."
@@ -712,7 +1033,7 @@
         "1": "Avoid multiple primary buttons on the same page or section — they compete for attention.",
         "2": "Don't pass both isLoading and disabled together. isLoading already disables interaction."
       },
-      "a11y": "Button renders as a semantic <button> element and responds to Enter/Space. While isLoading is true, aria-busy='true' and aria-disabled='true' are applied automatically so assistive tech announces progress. For icon-only buttons, add aria-label to convey meaning."
+      "a11y": "Renders a semantic <button> operated with Enter/Space. While isLoading, aria-busy='true' and aria-disabled='true' are applied. Becoming disabled makes the browser throw focus back to body, which loses a keyboard user's place — so when loading finishes the button takes focus back, but only if nothing else claimed it in the meantime. Add an aria-label for icon-only buttons."
     }
   },
   "componentPage": {
@@ -739,5 +1060,140 @@
     "noExamples": "No examples available yet.",
     "noBestPractices": "No best practices listed yet.",
     "noRelated": "No related components."
+  },
+  "themeToggle": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "i18n": {
+    "title": "Localization",
+    "intro": "Sets the language of the strings components read out on their own. ko (default), en, ja and zh are built in, and any key can be overridden.",
+    "why": {
+      "title": "Why it matters",
+      "body": "Some labels are produced by the components themselves — the modal's close button, the spinner's loading state, the carousel's next slide. Most are never painted on screen and only reach screen readers, which makes the problem invisible to the eye, but a hard-coded Korean label is a wall for everyone who does not read Korean."
+    },
+    "setup": {
+      "title": "Setup",
+      "intro": "Wrap your app root in DesignSystemProvider and pass a locale.",
+      "optional": "It is optional. Without the provider everything falls back to Korean, so existing code keeps working unchanged.",
+      "localeList": "The list of supported locales and the default are exported as constants too. Iterate them instead of hard-coding a list when you build a language picker."
+    },
+    "next": {
+      "title": "Next.js App Router",
+      "intro": "The provider is a client component, so keep it in its own file and use it from the layout. ToastProvider reads its region label from the built-in strings, so DesignSystemProvider has to sit outside it."
+    },
+    "strings": {
+      "title": "String keys",
+      "intro": "The table below is not transcribed into these docs — it reads the values the package actually exports. Placeholders in braces such as {index} are substituted at render time.",
+      "caption": "Built-in string keys and their value per locale",
+      "key": "Key",
+      "usedBy": "Used by"
+    },
+    "override": {
+      "title": "Overriding strings",
+      "intro": "Pass only the keys you want to change to the strings prop; the rest keep their locale values.",
+      "customLocale": {
+        "title": "Languages that are not built in",
+        "body": "To use a language the locale prop does not cover, pass a complete DsStrings object as strings. Spread the closest built-in locale first and change only the keys you need, so nothing is left out."
+      }
+    },
+    "consumer": {
+      "title": "Using them in your own components",
+      "intro": "useDsStrings and useDsFormat read the same strings directly. Without a provider they return the default locale, so they are safe to call anywhere."
+    },
+    "caveats": {
+      "title": "Things to know",
+      "noAutoDetect": "The browser language is never auto-detected. Server and client would disagree and produce an SSR hydration mismatch, so locale must always be passed explicitly.",
+      "defaultKo": "The default locale is 'ko'. That choice preserves the previous behavior; pass locale=\"en\" if you want English as your baseline.",
+      "contentStrings": "These strings only cover the components' built-in labels. Content you pass in — button text, modal titles — belongs to your own i18n tooling."
+    },
+    "code": {
+      "englishStrings": "every component inside here uses the English built-in strings",
+      "toastOutside": "ToastProvider reads its region label from the built-in strings, so keep it inside.",
+      "buildPicker": "Build the language picker straight from the built-in locale list.",
+      "onlyGivenKeys": "Only the keys you name are replaced; the rest keep their locale values.",
+      "fillAllKeys": "For a language that is not built in, pass every key.",
+      "restOfKeys": "... the remaining keys",
+      "formatResult": "result"
+    }
+  },
+  "runtimeApi": {
+    "title": "Runtime API",
+    "intro": "Everything the package exports besides components — six hooks, sixteen value-list constants, the token constants and the shared types.",
+    "hooks": {
+      "title": "Hooks",
+      "intro": "The reusable parts of the components' internals, made public. Building an overlay the design system does not ship? These give you the same behavior Modal has. They are all client hooks, so in the Next.js App Router use them from a file marked 'use client'.",
+      "items": {
+        "useBodyScrollLock": {
+          "description": "Locks <body> scrolling while active. iOS Safari ignores overflow: hidden, so it uses position: fixed and restores the scroll position on release."
+        },
+        "useControllable": {
+          "description": "Handles controlled and uncontrolled in one place. If the mode flips mid-life (value moving between a value and undefined) it warns in development."
+        },
+        "useEscapeKey": {
+          "description": "Adds close-on-Escape. An internal stack makes sure only the most recently activated overlay responds when several are open."
+        },
+        "useFocusTrap": {
+          "description": "Traps focus inside a container. On activation it moves to initialFocus (or the first focusable element); on deactivation it restores the previously focused element."
+        },
+        "useInertBackground": {
+          "description": "Hides background content from assistive technology. A focus trap only blocks Tab, so this is what stops screen-reader rotor and swipe navigation from reaching the background."
+        },
+        "usePrefersReducedMotion": {
+          "description": "Reads the OS 'reduce motion' setting. Anything that moves on its own — autoplay, auto-rotation — must stop when this is true (WCAG 2.2.2)."
+        }
+      }
+    },
+    "constants": {
+      "title": "Value-list constants",
+      "intro": "A type alone cannot be iterated at runtime, so there is no way to ask 'what values are allowed'. Use these to build a variant picker or to validate a string that arrived from a server. The table below is itself built by iterating them.",
+      "caption": "Value-list constants and their values",
+      "headings": {
+        "name": "Constant",
+        "component": "Component",
+        "values": "Values"
+      }
+    },
+    "tokenConstants": {
+      "title": "Token constants",
+      "intro": "Reference the design tokens from TypeScript. The values are CSS variable references rather than hard-coded colors, so overriding the theme also moves everything that uses them."
+    },
+    "types": {
+      "title": "Shared types",
+      "intro": "The 38 types the package exports. Most component props types are exposed, but there are exceptions, so the full list is below.",
+      "groups": {
+        "componentProps": "Component props",
+        "provider": "Provider props",
+        "data": "Supporting data types",
+        "polymorphic": "Polymorphic utilities",
+        "common": "Shared value types",
+        "tokenKeys": "Token keys",
+        "i18n": "i18n"
+      },
+      "noProps": {
+        "title": "Components without an exported props type",
+        "body": "Box, Flex, Grid, Stack, Container and Text are generic over the as prop, so they do not export a props type. Derive one with React utilities when you need the type for the default element."
+      },
+      "polymorphic": {
+        "title": "Building polymorphic components",
+        "body": "PolymorphicProps lets you build your own as-prop component on exactly the same conventions as the design system."
+      }
+    },
+    "code": {
+      "scrollLockRefCount": "Stacked overlays lock once via a reference count; the last one to close restores it.",
+      "controllableMode": "Pass value for controlled; omit it and the hook keeps state internally.",
+      "escapeTopmost": "Only the most recently activated overlay in the stack responds.",
+      "focusTrapInitial": "Focus lands on Cancel when it opens, and returns to the previous element on close.",
+      "inertWhy": "A focus trap only blocks Tab. This is what also stops rotor and swipe navigation.",
+      "inertLayers": "Overlay layers marked with data-ds-layer, such as the toast container, are left alone.",
+      "reducedMotionSsr": "Returns false under SSR and anywhere matchMedia is unavailable.",
+      "constantsPicker": "Build a variant picker straight from the value list",
+      "constantsValidate": "Validate at runtime that a string from the server is an allowed value",
+      "tokenConstantsNote": "The values are CSS variable references, so overriding the theme moves these too.",
+      "typesNote": "Build a component that supports the as prop exactly like the design system does.",
+      "polymorphicNoProps": "these six do not export a props type — derive it with React utilities"
+    }
   }
 }

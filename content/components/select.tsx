@@ -48,7 +48,7 @@ export const selectDoc: ComponentDoc = {
   descriptionKey: 'components.select.description',
   importStatement: `import { Select } from 'null_ong2-design-system';`,
   props: [
-    { name: 'id', type: 'string', default: '—', required: false, descriptionKey: 'components.select.props.id' },
+    { name: 'id', type: 'string', default: 'auto', required: false, descriptionKey: 'components.select.props.id' },
     { name: 'label', type: 'string', default: '—', required: false, descriptionKey: 'components.select.props.label' },
     { name: 'options', type: 'SelectOption[]', default: '—', required: true, descriptionKey: 'components.select.props.options' },
     { name: 'placeholder', type: 'string', default: '—', required: false, descriptionKey: 'components.select.props.placeholder' },

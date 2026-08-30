@@ -11,13 +11,16 @@
     "theming": "主题",
     "openMenu": "打开菜单",
     "closeMenu": "关闭菜单",
-    "primary": "主导航"
+    "primary": "主导航",
+    "i18n": "多语言",
+    "runtimeApi": "运行时 API"
   },
   "languageSwitcher": {
     "label": "语言",
     "ko": "한국어",
     "en": "English",
-    "zh": "中文"
+    "zh": "中文",
+    "ja": "日本語"
   },
   "footer": {
     "rights": "MIT 许可证",
@@ -27,35 +30,55 @@
   "home": {
     "hero": {
       "title": "生产就绪的 React 设计系统",
-      "subtitle": "通过实时示例和可复制代码,5 秒内开始使用。",
+      "subtitle": "26 个组件,内置浅色/深色主题、四种语言和无障碍验证。",
       "cta": "快速开始"
     },
     "features": {
       "title": "特性",
-      "zeroConfig": {
-        "title": "零配置",
-        "description": "安装即用。无需 CSS 导入或 ThemeProvider。"
-      },
       "typeSafe": {
         "title": "类型安全",
-        "description": "在 TypeScript strict 模式下编写,所有 Props 类型均已导出。"
+        "description": "在 TypeScript strict 模式下编写,导出全部 Props 类型与取值常量。"
       },
       "a11y": {
         "title": "内置无障碍",
-        "description": "默认提供 ARIA 属性、键盘导航和语义化 HTML。"
+        "description": "WAI-ARIA 模式、键盘操作、焦点管理和 4.5:1 对比度都是默认行为,CI 会运行 axe 检查。"
       },
       "treeShakable": {
         "title": "可摇树优化",
-        "description": "只有你使用的组件会进入打包结果。"
+        "description": "只导入 Button 时仅 2.44 kB。未使用的组件不会进入打包结果。"
+      },
+      "rscReady": {
+        "title": "可直接在 RSC 中导入",
+        "description": "包内已带 'use client' 指令,可在 Next.js App Router 的服务端组件中直接导入。"
+      },
+      "darkMode": {
+        "title": "深色模式",
+        "description": "默认跟随系统设置,也可用 data-theme 强制指定。只要使用令牌,你自己的组件也会一起切换。"
+      },
+      "i18n": {
+        "title": "内置文案多语言",
+        "description": "关闭、加载中等内置标签提供 ko · en · ja · zh 四种语言,并支持按键覆盖。"
       }
     },
     "quickLook": {
       "title": "快速预览",
-      "subtitle": "常用组件预览。",
+      "subtitle": "常用组件预览。用页头的主题按钮即可立即查看深色模式。",
       "alertMessage": "欢迎使用设计系统。",
       "inputLabel": "电子邮箱",
       "inputPlaceholder": "example@mail.com",
       "switchLabel": "启用通知"
+    },
+    "bundle": {
+      "title": "打包体积",
+      "subtitle": "size-limit 实测值(压缩 + brotli)。React 是 peer dependency,不计入其中。",
+      "caption": "不同 import 组合的打包体积",
+      "headings": {
+        "import": "Import",
+        "size": "体积"
+      }
+    },
+    "code": {
+      "styleOnce": "在应用入口处仅需一次"
     }
   },
   "codeBlock": {
@@ -92,52 +115,82 @@
   },
   "gettingStarted": {
     "title": "快速开始",
-    "intro": "5 分钟内将设计系统引入你的项目。",
+    "intro": "从安装到第一个页面只需 5 分钟。唯一必需的配置是一行样式表导入。",
     "install": {
       "title": "安装",
-      "intro": "使用 npm 安装。需要 React 18 或更高版本。"
+      "intro": "通过 npm 安装。需要 React 18 及以上版本。"
     },
     "firstUse": {
       "title": "首次使用示例",
-      "intro": "组合 Button 和 Input 的最简示例。"
+      "intro": "Button 与 Input 组合的最简示例。即使不手动指定 id,标签、提示和错误信息也会自动关联。"
     },
     "toastProvider": {
       "title": "ToastProvider 设置",
-      "intro": "要使用 Toast,请将应用根节点包裹在 ToastProvider 中。"
+      "intro": "要使用 Toast,请用 ToastProvider 包裹应用根节点。若同时使用内置文案,DesignSystemProvider 需要位于其外层。"
     },
     "theming": {
       "title": "令牌定制",
-      "intro": "在项目的全局 CSS 中覆盖 --ds-* 变量即可定制主题。"
+      "intro": "在项目全局 CSS 中覆盖 --ds-* 变量即可换主题。为满足对比度要求,按钮色请连同 600/700/800 三档一起调整。"
     },
     "faq": {
       "title": "常见问题",
       "items": {
         "1": {
           "question": "兼容 Next.js App Router 吗?",
-          "answer": "兼容。包内已包含 'use client' 指令,可在 RSC 环境中直接导入。"
+          "answer": "兼容。包内含 'use client' 指令,可在服务端组件中直接导入。样式表请在根布局中导入一次。"
         },
         "2": {
           "question": "支持深色模式吗?",
-          "answer": "当前 (v0.2) 仅提供浅色令牌。深色模式在 v2 路线图中。"
+          "answer": "从 v0.3.1 起支持。默认跟随系统 prefers-color-scheme,也可用 <html data-theme=\"dark\"> 或 class=\"dark\" 强制指定。令牌的角色在两种主题下一致(neutral-0 始终是表面色,neutral-900 始终是文本色),因此只使用令牌的自有组件也会一起切换。"
         },
         "3": {
           "question": "支持 Tree-shaking 吗?",
-          "answer": "以 ES 模块形式发布,仅你使用的组件会进入打包结果。"
+          "answer": "支持。v0.3.1 移除了会被打包器误判为副作用的生成代码,现在真正生效。import { Button } 实测 2.44 kB(压缩 + brotli)。"
         },
         "4": {
           "question": "如何导入 TypeScript 类型?",
-          "answer": "所有 Props 类型均以命名导出形式提供,例如:import type { ButtonProps } from 'null_ong2-design-system'."
+          "answer": "大多数 Props 类型都是具名导出,例如 import type { ButtonProps } from 'null_ong2-design-system'。例外是 Box · Flex · Grid · Stack · Container · Text 这 6 个:它们因 as prop 而是泛型,不导出 Props 类型,请用 ComponentProps<typeof Box> 取出。完整列表见运行时 API 页面。"
         },
         "5": {
-          "question": "如何更改主题颜色?",
-          "answer": "在你的全局 CSS 的 :root 中覆盖 --ds-color-primary-* 变量。"
+          "question": "如何修改主题颜色?",
+          "answer": "在全局 CSS 的 :root 中覆盖 --ds-color-primary-* 变量即可。若同时使用深色模式,请在深色选择器中一并覆盖相同变量。"
+        },
+        "6": {
+          "question": "忘记导入样式表会怎样?",
+          "answer": "组件会以无样式状态渲染。开发模式下会检查 CSS 加载标记(--ds-loaded)并在控制台提示一次,生产构建中不做任何处理。"
+        },
+        "7": {
+          "question": "可以把组件朗读的文案改成我们自己的措辞吗?",
+          "answer": "可以。把想修改的键传给 DesignSystemProvider 的 strings 属性,其余键仍使用该语言的默认值。若使用未内置的语言,传入完整的 DsStrings 即可。"
         }
       }
+    },
+    "styles": {
+      "title": "导入样式表(必需)",
+      "intro": "组件 CSS 不会注入到 JS 包中。请在应用入口处导入一次。",
+      "note": "v0.2.2 起取消了自动注入 —— 因为在 SSR(如 Next.js App Router)下会出现样式生效前先渲染的闪烁(FOUC)。缺少这行导入时组件会以无样式状态渲染,开发模式下控制台会提示一次。"
+    },
+    "darkMode": {
+      "title": "深色模式",
+      "intro": "无需任何配置即可跟随系统的 prefers-color-scheme。若要自行控制,只需在 <html> 上设置 data-theme。",
+      "more": "在主题文档中查看切换器实现与闪烁防护 →"
+    },
+    "i18n": {
+      "title": "内置文案语言",
+      "intro": "指定组件自身生成的标签(关闭、加载中、幻灯片等)的语言。不包裹时默认使用韩语,现有代码无需改动。",
+      "more": "在多语言文档中查看全部文案键与覆盖方式 →"
+    },
+    "code": {
+      "orEntry": "或 pages/_app.tsx(Pages Router)、main.tsx(Vite/CRA)",
+      "autoId": "不传 id 也会自动关联标签与错误信息",
+      "followOs": "不做任何配置时跟随系统的 prefers-color-scheme。",
+      "controlIt": "若要自行控制,只需在 <html> 上加一个属性",
+      "providerOptional": "不包裹时默认使用韩语。内置 ko · en · ja · zh。"
     }
   },
   "tokens": {
     "title": "设计令牌",
-    "intro": "ds@0.2.x 注入 :root 的所有 CSS 变量。在项目的全局 CSS 中覆盖即可换主题。",
+    "intro": "设计系统注入到 :root 的全部 CSS 变量。在项目全局 CSS 中覆盖它们即可换主题。",
     "colors": {
       "title": "颜色",
       "groups": {
@@ -146,7 +199,20 @@
         "success": "Success",
         "warning": "Warning",
         "danger": "Danger",
-        "info": "Info"
+        "info": "Info",
+        "role": "Role(角色)"
+      },
+      "intro": "从 v0.3.1 起,颜色令牌同时具有浅色与深色两个取值。左侧色块为浅色,右侧为深色。",
+      "light": "浅色",
+      "dark": "深色",
+      "role": {
+        "intro": "按用途而非取值命名的令牌。深色模式下明度反转的部分在这里被吸收,组件 CSS 无需改动。在自有组件中,填充表面上的文字颜色请使用这些令牌,而不是 neutral-0。",
+        "onPrimary": "primary 表面之上的前景色(按钮文字等)。",
+        "onDanger": "danger 表面之上的前景色。",
+        "controlKnob": "叠加在填充控件之上的颜色,如对勾、开关滑块。",
+        "overlayBackdrop": "模态框背后的遮罩。",
+        "shimmer": "骨架屏的微光高亮。",
+        "surfaceTranslucent": "叠加在内容之上的半透明表面(如轮播箭头)。"
       }
     },
     "spacing": {
@@ -154,33 +220,111 @@
       "numeric": "数值令牌",
       "aliases": "语义别名"
     },
-    "radius": { "title": "圆角" },
+    "radius": {
+      "title": "圆角"
+    },
     "typography": {
       "title": "字体",
       "size": "字号",
       "weight": "字重",
-      "sample": "示例文本"
+      "sample": "示例文本",
+      "family": "字体",
+      "lineHeight": "行高"
     },
-    "zIndex": { "title": "Z-index" }
+    "zIndex": {
+      "title": "Z-index",
+      "intro": "层叠顺序统一由这一条阶梯管理。Tooltip 与 DropdownMenu 渲染到 body 传送门中,因此必须位于模态框之上才不会被裁切。",
+      "headings": {
+        "token": "令牌",
+        "value": "取值",
+        "usage": "使用场景"
+      },
+      "usage": {
+        "base": "基础层。",
+        "dropdown": "文档流内的层叠,如内联下拉。",
+        "sticky": "吸顶页头与工具栏。",
+        "overlay": "模态框背景遮罩。",
+        "modal": "Modal 对话框。",
+        "popover": "Tooltip、DropdownMenu(body 传送门)。",
+        "toast": "Toast 容器 —— 始终位于最上层。"
+      },
+      "caption": "z-index 令牌与使用场景"
+    },
+    "shadow": {
+      "title": "Shadow",
+      "intro": "深色模式使用更深的取值,以便在深色背景上仍能看出层次。预览显示的是浅色取值。"
+    },
+    "transition": {
+      "title": "Transition",
+      "intro": "组件状态切换的速度。当系统开启「减少动态效果」时,组件 CSS 会覆盖这些取值并实质上移除过渡。"
+    },
+    "borderFocus": {
+      "title": "Border · Focus ring",
+      "intro": "边框默认值与键盘焦点提示。为了在深色背景上仍然可见,焦点环的颜色在深色模式下亮度与不透明度会一并提高。"
+    },
+    "internal": {
+      "body": "{name} 不是设计令牌,而是用于确认样式表是否真正加载的标记(取值 {value})。它支撑开发模式下关于缺失 styles.css 导入的一次性提示,请不要覆盖。"
+    }
   },
   "theming": {
     "title": "主题定制",
-    "intro": "ds 把所有视觉值都暴露为 CSS 变量。在全局 CSS 中覆盖 :root 内变量,主题立即生效。",
+    "intro": "所有视觉取值都以 CSS 变量暴露。在全局 CSS 中覆盖变量即可立即生效,深色模式也会一并跟随。",
     "overview": {
       "title": "工作原理",
-      "body": "ds 组件以 var(--ds-*) 引用变量而非硬编码值。当消费项目在 :root 中重新定义同名变量时,所有组件立即采用新值。"
+      "body": "组件 CSS 不会在构建时写死令牌取值,而是引用 var(--ds-*)。消费项目重新定义同名变量后,所有组件立即采用新值。深色模式同理 —— 组件 CSS 一行都不改,只是选择器背后的令牌取值不同。"
     },
     "example": {
       "title": "覆盖示例",
-      "intro": "将品牌色改为紫色并加大圆角。"
+      "intro": "把品牌色改为紫色并加大圆角的示例。按钮默认使用 600,悬停 700,按下 800,因此三档要一起调整才能看出状态变化。"
     },
     "scope": {
       "title": "作用域限制",
-      "body": "在父选择器(而非 :root)中重新定义变量,可将主题限定在子树内。适合页面内部分主题。"
+      "body": "在父级选择器而非 :root 上重新定义变量,作用范围就限于该子树。data-theme 也可以加在任意元素上,而不只是 <html>,因此可以让页面中的某个区块单独使用深色。"
     },
     "futureBuilder": {
       "title": "实时主题构建器(v2)",
-      "body": "选色即时预览 + :root CSS 自动提取功能在 v2 路线图中。目前请复制上方代码片段到项目全局 CSS。"
+      "body": "选取颜色即时预览并自动导出 :root CSS 的功能已列入 v2 路线图。目前请复制上方代码块自行应用。"
+    },
+    "darkMode": {
+      "title": "深色模式",
+      "body": "令牌的角色与浅色完全一致 —— neutral-0 始终是「表面」,neutral-900 始终是「文本」。只有明度反转,因此只引用令牌的组件(包括你自己写的)都会自动适配。",
+      "tryIt": "用本页页头的主题按钮即可立即切换。站点 UI 与下方示例中的组件通过同一个 data-theme 属性一起变化。",
+      "activation": {
+        "title": "开启方式",
+        "body": "三种方式都支持。class 与 data-theme 行为等价,选择项目中更顺手的一种即可。"
+      },
+      "roleTokens": {
+        "title": "请使用角色令牌",
+        "body": "深色模式下 neutral-0 不再是白色,而是深色的表面色。若把 neutral-0 用作填充背景上的文字色,深色下会与背景同色而不可见。请使用按用途命名的角色令牌,例如 --ds-color-on-primary。"
+      },
+      "overriding": {
+        "title": "覆盖时两边都要改",
+        "body": "只在 :root 覆盖某个令牌时,改变的只是浅色取值;深色选择器声明在后,原有的深色取值仍会胜出。改了浅色,就要一并改深色。"
+      },
+      "toggle": {
+        "title": "实现切换器",
+        "body": "浅色 / 深色 / 跟随系统的三档切换最实用。关键在于「跟随系统」要移除属性、把控制权交还给系统 —— 这与固定为浅色并不相同。"
+      },
+      "fouc": {
+        "title": "避免首屏闪烁",
+        "body": "若等到 React 完成注水,浅色画面会先绘制一帧再切换为深色。请在 <head> 中同步读取已保存的选择并先设置属性。由于会与服务端 HTML 不一致,<html> 需要加上 suppressHydrationWarning。"
+      }
+    },
+    "code": {
+      "brandPurple": "把品牌色改为紫色",
+      "rounder": "让圆角更大",
+      "customFont": "自定义字体",
+      "activationAuto": "什么都不做时跟随系统设置(prefers-color-scheme)",
+      "activationDark": "强制深色",
+      "activationLight": "固定为浅色(即使系统为深色也保持浅色)",
+      "lightValue": "浅色取值",
+      "darkValue": "深色取值 —— 覆盖了浅色就要一并覆盖深色",
+      "systemRemovesAttr": "选择 system 时移除属性,把控制权交还给系统。",
+      "foucSync": "app/layout.tsx —— 在 <head> 中同步执行。",
+      "scopedSelector": "定义在任意选择器而非 :root 上时,只在该子树内生效。",
+      "scopedAnyElement": "data-theme 可以加在任意元素上,不限于 <html>",
+      "scopedInside": "只有这里面的组件使用深色令牌",
+      "roleTokenWhy": "深色下 neutral-0 会变成深色的表面色。前景色请使用角色令牌。"
     }
   },
   "componentsIndex": {
@@ -193,12 +337,23 @@
       "description": "显示加载状态的旋转指示器。",
       "props": {
         "size": "尺寸。'xs' 12px / 'sm' 16px / 'md' 24px / 'lg' 32px。",
-        "label": "屏幕阅读器标签,默认「加载中」。"
+        "label": "读屏标签。省略时使用当前语言的「加载中」。"
       },
-      "examples": { "default": "基础", "sizes": "尺寸", "inline": "按钮内", "inherit": "继承颜色" },
-      "do": { "1": "异步任务一开始就显示,让用户知道正在进行。", "2": "label 应描述具体任务,例如「加载数据中」。" },
-      "dont": { "1": "对于 200ms 内可完成的快速任务,不要显示 spinner 闪烁。", "2": "不要让用户看着 spinner 无限等待 — 设置超时并显示错误。" },
-      "a11y": "Spinner 通过 role='status' 和 aria-label 向辅助技术传达进度。颜色通过 currentColor 继承,父级 color 即可控制。"
+      "examples": {
+        "default": "基础",
+        "sizes": "尺寸",
+        "inline": "按钮内",
+        "inherit": "继承颜色"
+      },
+      "do": {
+        "1": "异步任务一开始就显示,让用户知道正在进行。",
+        "2": "label 应描述具体任务,例如「加载数据中」。"
+      },
+      "dont": {
+        "1": "对于 200ms 内可完成的快速任务,不要显示 spinner 闪烁。",
+        "2": "不要让用户看着 spinner 无限等待 — 设置超时并显示错误。"
+      },
+      "a11y": "Spinner 通过 role='status' 和 aria-label 传达进度状态。颜色继承 currentColor,可用父元素的 color 调整。开启「减少动态效果」时不会完全停止,而是以 3 秒周期缓慢旋转 —— 既保留进行中的信号,又减轻不适。"
     },
     "skeleton": {
       "description": "内容加载时显示的 shimmer 占位。",
@@ -207,9 +362,20 @@
         "height": "高度。",
         "variant": "形态。'rectangular'(默认)/ 'text'(1em 高)/ 'circle'。"
       },
-      "examples": { "default": "基础", "text": "文本行", "circle": "圆形(头像)", "card": "卡片布局" },
-      "do": { "1": "尽量贴近实际内容尺寸,减少布局抖动。", "2": "多行文本可用不同 width,显得自然。" },
-      "dont": { "1": "1 秒内的快速响应建议用 Spinner 而非 Skeleton。", "2": "不要全部使用固定 px,响应式布局需要 % 或 fr。" },
+      "examples": {
+        "default": "基础",
+        "text": "文本行",
+        "circle": "圆形(头像)",
+        "card": "卡片布局"
+      },
+      "do": {
+        "1": "尽量贴近实际内容尺寸,减少布局抖动。",
+        "2": "多行文本可用不同 width,显得自然。"
+      },
+      "dont": {
+        "1": "1 秒内的快速响应建议用 Spinner 而非 Skeleton。",
+        "2": "不要全部使用固定 px,响应式布局需要 % 或 fr。"
+      },
       "a11y": "Skeleton 设为 aria-hidden='true',屏幕阅读器会跳过。内容到达后无缝替换即可。"
     },
     "alert": {
@@ -220,71 +386,140 @@
         "children": "正文内容。",
         "icon": "自定义图标。未指定时使用 variant 默认图标。"
       },
-      "examples": { "default": "默认 info", "variants": "Variant", "withTitle": "包含标题", "save": "保存成功" },
-      "do": { "1": "错误提示要告诉用户下一步该做什么。", "2": "warning 与 danger 仅用于即时性需求强的场景。" },
-      "dont": { "1": "不要让 Alert 像 Toast 自动消失 — Toast 是更合适的工具。", "2": "同一屏 5 个以上同 variant 的 Alert,用户会忽略。" },
+      "examples": {
+        "default": "默认 info",
+        "variants": "Variant",
+        "withTitle": "包含标题",
+        "save": "保存成功"
+      },
+      "do": {
+        "1": "错误提示要告诉用户下一步该做什么。",
+        "2": "warning 与 danger 仅用于即时性需求强的场景。"
+      },
+      "dont": {
+        "1": "不要让 Alert 像 Toast 自动消失 — Toast 是更合适的工具。",
+        "2": "同一屏 5 个以上同 variant 的 Alert,用户会忽略。"
+      },
       "a11y": "warning 与 danger 使用 role='alert'(即时通告),info 与 success 使用 role='status'(非干扰通告)。ARIA 自动设置。"
     },
     "avatar": {
       "description": "图像 + 姓名首字母回退的头像。5 种尺寸,圆形或方形。",
       "props": {
         "src": "图像 URL。",
-        "name": "姓名,用于 alt 与首字母回退。",
+        "name": "姓名,用于 alt 与首字母兜底。首字母按字素(grapheme)切分,不会把 emoji 截断。",
         "alt": "图像 alt(指定时优先)。",
         "size": "尺寸。'xs'~'xl'。",
         "shape": "形态。'circle'(默认)/ 'square'。"
       },
-      "examples": { "default": "基础", "fallback": "图像回退", "sizes": "尺寸", "userList": "用户列表" },
-      "do": { "1": "始终提供 name,在图像加载失败时回退到首字母。", "2": "列表中使用统一 size,保持对齐美观。" },
-      "dont": { "1": "不要省略 alt,屏幕阅读器无法理解。", "2": "不要不指定 size 直接放任意图片 — 容易破坏对齐。" },
-      "a11y": "Avatar 通过 img alt 或 aria-label 传达含义。首字母回退也以 aria-label 暴露用户名。"
+      "examples": {
+        "default": "基础",
+        "fallback": "图像回退",
+        "sizes": "尺寸",
+        "userList": "用户列表"
+      },
+      "do": {
+        "1": "请始终提供 name,以便图片加载失败时首字母兜底能生效。",
+        "2": "列表中使用统一 size,保持对齐美观。"
+      },
+      "dont": {
+        "1": "不要省略 alt,屏幕阅读器无法理解。",
+        "2": "不要不指定 size 直接放任意图片 — 容易破坏对齐。"
+      },
+      "a11y": "Avatar 通过 img alt 或 aria-label 传达含义。首字母兜底带有 role='img' 与 aria-label,会朗读用户名;name 与 alt 都缺失时使用当前语言的「用户头像」。src 变为新值时会清除此前的失败状态并重新尝试。"
     },
     "badge": {
       "description": "用于状态或计数的小标签。",
       "props": {
         "variant": "视觉样式。'neutral' / 'primary' / 'success' / 'warning' / 'danger' / 'info'。",
         "size": "尺寸。'sm' 或 'md'(默认)。",
-        "dot": "true 时仅显示彩色圆点,无文字。"
+        "dot": "为 true 时只显示圆点、不显示文字。同时传入 children 时会在视觉上隐藏,但仍会被读屏软件朗读。",
+        "children": "徽标内容。与 dot 一起使用时会在视觉上隐藏,仅供读屏软件朗读。"
       },
-      "examples": { "default": "基础", "variants": "Variant", "dot": "Dot", "notification": "通知数量" },
-      "do": { "1": "variant 与含义对应(success=完成,danger=错误)。", "2": "大数值用「99+」截断,避免破坏标签。" },
-      "dont": { "1": "不要把 Badge 做成可点击操作 — 那是 Button 的职责。", "2": "一行 5 个以上 Badge 会分散注意力。" },
-      "a11y": "Badge 文本本身承载含义。dot 形态时请在父元素上加 aria-label。"
+      "examples": {
+        "default": "基础",
+        "variants": "Variant",
+        "dot": "Dot",
+        "notification": "通知数量",
+        "dotWithText": "圆点 + 读屏文本"
+      },
+      "do": {
+        "1": "variant 与含义对应(success=完成,danger=错误)。",
+        "2": "大数值用「99+」截断,避免破坏标签。"
+      },
+      "dont": {
+        "1": "不要把 Badge 做成可点击操作 — 那是 Button 的职责。",
+        "2": "一行 5 个以上 Badge 会分散注意力。"
+      },
+      "a11y": "Badge 的含义由文本内容传达。即使是圆点形态,传入的 children 也会以视觉隐藏的方式保留,因此 <Badge dot>3</Badge> 中的「3」不会悄悄消失。",
+      "code": {
+        "dotSr": "视觉上只有圆点,但「3」仍会被读屏软件朗读。"
+      }
     },
     "carousel": {
-      "description": "一次显示一张幻灯片的轮播。支持自动播放、指示器、箭头。",
+      "description": "一次展示一张幻灯片的轮播,支持自动播放、指示点、箭头以及播放/暂停按钮。",
       "props": {
         "items": "幻灯片节点数组。",
-        "index": "当前索引(受控)。",
+        "index": "当前索引(受控)。超出幻灯片范围的取值会被校正到实际范围内。",
         "defaultIndex": "初始索引(默认 0)。",
         "onChange": "变更回调。",
-        "autoPlayInterval": "自动播放间隔(ms),0 则禁用。",
+        "autoPlayInterval": "自动播放间隔(毫秒),0 表示关闭(默认 0)。",
         "loop": "无限循环(默认 true)。",
         "showArrows": "显示左右箭头(默认 true)。",
-        "showIndicators": "显示点状指示器(默认 true)。"
+        "showIndicators": "圆点指示器(默认 true)。",
+        "ariaLabel": "轮播区域的无障碍标签。省略时使用当前语言的「轮播」。"
       },
-      "examples": { "default": "基础", "autoplay": "自动播放", "noLoop": "不循环", "banner": "横幅" },
-      "do": { "1": "自动播放间隔至少 4 秒以上,给用户阅读时间。", "2": "幻灯片不超过 5 张,指示器才有实际意义。" },
-      "dont": { "1": "不要把核心信息只放在轮播 — 第一张之后点击率骤降。", "2": "自动播放不要快于 3 秒,违反无障碍标准。" },
-      "a11y": "Carousel 使用 role='region' + aria-label 标识,各 slide 通过 aria-hidden 表示活动状态。箭头与指示器均可键盘访问。"
+      "examples": {
+        "default": "基础",
+        "autoplay": "自动播放",
+        "noLoop": "不循环",
+        "banner": "横幅"
+      },
+      "do": {
+        "1": "自动播放间隔至少 4 秒以上,给用户阅读时间。",
+        "2": "幻灯片不超过 5 张,指示器才有实际意义。"
+      },
+      "dont": {
+        "1": "不要把核心信息只放在轮播 — 第一张之后点击率骤降。",
+        "2": "自动播放间隔不要短于 3 秒,否则还没读完就翻过去了。"
+      },
+      "a11y": "通过 role='region' 与 aria-roledescription='carousel' 标识,画面外的幻灯片带 inert,完全从 Tab 顺序和无障碍树中移除。指示器遵循 tablist 约定(roving tabindex、方向键、Home/End),并保证 24×24 的点击区域。自动播放可通过悬停、聚焦或暂停按钮停止;若系统开启了「减少动态效果」,则一开始就不会播放(WCAG 2.2.2)。"
     },
     "tabs": {
       "description": "组合组件式 Tabs。支持方向键导航与水平/垂直方向。",
       "props": {
-        "Root.value": "活动 Tab(受控)。",
-        "Root.defaultValue": "初始活动 Tab。",
-        "Root.onChange": "Tab 变更回调。",
-        "Root.orientation": "方向。'horizontal'(默认)/ 'vertical'。",
-        "Trigger.value": "Trigger 标识。",
-        "Trigger.disabled": "禁用状态。"
+        "List": {
+          "aria-label": "标签栏(tablist)的无障碍标签。同一屏幕上有多组标签时请务必加以区分。"
+        },
+        "Root": {
+          "value": "活动 Tab(受控)。",
+          "defaultValue": "初始选中的标签。省略时会自动选中第一个 Trigger。",
+          "onChange": "Tab 变更回调。",
+          "orientation": "方向。'horizontal'(默认)/ 'vertical'。方向键映射也会随之改变。",
+          "children": "Tabs.List 与 Tabs.Panel,构成复合结构的子元素。"
+        },
+        "Trigger": {
+          "value": "Trigger 标识。",
+          "disabled": "禁用状态。"
+        }
       },
-      "examples": { "default": "基础", "vertical": "垂直", "disabled": "禁用 Tab", "settings": "设置面板" },
-      "do": { "1": "Tab 数量 4 个以内最佳,更多请考虑侧栏导航。", "2": "每个 Tab 标签控制在 1~2 个词。" },
-      "dont": { "1": "不要把 Tab 用于页面级路由 — Tab 用于同上下文分类。", "2": "Tab 不要嵌套 Tab。" },
-      "a11y": "Tabs 实现完整的 WAI-ARIA tabs 模式(tablist/tab/tabpanel + aria-selected/aria-controls)。键盘左右(或上下)方向键切换 trigger。"
+      "examples": {
+        "default": "基础",
+        "vertical": "垂直",
+        "disabled": "禁用 Tab",
+        "settings": "设置面板"
+      },
+      "do": {
+        "1": "Tab 数量 4 个以内最佳,更多请考虑侧栏导航。",
+        "2": "每个 Tab 标签控制在 1~2 个词。"
+      },
+      "dont": {
+        "1": "不要把 Tab 用于页面级路由 — Tab 用于同上下文分类。",
+        "2": "Tab 不要嵌套 Tab。"
+      },
+      "a11y": "以 role=tablist/tab/tabpanel 与 aria-selected/aria-controls 实现完整的 ARIA 模式。键盘操作为 ←→(纵向时 ↑↓)循环移动,Home/End 跳到首尾。即使省略 defaultValue 也会自动选中第一个标签,因此不会出现 roving tabindex 失效、整条标签栏键盘无法到达的情况。面板获得焦点时会显示焦点环。"
     },
     "modal": {
-      "description": "覆盖式对话框。内置焦点陷阱、ESC 关闭、点击遮罩关闭。",
+      "description": "浮层对话框。自动应用焦点陷阱、ESC 关闭、点击遮罩关闭、背景滚动锁定以及对辅助技术屏蔽背景。",
       "props": {
         "isOpen": "打开状态(必需)。",
         "onClose": "关闭回调(必需)。",
@@ -292,57 +527,111 @@
         "children": "正文。",
         "footer": "底部(如按钮组)。",
         "size": "尺寸。'sm' / 'md'(默认)/ 'lg' / 'xl'。",
-        "closeOnOverlayClick": "点击遮罩关闭(默认 true)。",
+        "closeOnOverlayClick": "点击遮罩关闭(默认 true)。只有按下动作起始于遮罩时才会关闭,因此在正文中拖拽选中文字后在外部松开不会误关。",
         "closeOnEscape": "ESC 关闭(默认 true)。",
-        "showCloseButton": "显示关闭按钮(默认 true)。"
+        "showCloseButton": "显示关闭按钮(默认 true)。",
+        "initialFocusRef": "打开时接收焦点的元素。省略时焦点落在对话框内第一个可聚焦元素(通常是关闭按钮)。可用于让删除确认框先聚焦在「取消」上。"
       },
-      "examples": { "default": "基础打开/关闭", "destructive": "删除确认", "noClose": "强制确认", "long": "长内容滚动" },
-      "do": { "1": "始终提供 title,让用户了解对话框目的。", "2": "破坏性操作的 footer 用 secondary(取消)+ danger(确认)两按钮。" },
-      "dont": { "1": "不要在 Modal 内嵌套 Modal — 用户会迷失。", "2": "信息传达不要滥用 Modal,页面或 Toast 通常足够。" },
-      "a11y": "Modal 设置 role='dialog' + aria-modal='true' 并启用焦点陷阱,确保键盘用户只在 Modal 内部移动。ESC 与遮罩点击默认开启。"
+      "examples": {
+        "default": "基础打开/关闭",
+        "destructive": "删除确认",
+        "noClose": "强制确认",
+        "long": "长内容滚动",
+        "initialFocus": "指定初始焦点"
+      },
+      "do": {
+        "1": "始终提供 title,让用户了解对话框目的。",
+        "2": "危险操作请在 footer 中放置 secondary(取消)+ danger(确认)两个按钮,并用 initialFocusRef 把焦点放在取消上。"
+      },
+      "dont": {
+        "1": "不要在 Modal 内嵌套 Modal — 用户会迷失。",
+        "2": "信息传达不要滥用 Modal,页面或 Toast 通常足够。"
+      },
+      "a11y": "带有 role='dialog' 与 aria-modal='true',并用焦点陷阱把键盘移动限制在对话框内。焦点陷阱只能拦截 Tab,因此还会给背景加上 aria-hidden 与 inert,阻止读屏软件的转子与滑动浏览(Toast 容器除外)。背景滚动采用 position: fixed 方式锁定,在 iOS Safari 上同样有效,关闭时恢复位置。多层叠加时,ESC 只作用于最上层。",
+      "code": {
+        "longScroll": "正文较长时会在对话框内部滚动。"
+      }
     },
     "tooltip": {
-      "description": "悬停/聚焦时显示的辅助说明覆盖层。位置通过 @floating-ui 自动计算。",
+      "description": "悬停/聚焦时显示补充说明的小型浮层。渲染到 body 传送门中,在 overflow 祖先内也不会被裁切。",
       "props": {
         "content": "Tooltip 内容(必需)。",
-        "children": "触发元素(必需,单个 element)。",
+        "children": "触发元素(必填,单个 React 元素)。传入字符串或多个元素时会抛出明确指出如何修正的错误。",
         "placement": "位置。'top'(默认)等 12 种。",
         "delay": "显示延迟(ms,默认 200)。",
-        "disabled": "禁用(默认 false)。"
+        "disabled": "禁用(默认 false)。在显示状态下变为 true 会立即关闭。"
       },
-      "examples": { "default": "基础", "placement": "位置", "delay": "延迟", "shortcut": "快捷键提示" },
-      "do": { "1": "Tooltip 仅用于辅助信息 — 关键信息必须始终可见。", "2": "短文本(快捷键、图标含义)是最佳场景。" },
-      "dont": { "1": "Tooltip 内不要放交互元素(按钮、链接)— 键盘无法访问。", "2": "触屏设备无法访问 hover — 不要把核心信息只放 Tooltip。" },
-      "a11y": "Tooltip 通过 aria-describedby 与触发器关联,屏幕阅读器会读出辅助说明。键盘聚焦也能触发显示。"
+      "examples": {
+        "default": "基础",
+        "placement": "位置",
+        "delay": "延迟",
+        "shortcut": "快捷键提示"
+      },
+      "do": {
+        "1": "Tooltip 仅用于辅助信息 — 关键信息必须始终可见。",
+        "2": "短文本(快捷键、图标含义)是最佳场景。"
+      },
+      "dont": {
+        "1": "Tooltip 内不要放交互元素(按钮、链接)— 键盘无法访问。",
+        "2": "触屏设备无法访问 hover — 不要把核心信息只放 Tooltip。"
+      },
+      "a11y": "floating-ui 的 role hook 会把触发元素的 aria-describedby 与提示框的 id 关联为同一取值,读屏软件因此能读出说明。键盘聚焦时也会显示,按 ESC 关闭。在模态框正文或轮播视口这类会裁切的祖先内,body 传送门加 fixed 策略可保证完整显示。"
     },
     "dropdownMenu": {
-      "description": "点击触发的下拉菜单。支持方向键和 Enter/Space。",
+      "description": "点击触发的下拉菜单。键盘操作遵循 WAI-ARIA APG 菜单模式,并渲染到 body 传送门中。",
       "props": {
-        "trigger": "触发元素(必需)。",
+        "trigger": "触发元素(必填,单个 React 元素)。",
         "items": "菜单项数组(必需)。DropdownMenuItem[]。",
         "placement": "菜单位置(默认 'bottom-start')。"
       },
-      "examples": { "default": "基础", "destructive": "包含破坏性操作", "disabled": "部分禁用", "actions": "行操作" },
-      "do": { "1": "破坏性操作请用 destructive: true 提供清晰视觉提示。", "2": "5 个以上项目时按类别做视觉分组。" },
-      "dont": { "1": "不要在 DropdownMenu 中放置表单 — 菜单用于操作。", "2": "无文字图标按钮务必添加 aria-label。" },
-      "a11y": "DropdownMenu 使用 role='menu' / role='menuitem',方向键切换、Enter/Space 触发。外部点击与 ESC 自动关闭。"
+      "examples": {
+        "default": "基础",
+        "destructive": "包含破坏性操作",
+        "disabled": "部分禁用",
+        "actions": "行操作"
+      },
+      "do": {
+        "1": "破坏性操作请用 destructive: true 提供清晰视觉提示。",
+        "2": "5 个以上项目时按类别做视觉分组。"
+      },
+      "dont": {
+        "1": "不要在 DropdownMenu 中放置表单 — 菜单用于操作。",
+        "2": "无文字图标按钮务必添加 aria-label。"
+      },
+      "a11y": "使用 role='menu' / role='menuitem'。在触发元素上按 ↑/↓ 或 Enter/Space 打开时,焦点移动到第一(或最后)项;↑/↓ 循环移动并跳过禁用项。按 ESC 或点击外部关闭,焦点恢复到触发元素。菜单项减少后方向键也不会指向已消失的项。渲染到 body 传送门中,在 overflow 祖先内不会被裁切。"
     },
     "toast": {
       "description": "全局通知系统。在应用根部包裹 ToastProvider,然后用 useToast 调用。",
       "props": {
-        "ToastProvider.position": "显示位置。'top-left' / 'top-right' / 'top-center' / 'bottom-left' / 'bottom-right'(默认)/ 'bottom-center'。",
-        "ToastProvider.maxToasts": "同时显示最大数量(默认 5)。",
-        "useToast.show": "通用 toast(toast.show(message, options))。",
-        "useToast.success": "成功变体。",
-        "useToast.warning": "警告变体。",
-        "useToast.danger": "错误变体。",
-        "useToast.info": "信息变体。",
-        "useToast.dismiss": "关闭指定 toast。"
+        "ToastProvider": {
+          "position": "显示位置。'top-left' / 'top-right' / 'top-center' / 'bottom-left' / 'bottom-right'(默认)/ 'bottom-center'。",
+          "maxToasts": "同时显示的最大数量(默认 5)。传入 0 或更小时也至少保留 1 个。",
+          "children": "Provider 包裹的应用树。Toast 本身渲染到该树之外的传送门中。"
+        },
+        "useToast": {
+          "show": "通用 toast(toast.show(message, options))。",
+          "success": "成功变体。",
+          "warning": "警告变体。",
+          "danger": "错误变体。",
+          "info": "信息变体。",
+          "dismiss": "关闭指定 toast。"
+        }
       },
-      "examples": { "default": "成功/失败", "danger": "错误 toast", "duration": "长显示时间", "stack": "堆叠显示" },
-      "do": { "1": "Toast 信息一句话直击重点。", "2": "duration 与信息长度成比例,长信息 5000~7000ms。" },
-      "dont": { "1": "不要用 Toast 显示表单校验错误 — 字段旁错误更精确。", "2": "不要同时显示 5 个以上 Toast,通过 maxToasts 限制。" },
-      "a11y": "Toast 容器为 role='region',各 toast 根据 variant 使用 role='alert'(warning/danger)或 role='status'(info/success),屏幕阅读器会相应通告。"
+      "examples": {
+        "default": "成功/失败",
+        "danger": "错误 toast",
+        "duration": "长显示时间",
+        "stack": "堆叠显示"
+      },
+      "do": {
+        "1": "Toast 信息一句话直击重点。",
+        "2": "duration 与信息长度成比例,长信息 5000~7000ms。"
+      },
+      "dont": {
+        "1": "不要用 Toast 显示表单校验错误 — 字段旁错误更精确。",
+        "2": "不要同时弹出 5 个以上的 Toast,请用 maxToasts 限制。"
+      },
+      "a11y": "Toast 容器即使没有内容也始终保持挂载,并带有 role='region' 与 aria-live='polite' —— 只有 live region 先于内容存在,读屏软件才会朗读变化。warning 与 danger 需要立即告知,因此额外提升为 role='alert'。鼠标悬停或焦点进入容器时自动消失的计时会暂停,离开后从剩余时间继续(WCAG 2.2.1)。"
     },
     "text": {
       "description": "正文文本组件。支持多种 size、weight、color 令牌。",
@@ -354,9 +643,20 @@
         "align": "textAlign。",
         "truncate": "true 时单行省略号。"
       },
-      "examples": { "default": "基础", "sizes": "尺寸", "colors": "颜色", "truncate": "省略" },
-      "do": { "1": "使用语义色让含义透传(danger=错误)。", "2": "长正文使用默认 size + 行高 即可,无需特殊调整。" },
-      "dont": { "1": "不要用 Text size='4xl' 当标题 — 语义不同,请用 Heading。", "2": "不要直接传任意 hex 给 color — 优先使用语义令牌。" },
+      "examples": {
+        "default": "基础",
+        "sizes": "尺寸",
+        "colors": "颜色",
+        "truncate": "省略"
+      },
+      "do": {
+        "1": "使用语义色让含义透传(danger=错误)。",
+        "2": "长正文使用默认 size + 行高 即可,无需特殊调整。"
+      },
+      "dont": {
+        "1": "不要用 Text size='4xl' 当标题 — 语义不同,请用 Heading。",
+        "2": "不要直接传任意 hex 给 color — 优先使用语义令牌。"
+      },
       "a11y": "Text 默认渲染 p,屏幕阅读器读作段落。as=\"span\" 内联使用时可能需要额外 ARIA 表达含义。"
     },
     "heading": {
@@ -367,9 +667,20 @@
         "color": "文本颜色(CSS 变量或颜色值)。",
         "align": "textAlign。"
       },
-      "examples": { "default": "默认 h2", "h1Page": "页面标题 (h1)", "decoupled": "层级与尺寸分离", "section": "章节标题" },
-      "do": { "1": "页面顶部标题始终只用一个 as='h1'。", "2": "需要小尺寸时可 as='h2' size='sm',语义保持完整。" },
-      "dont": { "1": "不要为了样式跳过标题层级(禁止 h1 直接到 h3)。", "2": "搜索结果之类重复项不要全部用 h2 — 视觉处理即可。" },
+      "examples": {
+        "default": "默认 h2",
+        "h1Page": "页面标题 (h1)",
+        "decoupled": "层级与尺寸分离",
+        "section": "章节标题"
+      },
+      "do": {
+        "1": "页面顶部标题始终只用一个 as='h1'。",
+        "2": "需要小尺寸时可 as='h2' size='sm',语义保持完整。"
+      },
+      "dont": {
+        "1": "不要为了样式跳过标题层级(禁止 h1 直接到 h3)。",
+        "2": "搜索结果之类重复项不要全部用 h2 — 视觉处理即可。"
+      },
       "a11y": "Heading 渲染为语义化 h1~h6,屏幕阅读器据此进行地标导航。请保持层级顺序,方便用户快速浏览页面。"
     },
     "label": {
@@ -378,9 +689,20 @@
         "htmlFor": "关联 input 的 id。",
         "required": "显示必填标记,true 时添加红色 *。"
       },
-      "examples": { "default": "基础", "required": "必填标记", "withInput": "与 Input 一起", "fieldset": "fieldset/legend 模式" },
-      "do": { "1": "htmlFor 与 input id 完全一致 — 点击标签即可聚焦输入。", "2": "Input/Textarea/Select 直接使用 label prop 即可,无需另加 Label。" },
-      "dont": { "1": "不要把 Label 作为 input 内浮动 placeholder — 输入时消失,损害无障碍。", "2": "不要只用 placeholder 不用 label — 屏幕阅读器无法识别字段。" },
+      "examples": {
+        "default": "基础",
+        "required": "必填标记",
+        "withInput": "与 Input 一起",
+        "fieldset": "fieldset/legend 模式"
+      },
+      "do": {
+        "1": "htmlFor 与 input id 完全一致 — 点击标签即可聚焦输入。",
+        "2": "Input/Textarea/Select 直接使用 label prop 即可,无需另加 Label。"
+      },
+      "dont": {
+        "1": "不要把 Label 作为 input 内浮动 placeholder — 输入时消失,损害无障碍。",
+        "2": "不要只用 placeholder 不用 label — 屏幕阅读器无法识别字段。"
+      },
       "a11y": "Label 通过 htmlFor 显式关联 input,点击聚焦,屏幕阅读器读出字段名称。"
     },
     "box": {
@@ -398,7 +720,8 @@
         "display": "display 属性。",
         "width": "宽度(CSS 值)。",
         "height": "高度(CSS 值)。",
-        "overflow": "overflow 属性。"
+        "overflow": "overflow 属性。",
+        "position": "position 属性。"
       },
       "examples": {
         "default": "基础用法",
@@ -523,10 +846,10 @@
     "input": {
       "description": "内建支持标签、提示和错误信息的文本输入组件。",
       "props": {
-        "id": "input 的 id,用于自动关联标签。",
+        "id": "input 的 id。省略时内部会生成唯一 id 来关联标签、提示与错误信息。",
         "label": "标签文本,提供时会自动渲染 Label 组件。",
         "hint": "提示信息,在没有错误时显示在输入框下方。",
-        "error": "错误信息,非空时会以红色边框和 alert role 显示。",
+        "error": "错误信息。非空时显示红色边框,并以 role='alert' 呈现。",
         "required": "是否必填。为 true 时标签会出现红色 *。",
         "type": "input 的 type,支持 email、password、number 等所有标准类型。",
         "placeholder": "无值时显示的占位符文本。",
@@ -541,18 +864,18 @@
       },
       "do": {
         "1": "错误信息要具体到解决方案,例如「至少输入 8 个字符」。",
-        "2": "始终用 id 关联 label 与 input,不要仅用 placeholder 替代标签。"
+        "2": "使用 label 属性即可自动完成关联。不要用 placeholder 代替标签。"
       },
       "dont": {
         "1": "不要使用「发生错误」这种抽象错误信息 — 用户不知道要修改什么。",
         "2": "不要仅用星号标记必填项 — 同时设置 required prop。"
       },
-      "a11y": "Input 通过 id 与 label 关联,屏幕阅读器会正确读出字段名。错误状态下会自动添加 aria-invalid='true' 与 aria-describedby,提示亦通过 aria-describedby 连接。"
+      "a11y": "label 与 id 关联,读屏软件因此能准确读出字段名称。即使不指定 id,内部唯一 id 也能保持关联,多个字段并排时引用不会冲突。错误状态下会加上 aria-invalid='true',错误与提示通过 aria-describedby 关联,而你自己传入的 aria-describedby 会被合并而不是覆盖。"
     },
     "textarea": {
       "description": "多行文本输入。遵循与 Input 相同的 label/hint/error 模式。",
       "props": {
-        "id": "textarea 的 id。",
+        "id": "textarea 的 id。省略时内部会生成唯一 id 来关联标签、提示与错误信息。",
         "label": "标签文本。",
         "hint": "提示信息。",
         "error": "错误信息。",
@@ -574,12 +897,12 @@
         "1": "单行输入请用 Input,不要用 Textarea。",
         "2": "不要强制 resize: none — 让用户可以调整高度。"
       },
-      "a11y": "Textarea 同样通过 id 与 label 关联,错误状态自动应用 aria-invalid。默认 resize: vertical 也方便键盘用户调整高度。"
+      "a11y": "遵循与 Input 相同的约定 —— 自动生成 id、错误时 aria-invalid、错误与提示的 aria-describedby 关联,以及与你传入的 aria-describedby 合并。默认 resize: vertical,仅用键盘也能调整大小。"
     },
     "checkbox": {
       "description": "复选框。同时支持受控与非受控用法。",
       "props": {
-        "id": "checkbox 的 id。",
+        "id": "checkbox 的 id。省略时标签也会保持显式关联。",
         "label": "复选框旁的标签。",
         "checked": "选中状态(受控)。",
         "defaultChecked": "初始选中状态(非受控)。",
@@ -600,12 +923,12 @@
         "1": "单一 ON/OFF 设置请用 Switch,Checkbox 适合多选。",
         "2": "不要禁用必填同意项,而是用错误信息提示。"
       },
-      "a11y": "Checkbox 渲染为语义化的 input[type=checkbox],按 Space 即可切换。禁用状态也会通过 aria-disabled 表达。"
+      "a11y": "渲染为语义化的 input[type=checkbox],可用键盘 Space 切换。即使不指定 id,内部唯一 id 也会与 label 关联,点击标签始终有效。"
     },
     "radio": {
       "description": "单选按钮。同 name 分组中只能选中一项。",
       "props": {
-        "id": "radio 的 id。",
+        "id": "radio 的 id。省略时标签也会保持显式关联。",
         "name": "分组名,同组的 radio 必须共享相同的 name。",
         "value": "选中时通过 onChange 传出的值。",
         "label": "radio 旁的标签。",
@@ -627,15 +950,15 @@
         "1": "若仅 2 个切换式选项,请用 Switch 而非 Radio。",
         "2": "非必填的 radio 组不要全部留空 — 提供默认选择。"
       },
-      "a11y": "Radio 渲染为 input[type=radio],可以用方向键在组内切换。label/id 关联让屏幕阅读器了解分组含义。"
+      "a11y": "渲染为 input[type=radio],可用方向键在组内移动。即使不指定 id,内部唯一 id 也会与 label 关联。"
     },
     "select": {
       "description": "下拉选择。选项通过 options prop 传入。",
       "props": {
-        "id": "select 的 id。",
+        "id": "select 的 id。省略时内部会生成唯一 id 来关联标签、提示与错误信息。",
         "label": "标签文本。",
         "options": "选项数组。SelectOption[],含 value/label/disabled。",
-        "placeholder": "占位选项的文本。",
+        "placeholder": "默认引导选项的文字。未提供 value/defaultValue 时,该选项即为初始选中项。",
         "hint": "提示信息。",
         "error": "错误信息。",
         "required": "是否必填。",
@@ -649,18 +972,18 @@
       },
       "do": {
         "1": "选项 6 个以上时 Select 合适,5 个以内 Radio 更易读。",
-        "2": "仅在没有合理默认值时使用 placeholder。"
+        "2": "只有在默认值不明确时才使用 placeholder。提供 placeholder 后,无需额外的 defaultValue 也会先显示引导文字。"
       },
       "dont": {
         "1": "不要只用代码缩写做选项标签,使用用户可理解的名称。",
         "2": "必填字段不要只显示 placeholder 而省略 required prop。"
       },
-      "a11y": "Select 使用原生 select 元素,系统级无障碍与移动端 UX 都有保障。错误状态会自动加上 aria-invalid。"
+      "a11y": "使用原生 select 元素,各平台的无障碍与移动端体验自然得到保证。即使不指定 id 也会关联标签;错误状态下自动附加 aria-invalid 与 aria-describedby,并与你传入的 aria-describedby 合并。"
     },
     "switch": {
       "description": "即时 ON/OFF 切换。与 Checkbox 不同,适合即时生效的设置 UI。",
       "props": {
-        "id": "switch 的 id。",
+        "id": "switch 的 id。省略时标签也会保持显式关联。",
         "label": "切换旁的标签。",
         "size": "切换尺寸。sm 28×16,md 36×20,lg 44×24 像素。",
         "checked": "状态(受控)。",
@@ -682,14 +1005,14 @@
         "1": "不要再加「开/关」辅助文字 — 视觉状态已经清晰。",
         "2": "若需批量切换后统一应用,请用 Checkbox + 应用按钮。"
       },
-      "a11y": "Switch 渲染为 input[role=switch],屏幕阅读器会识别为开关。Space 可以切换,aria-checked 表达当前状态。"
+      "a11y": "渲染为 input[role=switch],读屏软件会识别为开关。可用键盘 Space 切换,并通过 aria-checked 报告状态。即使不指定 id 也会关联标签。"
     },
     "button": {
       "description": "触发用户操作的按钮。支持 4 种 variant、3 种 size,以及加载、禁用和图标状态。",
       "props": {
         "variant": "按钮的视觉样式。primary 用于最重要的操作。",
         "size": "按钮高度:'sm' = 32px,'md' = 40px,'lg' = 48px。",
-        "isLoading": "为 true 时显示加载指示并禁用点击。会自动设置 aria-busy。",
+        "isLoading": "为 true 时显示加载指示器并禁用点击,自动附加 aria-busy 与 aria-disabled。",
         "disabled": "为 true 时按钮在视觉与功能上均被禁用。",
         "leftIcon": "渲染在文本左侧的图标节点,接受任意 ReactNode。",
         "rightIcon": "渲染在文本右侧的图标节点。"
@@ -710,7 +1033,7 @@
         "1": "避免在同一页面或区块内放置多个 primary 按钮 — 它们会互相争夺注意力。",
         "2": "不要同时传入 isLoading 与 disabled。isLoading 已经会禁用交互。"
       },
-      "a11y": "Button 渲染为语义化的 <button> 元素,并响应 Enter/Space 键。当 isLoading 为 true 时,会自动设置 aria-busy='true' 与 aria-disabled='true',以便辅助技术宣告进行中。对于仅含图标的按钮,请添加 aria-label 以传达含义。"
+      "a11y": "渲染为语义化 <button>,可用键盘 Enter/Space 操作。isLoading 状态下会附加 aria-busy='true' 与 aria-disabled='true'。变为 disabled 的瞬间浏览器会把焦点抛回 body,键盘用户因此失去位置 —— 加载结束后,只要期间没有其他元素接管焦点,就会把焦点交还给按钮。纯图标按钮请补充 aria-label。"
     }
   },
   "componentPage": {
@@ -737,5 +1060,140 @@
     "noExamples": "暂无示例。",
     "noBestPractices": "暂无最佳实践。",
     "noRelated": "无相关组件。"
+  },
+  "themeToggle": {
+    "label": "主题",
+    "light": "浅色",
+    "dark": "深色",
+    "system": "跟随系统"
+  },
+  "i18n": {
+    "title": "多语言",
+    "intro": "指定组件自身朗读的内置文案语言。内置 ko(默认)· en · ja · zh,并可按键覆盖。",
+    "why": {
+      "title": "为什么需要",
+      "body": "模态框的「关闭」、加载指示器的「加载中」、轮播的「下一张」等标签由组件自己生成。它们大多不显示在画面上,只会被读屏软件读出,因此用肉眼很难发现问题,但写死的韩语对其他语种的用户就是一道障碍。"
+    },
+    "setup": {
+      "title": "设置",
+      "intro": "用 DesignSystemProvider 包裹应用根节点并指定 locale。",
+      "optional": "并非必需。没有 Provider 时默认使用韩语,现有代码无需改动。",
+      "localeList": "支持的语言列表与默认值也作为常量导出。自行构建语言选择器时请遍历它,而不要写死列表。"
+    },
+    "next": {
+      "title": "Next.js App Router",
+      "intro": "Provider 是客户端组件,请单独放在一个文件中再由布局使用。ToastProvider 会从内置文案读取自身区域标签,因此 DesignSystemProvider 必须位于其外层。"
+    },
+    "strings": {
+      "title": "文案键",
+      "intro": "下表不是抄写到文档里的值,而是直接读取包实际导出的内容生成的。{index} 这类花括号占位符会在渲染时被替换。",
+      "caption": "内置文案键及各语言取值",
+      "key": "键",
+      "usedBy": "使用组件"
+    },
+    "override": {
+      "title": "覆盖文案",
+      "intro": "把想修改的键传给 strings 属性,其余键仍使用该语言的默认值。",
+      "customLocale": {
+        "title": "未内置的语言",
+        "body": "要使用 locale 未覆盖的语言,请把完整的 DsStrings 传给 strings。先展开最接近的内置语言,再只修改需要的键,可以避免遗漏。"
+      }
+    },
+    "consumer": {
+      "title": "在自有组件中使用",
+      "intro": "useDsStrings 与 useDsFormat 可直接读取同一批文案。没有 Provider 时会返回默认语言的取值,因此在任何位置调用都是安全的。"
+    },
+    "caveats": {
+      "title": "注意事项",
+      "noAutoDetect": "不会自动检测浏览器语言。服务端与客户端的判断可能不同,会造成 SSR 注水不一致,因此 locale 必须显式传入。",
+      "defaultKo": "默认语言是 'ko'。这是为了保持既有行为;若希望以英语为基准,请显式指定 locale=\"en\"。",
+      "contentStrings": "这些文案只涵盖组件的内置标签。按钮文字、模态框标题等由你传入的内容,请用你自己的 i18n 工具翻译。"
+    },
+    "code": {
+      "englishStrings": "此范围内的所有组件都使用英文内置文案",
+      "toastOutside": "ToastProvider 会从内置文案读取自身区域标签,因此放在外层。",
+      "buildPicker": "直接用内置语言列表构建语言选择器。",
+      "onlyGivenKeys": "只有指定的键被替换,其余仍使用该语言的取值。",
+      "fillAllKeys": "未内置的语言需要传入全部键。",
+      "restOfKeys": "... 其余的键",
+      "formatResult": "结果"
+    }
+  },
+  "runtimeApi": {
+    "title": "运行时 API",
+    "intro": "除组件之外包所导出的内容 —— 6 个 Hook、16 组取值常量、令牌常量与通用类型。",
+    "hooks": {
+      "title": "Hook",
+      "intro": "把组件内部值得复用的逻辑公开了出来。当你要自己实现设计系统未提供的浮层时,可以直接获得与 Modal 相同的行为。 它们都是客户端 Hook,在 Next.js App Router 中请在带 'use client' 的文件里使用。",
+      "items": {
+        "useBodyScrollLock": {
+          "description": "激活期间锁定 <body> 滚动。由于 iOS Safari 会忽略 overflow: hidden,采用 position: fixed 并在解除时恢复滚动位置。"
+        },
+        "useControllable": {
+          "description": "统一处理受控与非受控。若中途模式发生变化(value 在取值与 undefined 之间来回),开发模式下会发出警告。"
+        },
+        "useEscapeKey": {
+          "description": "接入 ESC 关闭。内部维护栈结构,多个浮层重叠时只有最后激活的那个会响应。"
+        },
+        "useFocusTrap": {
+          "description": "把焦点限制在容器内。激活时移动到 initialFocus(未指定则为第一个可聚焦元素),停用时恢复到之前的元素。"
+        },
+        "useInertBackground": {
+          "description": "对辅助技术隐藏背景内容。焦点陷阱只能拦截 Tab,要连读屏软件的转子与滑动浏览一并拦截就需要它。"
+        },
+        "usePrefersReducedMotion": {
+          "description": "读取系统的「减少动态效果」设置。自动播放、自动轮转等会自行运动的 UI,在该值为 true 时必须停止(WCAG 2.2.2)。"
+        }
+      }
+    },
+    "constants": {
+      "title": "取值常量",
+      "intro": "只有类型的话,无法在代码中遍历「有哪些可选值」。构建 variant 选择器,或校验来自服务端的字符串时会用到。下表本身也是遍历这些常量生成的。",
+      "caption": "取值常量及其实际取值",
+      "headings": {
+        "name": "常量",
+        "component": "组件",
+        "values": "取值"
+      }
+    },
+    "tokenConstants": {
+      "title": "令牌常量",
+      "intro": "在 TypeScript 中引用设计令牌。取值不是写死的颜色而是 CSS 变量引用字符串,因此覆盖主题时使用它们的地方也会一起跟随。"
+    },
+    "types": {
+      "title": "通用类型",
+      "intro": "包导出的 38 个类型。大多数组件 Props 类型都已暴露,但存在例外,因此下面完整列出。",
+      "groups": {
+        "componentProps": "组件 Props",
+        "provider": "Provider Props",
+        "data": "辅助数据类型",
+        "polymorphic": "多态工具类型",
+        "common": "通用值类型",
+        "tokenKeys": "令牌键",
+        "i18n": "i18n"
+      },
+      "noProps": {
+        "title": "未导出 Props 类型的组件",
+        "body": "Box · Flex · Grid · Stack · Container · Text 这 6 个因 as prop 而是泛型,不导出 Props 类型。需要默认元素对应的类型时,用 React 工具类型取出即可。"
+      },
+      "polymorphic": {
+        "title": "构建多态组件",
+        "body": "借助 PolymorphicProps,可以按与设计系统完全相同的约定构建自己的 as prop 组件。"
+      }
+    },
+    "code": {
+      "scrollLockRefCount": "叠加打开时通过引用计数只锁定一次,最后一个关闭时恢复。",
+      "controllableMode": "传入 value 即为受控;不传则由内部维护状态。",
+      "escapeTopmost": "多个浮层重叠时,只有最后激活的那个会响应。",
+      "focusTrapInitial": "打开时焦点落在「取消」,关闭时恢复到之前的元素。",
+      "inertWhy": "焦点陷阱只能拦截 Tab。要连转子与滑动浏览一并拦截就需要它。",
+      "inertLayers": "带 data-ds-layer 的 Toast 容器等不会被处理。",
+      "reducedMotionSsr": "在 SSR 及没有 matchMedia 的环境中始终返回 false。",
+      "constantsPicker": "直接用取值列表构建 variant 选择器",
+      "constantsValidate": "在运行时校验来自服务端的字符串是否为合法取值",
+      "tokenConstantsNote": "取值是 CSS 变量引用字符串,覆盖主题时它们也会一起跟随。",
+      "typesNote": "以与设计系统相同的方式构建支持 as prop 的组件。",
+      "polymorphicNoProps": "这 6 个不导出 Props 类型 —— 用 React 工具类型取出。"
+    }
   }
 }

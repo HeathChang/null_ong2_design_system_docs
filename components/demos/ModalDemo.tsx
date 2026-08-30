@@ -1,14 +1,39 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Button, Modal, Stack } from 'null_ong2-design-system';
 
 interface ModalDemoProps {
-  variant?: 'default' | 'destructive' | 'noClose' | 'long';
+  variant?: 'default' | 'destructive' | 'noClose' | 'long' | 'initialFocus';
 }
 
 export function ModalDemo({ variant = 'default' }: ModalDemoProps) {
   const [open, setOpen] = useState(false);
+  const cancelRef = useRef<HTMLButtonElement>(null);
+
+  if (variant === 'initialFocus') {
+    return (
+      <>
+        <Button variant="danger" onClick={() => setOpen(true)}>계정 삭제</Button>
+        <Modal
+          isOpen={open}
+          onClose={() => setOpen(false)}
+          title="계정을 삭제할까요?"
+          initialFocusRef={cancelRef}
+          footer={
+            <Stack direction="row" spacing="sm" justify="flex-end">
+              <Button ref={cancelRef} variant="secondary" onClick={() => setOpen(false)}>
+                취소
+              </Button>
+              <Button variant="danger" onClick={() => setOpen(false)}>삭제</Button>
+            </Stack>
+          }
+        >
+          열자마자 &lsquo;취소&rsquo;에 포커스가 갑니다. Enter를 눌러도 삭제되지 않습니다.
+        </Modal>
+      </>
+    );
+  }
 
   if (variant === 'destructive') {
     return (

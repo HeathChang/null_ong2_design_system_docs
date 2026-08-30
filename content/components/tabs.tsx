@@ -54,9 +54,11 @@ export const tabsDoc: ComponentDoc = {
   importStatement: `import { Tabs } from 'null_ong2-design-system';`,
   props: [
     { name: 'Root.value', type: 'string', default: '—', required: false, descriptionKey: 'components.tabs.props.Root.value' },
-    { name: 'Root.defaultValue', type: 'string', default: '—', required: false, descriptionKey: 'components.tabs.props.Root.defaultValue' },
+    { name: 'Root.defaultValue', type: 'string', default: 'auto', required: false, descriptionKey: 'components.tabs.props.Root.defaultValue' },
     { name: 'Root.onChange', type: '(value: string) => void', default: '—', required: false, descriptionKey: 'components.tabs.props.Root.onChange' },
     { name: 'Root.orientation', type: "'horizontal' | 'vertical'", default: "'horizontal'", required: false, descriptionKey: 'components.tabs.props.Root.orientation' },
+    { name: 'Root.children', type: 'ReactNode', default: '—', required: true, descriptionKey: 'components.tabs.props.Root.children' },
+    { name: 'List.aria-label', type: 'string', default: '—', required: false, descriptionKey: 'components.tabs.props.List.aria-label' },
     { name: 'Trigger.value', type: 'string', default: '—', required: true, descriptionKey: 'components.tabs.props.Trigger.value' },
     { name: 'Trigger.disabled', type: 'boolean', default: 'false', required: false, descriptionKey: 'components.tabs.props.Trigger.disabled' },
   ],

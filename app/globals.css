@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * 문서 사이트 자체의 색 토큰.
+ *
+ * 선택자 구조는 디자인 시스템의 tokens.css와 동일하게 맞춘다 —
+ *   1. 아무 설정 없으면 OS를 따른다 (prefers-color-scheme)
+ *   2. [data-theme="dark"] / .dark 로 강제
+ *   3. [data-theme="light"] / .light 로 라이트 고정 (1번을 무력화)
+ * 하나의 data-theme 속성으로 사이트와 컴포넌트가 함께 전환되도록 하기 위함이다.
+ */
 :root {
   --site-bg: 255 255 255;
   --site-fg: 15 23 42;
@@ -9,10 +18,52 @@
   --site-border: 226 232 240;
   --site-font-sans: 'Inter', 'Pretendard';
   --site-font-mono: 'JetBrains Mono';
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light):not([data-theme='light']) {
+    --site-bg: 17 24 39;
+    --site-fg: 248 250 252;
+    --site-muted: 148 163 184;
+    --site-border: 51 65 85;
+    color-scheme: dark;
+  }
+}
+
+:root.dark,
+:root[data-theme='dark'] {
+  --site-bg: 17 24 39;
+  --site-fg: 248 250 252;
+  --site-muted: 148 163 184;
+  --site-border: 51 65 85;
+  color-scheme: dark;
 }
 
 html,
 body {
   background-color: rgb(var(--site-bg));
   color: rgb(var(--site-fg));
+}
+
+/*
+ * Shiki를 light/dark 두 테마로 하이라이트하면 각 토큰에
+ * `color: <light>; --shiki-dark: <dark>` 형태의 인라인 스타일이 붙는다.
+ * 다크일 때 그 변수를 실제 color로 승격시킨다.
+ * 인라인 스타일을 이기려면 !important가 필요하다.
+ */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light):not([data-theme='light']) .shiki,
+  :root:not(.light):not([data-theme='light']) .shiki span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
+}
+
+:root.dark .shiki,
+:root.dark .shiki span,
+:root[data-theme='dark'] .shiki,
+:root[data-theme='dark'] .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
 }

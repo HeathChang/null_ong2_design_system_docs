@@ -1,4 +1,4 @@
-import type { ComponentDoc } from '@/lib/types';
+import type { CodeComment, ComponentDoc } from '@/lib/types';
 import { ModalDemo } from '@/components/demos/ModalDemo';
 
 const DEFAULT_CODE = `const [open, setOpen] = useState(false);
@@ -35,8 +35,25 @@ const NO_CLOSE_CODE = `<Modal
   ...
 </Modal>`;
 
-const LONG_CODE = `<Modal isOpen={open} onClose={onClose} title="긴 본문" size="lg">
-  {/* 본문이 길면 자체 스크롤됩니다. */}
+const longCode = (c: CodeComment) => `<Modal isOpen={open} onClose={onClose} title="긴 본문" size="lg">
+  {/* ${c('components.modal.code.longScroll')} */}
+</Modal>`;
+
+const INITIAL_FOCUS_CODE = `const cancelRef = useRef<HTMLButtonElement>(null);
+
+<Modal
+  isOpen={open}
+  onClose={onClose}
+  title="계정을 삭제할까요?"
+  initialFocusRef={cancelRef}
+  footer={
+    <Stack direction="row" spacing="sm" justify="flex-end">
+      <Button ref={cancelRef} variant="secondary" onClick={onClose}>취소</Button>
+      <Button variant="danger" onClick={handleDelete}>삭제</Button>
+    </Stack>
+  }
+>
+  이 작업은 되돌릴 수 없습니다.
 </Modal>`;
 
 export const modalDoc: ComponentDoc = {
@@ -56,12 +73,14 @@ export const modalDoc: ComponentDoc = {
     { name: 'closeOnOverlayClick', type: 'boolean', default: 'true', required: false, descriptionKey: 'components.modal.props.closeOnOverlayClick' },
     { name: 'closeOnEscape', type: 'boolean', default: 'true', required: false, descriptionKey: 'components.modal.props.closeOnEscape' },
     { name: 'showCloseButton', type: 'boolean', default: 'true', required: false, descriptionKey: 'components.modal.props.showCloseButton' },
+    { name: 'initialFocusRef', type: 'RefObject<HTMLElement | null>', default: '—', required: false, descriptionKey: 'components.modal.props.initialFocusRef' },
   ],
   examples: [
     { tab: 'default', titleKey: 'components.modal.examples.default', preview: <ModalDemo variant="default" />, code: DEFAULT_CODE },
     { tab: 'variants', titleKey: 'components.modal.examples.destructive', preview: <ModalDemo variant="destructive" />, code: DESTRUCTIVE_CODE },
     { tab: 'states', titleKey: 'components.modal.examples.noClose', preview: <ModalDemo variant="noClose" />, code: NO_CLOSE_CODE },
-    { tab: 'real-world', titleKey: 'components.modal.examples.long', preview: <ModalDemo variant="long" />, code: LONG_CODE },
+    { tab: 'states', titleKey: 'components.modal.examples.initialFocus', preview: <ModalDemo variant="initialFocus" />, code: INITIAL_FOCUS_CODE },
+    { tab: 'real-world', titleKey: 'components.modal.examples.long', preview: <ModalDemo variant="long" />, code: longCode },
   ],
   bestPractices: {
     do: [{ key: 'components.modal.do.1' }, { key: 'components.modal.do.2' }],

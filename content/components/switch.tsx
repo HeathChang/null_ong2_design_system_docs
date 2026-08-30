@@ -28,7 +28,7 @@ export const switchDoc: ComponentDoc = {
   descriptionKey: 'components.switch.description',
   importStatement: `import { Switch } from 'null_ong2-design-system';`,
   props: [
-    { name: 'id', type: 'string', default: '—', required: false, descriptionKey: 'components.switch.props.id' },
+    { name: 'id', type: 'string', default: 'auto', required: false, descriptionKey: 'components.switch.props.id' },
     { name: 'label', type: 'string', default: '—', required: false, descriptionKey: 'components.switch.props.label' },
     { name: 'size', type: "'sm' | 'md' | 'lg'", default: "'md'", required: false, descriptionKey: 'components.switch.props.size' },
     { name: 'checked', type: 'boolean', default: '—', required: false, descriptionKey: 'components.switch.props.checked' },

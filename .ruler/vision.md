@@ -44,8 +44,8 @@ category: 하네스
 
 ## 3. 성공 기준 (Definition of Done for the Vision)
 
-- [ ] 디자인 시스템의 **25개 컴포넌트 모두** 상세 페이지 존재
-- [ ] **3개 언어(ko/en/zh) 100% 번역** 완료
+- [ ] 디자인 시스템의 **26개 컴포넌트 모두** 상세 페이지 존재
+- [ ] **4개 언어(ko/en/ja/zh) 100% 번역** 완료
 - [ ] 컴포넌트 페이지 **LCP < 2.5s** (Lighthouse 모바일 기준)
 - [ ] **Lighthouse Accessibility 점수 95 이상**
 - [ ] 모든 컴포넌트 페이지에서 **코드 1클릭 복사** 동작
@@ -59,9 +59,11 @@ category: 하네스
 - 홈 페이지
 - 시작하기(Getting Started) 페이지
 - 컴포넌트 카탈로그 인덱스
-- 컴포넌트 상세 페이지 × 25
+- 컴포넌트 상세 페이지 × 26
 - 디자인 토큰 시각화 페이지
-- 테마 커스터마이징 가이드 페이지
+- 테마 커스터마이징 가이드 페이지 (다크 모드 포함)
+- 다국어(i18n) 가이드 페이지 — ds 내장 문자열의 언어 지정
+- 런타임 API 페이지 — 훅 · 값 목록 상수 · 토큰 상수 · 공통 타입
 
 ### 4.2 핵심 기능
 - 컴포넌트 라이브 데모 (실제 동작)
@@ -69,7 +71,8 @@ category: 하네스
 - Props 테이블 (타입/기본값/설명)
 - Examples 탭 (Default / Variants / States / Real-world)
 - 카테고리별 사이드바 네비게이션
-- 다국어 (ko / en / zh) — URL prefix 라우팅
+- 다국어 (ko / en / ja / zh) — URL prefix 라우팅
+- 라이트 / 다크 / 시스템 3단 테마 토글 — ds의 `data-theme` 규약에 그대로 올라탐
 - 언어 전환기 (LanguageSwitcher)
 - Accessibility Notes 섹션
 
@@ -84,16 +87,18 @@ category: 하네스
 
 **Guardian이 VIOLATION으로 차단한다.**
 
+> 2026-08-29 — 다크 모드와 일본어는 ds 0.3.0이 다크 토큰과 `ja` 내장 문자열을 정식 도입하면서
+> 유저 지시로 In Scope로 옮겼다. 아래 목록에서 제외됨.
+
 - ❌ **사용자 인증 / 로그인** — 정적 사이트로 충분
 - ❌ **댓글 / 피드백 시스템** — GitHub Issues로 대체
 - ❌ **실시간 검색** (Algolia DocSearch 등) — v2로 보류
-- ❌ **다크 모드** — ds에 다크 토큰 정식 도입 후 함께 (v2)
 - ❌ **Playground / 인터랙티브 코드 에디터** (StackBlitz 임베드 등) — v2
 - ❌ **백엔드 API / 데이터베이스** — 모든 콘텐츠는 정적
 - ❌ **모바일 네이티브 앱** — 웹 반응형까지만
 - ❌ **SEO 광고/트래킹** — 단순 GA4 정도까지만
 - ❌ **MDX 콘텐츠 시스템** — TSX-only로 진행, 도입 시 v2
-- ❌ **일본어 / 스페인어 등 추가 locale** — ko/en/zh 3개로 한정
+- ❌ **스페인어 등 ds 미지원 locale 추가** — ds 내장 문자열이 지원하는 ko/en/ja/zh 4개로 한정
 - ❌ **다국어별 도메인 분리** (`ko.example.com`) — URL prefix만 사용
 - ❌ **버전별 문서 (v1/v2 분리)** — 항상 latest만 표시. 구버전 문서는 GitHub release notes 참고
 
@@ -104,7 +109,7 @@ category: 하네스
 | 항목 | 값 | 비고 |
 |------|-----|------|
 | 언어/프레임워크 | TypeScript 5+, Next.js 14+ App Router | |
-| 디자인 시스템 | `null_ong2-design-system` ≥ 0.2.0 | dogfooding 필수 |
+| 디자인 시스템 | `null_ong2-design-system` ≥ 0.3.0 | dogfooding 필수 |
 | 다국어 라이브러리 | `next-intl` | App Router 호환 |
 | 코드 하이라이트 | `shiki` (빌드 타임) | 런타임 비용 0 |
 | 스타일링 | ds의 CSS 변수 + Tailwind (사이트 자체) 또는 CSS Modules | 결정 필요 |

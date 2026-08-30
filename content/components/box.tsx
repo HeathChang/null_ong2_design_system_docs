@@ -41,6 +41,7 @@ export const boxDoc: ComponentDoc = {
     { name: 'borderRadius', type: 'RadiusKey', default: '—', required: false, descriptionKey: 'components.box.props.borderRadius' },
     { name: 'bg', type: 'string', default: '—', required: false, descriptionKey: 'components.box.props.bg' },
     { name: 'display', type: "CSSProperties['display']", default: '—', required: false, descriptionKey: 'components.box.props.display' },
+    { name: 'position', type: "CSSProperties['position']", default: '—', required: false, descriptionKey: 'components.box.props.position' },
     { name: 'width', type: "CSSProperties['width']", default: '—', required: false, descriptionKey: 'components.box.props.width' },
     { name: 'height', type: "CSSProperties['height']", default: '—', required: false, descriptionKey: 'components.box.props.height' },
     { name: 'overflow', type: "CSSProperties['overflow']", default: '—', required: false, descriptionKey: 'components.box.props.overflow' },

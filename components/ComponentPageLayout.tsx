@@ -1,6 +1,12 @@
 import { getTranslations } from 'next-intl/server';
 import { Badge } from 'null_ong2-design-system';
-import type { ComponentDoc, ComponentExample, ExampleTab, ComponentStatus } from '@/lib/types';
+import type {
+  CodeComment,
+  ComponentDoc,
+  ComponentExample,
+  ComponentStatus,
+  ExampleTab,
+} from '@/lib/types';
 import { CATEGORY_LABEL_KEY } from '@/lib/categories';
 import { CodeBlock } from './CodeBlock';
 import { DemoBlock } from './DemoBlock';
@@ -24,9 +30,20 @@ const STATUS_VARIANT: Record<ComponentStatus, 'success' | 'warning' | 'danger'> 
 export async function ComponentPageLayout({ doc }: ComponentPageLayoutProps) {
   const t = await getTranslations('componentPage');
   const tDoc = await getTranslations();
+  const comment: CodeComment = (key) => tDoc(key);
+  const resolveCode = (code: ComponentExample['code']): string =>
+    typeof code === 'function' ? code(comment) : code;
 
+  const quickLook = doc.examples.find((ex) => ex.tab === 'default') ?? doc.examples[0];
+
+  /*
+   * Quick Look에서 이미 보여준 예시는 탭에서 제외한다.
+   * 같은 예시를 한 페이지에 두 번 그리면 예시 안의 id가 그대로 중복되어
+   * (id="demo-name" ×2) 레이블이 어느 입력을 가리키는지 깨진다.
+   */
   const examplesByTab = new Map<ExampleTab, ComponentExample[]>();
   for (const example of doc.examples) {
+    if (example === quickLook) continue;
     const list = examplesByTab.get(example.tab);
     if (list === undefined) {
       examplesByTab.set(example.tab, [example]);
@@ -35,7 +52,6 @@ export async function ComponentPageLayout({ doc }: ComponentPageLayoutProps) {
     }
   }
   const activeTabs = TAB_ORDER.filter((tab) => examplesByTab.has(tab));
-  const quickLook = doc.examples.find((ex) => ex.tab === 'default') ?? doc.examples[0];
   const resolvedRelated = doc.related
     .map((slug) => getMeta(slug))
     .filter((target): target is ComponentMeta => target !== undefined);
@@ -64,7 +80,7 @@ export async function ComponentPageLayout({ doc }: ComponentPageLayoutProps) {
           <h2 id="quick-look" className="text-2xl font-semibold">
             {t('quickLook')}
           </h2>
-          <DemoBlock preview={quickLook.preview} code={quickLook.code} />
+          <DemoBlock preview={quickLook.preview} code={resolveCode(quickLook.code)} />
         </section>
       )}
 
@@ -93,7 +109,7 @@ export async function ComponentPageLayout({ doc }: ComponentPageLayoutProps) {
                     <DemoBlock
                       key={`${tab}-${idx}`}
                       preview={example.preview}
-                      code={example.code}
+                      code={resolveCode(example.code)}
                     />
                   ))}
                 </div>

@@ -1,0 +1,1199 @@
+{
+  "site": {
+    "title": "null_ong2 デザインシステム",
+    "description": "ライブ例とコピーできるコードで見るデザインシステムのカタログ。"
+  },
+  "nav": {
+    "home": "ホーム",
+    "gettingStarted": "はじめる",
+    "components": "コンポーネント",
+    "tokens": "デザイントークン",
+    "theming": "テーマ",
+    "openMenu": "メニューを開く",
+    "closeMenu": "メニューを閉じる",
+    "primary": "メインナビゲーション",
+    "i18n": "多言語",
+    "runtimeApi": "ランタイム API"
+  },
+  "languageSwitcher": {
+    "label": "言語",
+    "ko": "한국어",
+    "en": "English",
+    "zh": "中文",
+    "ja": "日本語"
+  },
+  "footer": {
+    "rights": "MIT ライセンス",
+    "github": "GitHub",
+    "npm": "npm"
+  },
+  "home": {
+    "hero": {
+      "title": "プロダクション対応の React デザインシステム",
+      "subtitle": "ライト・ダークテーマ、4 言語、アクセシビリティ検証まで標準装備した 26 個のコンポーネント。",
+      "cta": "はじめる"
+    },
+    "features": {
+      "title": "特徴",
+      "typeSafe": {
+        "title": "型安全",
+        "description": "TypeScript strict で記述。Props 型と値リスト定数をすべて export します。"
+      },
+      "a11y": {
+        "title": "アクセシビリティを標準装備",
+        "description": "WAI-ARIA パターン、キーボード操作、フォーカス管理、4.5:1 のコントラストが既定値です。CI で axe 検査を実行します。"
+      },
+      "treeShakable": {
+        "title": "Tree-shakable",
+        "description": "Button だけを import すれば 2.44 kB。使わないコンポーネントはバンドルに入りません。"
+      },
+      "rscReady": {
+        "title": "RSC にそのまま import",
+        "description": "パッケージに 'use client' が含まれているため、Next.js App Router のサーバーコンポーネントから直接 import できます。"
+      },
+      "darkMode": {
+        "title": "ダークモード",
+        "description": "OS 設定への自動追従、または data-theme での強制指定。トークンだけを使っていれば利用側のコンポーネントも一緒に切り替わります。"
+      },
+      "i18n": {
+        "title": "内蔵文字列の多言語対応",
+        "description": "「閉じる」「読み込み中」などの内蔵ラベルを ko · en · ja · zh で提供し、キー単位の上書きにも対応します。"
+      }
+    },
+    "quickLook": {
+      "title": "クイックルック",
+      "subtitle": "よく使うコンポーネントのプレビュー。ヘッダーのテーマボタンでダークモードもすぐ確認できます。",
+      "alertMessage": "デザインシステムへようこそ。",
+      "inputLabel": "メールアドレス",
+      "inputPlaceholder": "example@mail.com",
+      "switchLabel": "通知を受け取る"
+    },
+    "bundle": {
+      "title": "バンドルサイズ",
+      "subtitle": "size-limit の実測値(minify + brotli)。peer dependency である React は含みません。",
+      "caption": "import の組み合わせ別バンドルサイズ",
+      "headings": {
+        "import": "Import",
+        "size": "サイズ"
+      }
+    },
+    "code": {
+      "styleOnce": "アプリのエントリーポイントで 1 回"
+    }
+  },
+  "codeBlock": {
+    "copy": "コピー",
+    "copied": "コピーしました"
+  },
+  "categories": {
+    "layout": "レイアウト",
+    "typography": "タイポグラフィ",
+    "core": "コア UI",
+    "form": "フォーム",
+    "feedback": "フィードバック",
+    "dataDisplay": "データ表示",
+    "navigation": "ナビゲーション",
+    "overlay": "オーバーレイ"
+  },
+  "propsTable": {
+    "caption": "Props 一覧",
+    "headings": {
+      "name": "Prop",
+      "type": "型",
+      "default": "既定値",
+      "required": "必須",
+      "description": "説明"
+    },
+    "requiredYes": "必須",
+    "empty": "このコンポーネントに Props はありません。"
+  },
+  "demoBlock": {
+    "preview": "プレビュー",
+    "showCode": "コードを表示",
+    "hideCode": "コードを隠す",
+    "openInStorybook": "Storybook で開く"
+  },
+  "gettingStarted": {
+    "title": "はじめる",
+    "intro": "インストールから最初の画面まで 5 分。必須の設定はスタイルシートの import 1 行だけです。",
+    "install": {
+      "title": "インストール",
+      "intro": "npm でインストールします。React 18 以上が必要です。"
+    },
+    "firstUse": {
+      "title": "最初の使用例",
+      "intro": "Button と Input を組み合わせた最もシンプルな例です。id を自分で渡さなくてもラベル・ヒント・エラーが自動でひも付きます。"
+    },
+    "toastProvider": {
+      "title": "ToastProvider の設定",
+      "intro": "Toast を使うにはアプリのルートを ToastProvider で囲みます。内蔵文字列も合わせて使うなら DesignSystemProvider を外側に置いてください。"
+    },
+    "theming": {
+      "title": "トークンのカスタマイズ",
+      "intro": "プロジェクトのグローバル CSS で --ds-* 変数を上書きするとテーマが変わります。コントラスト基準を保つため、ボタンの色は 600/700/800 をまとめて調整してください。"
+    },
+    "faq": {
+      "title": "よくある質問",
+      "items": {
+        "1": {
+          "question": "Next.js App Router と互換性はありますか?",
+          "answer": "あります。パッケージが 'use client' ディレクティブを含んでいるため、サーバーコンポーネントから直接 import できます。スタイルシートはルートレイアウトで一度 import してください。"
+        },
+        "2": {
+          "question": "ダークモードには対応していますか?",
+          "answer": "v0.3.1 から対応しています。既定では OS 設定(prefers-color-scheme)に自動追従し、<html data-theme=\"dark\"> または class=\"dark\" で強制もできます。トークンの役割はライトと同じ(neutral-0 は常に表面、neutral-900 は常にテキスト)なので、トークンだけを使った利用側のコンポーネントも一緒に切り替わります。"
+        },
+        "3": {
+          "question": "Tree-shaking は効きますか?",
+          "answer": "効きます。v0.3.1 でバンドラーが副作用と誤認していたコードを取り除き、実際に機能するようになりました。import { Button } で 2.44 kB(minify + brotli)です。"
+        },
+        "4": {
+          "question": "TypeScript の型はどう import しますか?",
+          "answer": "ほとんどの Props 型が named export です。例: import type { ButtonProps } from 'null_ong2-design-system'。ただし as prop のためジェネリックな Box · Flex · Grid · Stack · Container · Text の 6 種は Props 型を export しないので、ComponentProps<typeof Box> で取り出してください。全一覧はランタイム API ページにあります。"
+        },
+        "5": {
+          "question": "テーマの色はどう変えますか?",
+          "answer": "グローバル CSS の :root で --ds-color-primary-* を上書きします。ダークモードも使うなら、ダーク用のセレクタでも同じ変数を上書きしてください。"
+        },
+        "6": {
+          "question": "スタイルシートを import しないとどうなりますか?",
+          "answer": "コンポーネントがスタイルなしで描画されます。開発モードでは CSS の読み込み目印(--ds-loaded)を確認してコンソールに一度だけ案内し、本番ビルドでは何もしません。"
+        },
+        "7": {
+          "question": "コンポーネントが読み上げる文言を自社の言い回しに変えられますか?",
+          "answer": "できます。DesignSystemProvider の strings に変えたいキーだけ渡せば、残りはそのロケールの値がそのまま使われます。内蔵されていない言語なら DsStrings 全体を埋めて渡してください。"
+        }
+      }
+    },
+    "styles": {
+      "title": "スタイルシートの import(必須)",
+      "intro": "コンポーネントの CSS は JS バンドルに注入されません。アプリのエントリーポイントで一度だけ import してください。",
+      "note": "v0.2.2 で自動注入をやめました —— SSR(Next.js App Router など)でスタイルが当たる前に画面が描画される FOUC が起きたためです。この import がないとコンポーネントはスタイルなしで描画され、開発モードではコンソールに一度だけ案内が出ます。"
+    },
+    "darkMode": {
+      "title": "ダークモード",
+      "intro": "設定なしで OS の prefers-color-scheme に追従します。自分で制御したい場合は <html> に data-theme を指定するだけです。",
+      "more": "テーマのページでトグルの実装と初回描画のちらつき対策まで見る →"
+    },
+    "i18n": {
+      "title": "内蔵文字列の言語",
+      "intro": "「閉じる」「読み込み中」「スライド」など、コンポーネント自身が出すラベルの言語を指定します。囲まなければ韓国語で動作するので、既存のコードはそのままで構いません。",
+      "more": "多言語のページで文字列キー一覧と上書き方法を見る →"
+    },
+    "code": {
+      "orEntry": "または pages/_app.tsx (Pages Router)、main.tsx (Vite/CRA)",
+      "autoId": "id を渡さなくてもラベルとエラーが自動でひも付く",
+      "followOs": "設定しなければ OS の prefers-color-scheme に従う。",
+      "controlIt": "自分で制御するなら <html> に属性ひとつ",
+      "providerOptional": "囲まなければ韓国語で動作する。ko · en · ja · zh を内蔵。"
+    }
+  },
+  "tokens": {
+    "title": "デザイントークン",
+    "intro": "デザインシステムが :root に注入するすべての CSS 変数です。プロジェクトのグローバル CSS で上書きしてテーマを変えられます。",
+    "colors": {
+      "title": "Colors",
+      "groups": {
+        "primary": "Primary(ブランド)",
+        "neutral": "Neutral(ニュートラル)",
+        "success": "Success",
+        "warning": "Warning",
+        "danger": "Danger",
+        "info": "Info",
+        "role": "Role(役割)"
+      },
+      "intro": "v0.3.1 から色トークンはライト/ダークの 2 つの値を持ちます。左のチップがライト、右がダークの値です。",
+      "light": "Light",
+      "dark": "Dark",
+      "role": {
+        "intro": "値ではなく用途で名前を付けたトークンです。ダークモードで明度が反転してもコンポーネントの CSS を直さずに済むよう、ここで吸収します。利用側のコンポーネントでも、塗りつぶした面の上の文字色には neutral-0 ではなくこのトークンを使ってください。",
+        "onPrimary": "primary の面の上の前景色(ボタンの文字など)。",
+        "onDanger": "danger の面の上の前景色。",
+        "controlKnob": "チェックマークやスイッチのつまみのように、塗りつぶしたコントロールの上に載る色。",
+        "overlayBackdrop": "モーダル背後の暗幕。",
+        "shimmer": "スケルトンのシマーハイライト。",
+        "surfaceTranslucent": "コンテンツの上に半透明で載る面(カルーセルの矢印など)。"
+      }
+    },
+    "spacing": {
+      "title": "Spacing",
+      "numeric": "数値トークン",
+      "aliases": "意味エイリアス"
+    },
+    "radius": {
+      "title": "Radius"
+    },
+    "typography": {
+      "title": "Typography",
+      "size": "Font Size",
+      "weight": "Font Weight",
+      "sample": "サンプルテキスト",
+      "family": "フォント",
+      "lineHeight": "行間"
+    },
+    "zIndex": {
+      "title": "Z-index",
+      "intro": "重なり順はこの一本のはしごで管理します。Tooltip と DropdownMenu は body ポータルに描画されるため、切れないようモーダルより上(popover)にある必要があります。",
+      "headings": {
+        "token": "トークン",
+        "value": "値",
+        "usage": "使用箇所"
+      },
+      "usage": {
+        "base": "基本レイヤー。",
+        "dropdown": "インラインのドロップダウンなど、文書フロー内の重なり。",
+        "sticky": "sticky なヘッダー・ツールバー。",
+        "overlay": "モーダル背景の暗幕。",
+        "modal": "Modal ダイアログ。",
+        "popover": "Tooltip、DropdownMenu(body ポータル)。",
+        "toast": "Toast コンテナ —— 常に最前面。"
+      },
+      "caption": "z-index トークンと使用箇所"
+    },
+    "shadow": {
+      "title": "Shadow",
+      "intro": "ダークモードでは暗い背景でも層が見えるよう、より濃い値を使います。プレビューはライトの値です。"
+    },
+    "transition": {
+      "title": "Transition",
+      "intro": "コンポーネントの状態遷移の速さです。OS の「視差効果を減らす」が有効なとき、コンポーネント CSS がこの値を上書きして遷移を実質的に取り除きます。"
+    },
+    "borderFocus": {
+      "title": "Border · Focus ring",
+      "intro": "罫線の既定値とキーボードフォーカスの表示です。フォーカスリングの色は暗い背景でも見えるよう、ダークでは明度と不透明度が一緒に上がります。"
+    },
+    "internal": {
+      "body": "{name} はデザイントークンではなく、スタイルシートが実際に読み込まれたかを確認する目印です(値 {value})。開発モードで styles.css の import 漏れを一度だけ知らせるために使うので、上書きしないでください。"
+    }
+  },
+  "theming": {
+    "title": "テーマのカスタマイズ",
+    "intro": "すべての視覚的な値が CSS 変数として公開されています。グローバル CSS で変数を上書きすればテーマは即座に反映され、ダークモードも追加作業なしで付いてきます。",
+    "overview": {
+      "title": "仕組み",
+      "body": "コンポーネントの CSS はビルド時にトークンの値を埋め込まず、var(--ds-*) 参照で書かれています。利用側プロジェクトが同じ名前の変数を再定義すれば、すべてのコンポーネントが即座に新しい値を使います。ダークモードも同じ原理です —— コンポーネントの CSS は 1 行も変わらず、セレクタに応じてトークンの値だけが変わります。"
+    },
+    "example": {
+      "title": "上書きの例",
+      "intro": "ブランドカラーを紫にし、角丸を大きくする例です。ボタンは通常 600、hover 700、active 800 を使うので、3 段階まとめて調整しないと状態変化が見えません。"
+    },
+    "scope": {
+      "title": "適用範囲を限定する",
+      "body": ":root ではなく親セレクタで変数を再定義すると、そのツリー内だけに適用されます。data-theme は <html> 以外の任意の要素にも付けられるので、1 ページの中で特定の区画だけダークにすることもできます。"
+    },
+    "futureBuilder": {
+      "title": "ライブテーマビルダー (v2)",
+      "body": "色を選ぶと即座にプレビューし :root の CSS を自動抽出する機能は v2 ロードマップにあります。今は上のコードブロックをコピーして適用してください。"
+    },
+    "darkMode": {
+      "title": "ダークモード",
+      "body": "トークンの役割はライトと同じです —— neutral-0 は常に「面」、neutral-900 は常に「テキスト」です。明度だけが反転するので、トークンを参照するだけのコンポーネントは、あなたが作ったものまで自動で対応します。",
+      "tryIt": "このページのヘッダーにあるテーマボタンで今すぐ切り替えられます。サイトの UI と下の例に出てくるコンポーネントが、同じ data-theme 属性ひとつで一緒に変わります。",
+      "activation": {
+        "title": "有効にする方法",
+        "body": "3 つの方式すべてに対応しています。class と data-theme は同じ動作なので、プロジェクトで扱いやすい方を選んでください。"
+      },
+      "roleTokens": {
+        "title": "役割トークンを使う",
+        "body": "ダークでは neutral-0 は白ではなく暗い面の色になります。塗りつぶした背景の上の文字色に neutral-0 を使うと、ダークでは背景と同じ色になって見えなくなります。--ds-color-on-primary のように用途で名付けられた役割トークンを使ってください。"
+      },
+      "overriding": {
+        "title": "上書きは両方セットで",
+        "body": ":root でトークンを 1 つ上書きしてもライトの値しか変わりません。ダーク用のセレクタは後から宣言されるため、元のダークの値がそのまま勝ちます。ライトを変えたならダークも一緒に変えてください。"
+      },
+      "toggle": {
+        "title": "トグルを作る",
+        "body": "ライト / ダーク / システムの 3 段トグルが実用的です。「システム」は属性を取り除いて OS 設定に戻すのが肝心で、ライトに固定するのとは別物です。"
+      },
+      "fouc": {
+        "title": "初回描画のちらつきを防ぐ",
+        "body": "React のハイドレーションを待つと、ライトの画面が 1 フレーム描かれてからダークに変わります。保存された選択を <head> で同期的に読み、先に属性を付けてください。サーバー HTML と食い違うため <html> に suppressHydrationWarning が必要です。"
+      }
+    },
+    "code": {
+      "brandPurple": "ブランドカラーを紫に",
+      "rounder": "角をもっと丸く",
+      "customFont": "カスタムフォント",
+      "activationAuto": "何もしなければ OS 設定(prefers-color-scheme)に従う",
+      "activationDark": "ダークに強制",
+      "activationLight": "ライトに固定(OS がダークでもライトのまま)",
+      "lightValue": "ライトの値",
+      "darkValue": "ダークの値 —— ライトを上書きした分だけダークも上書きする",
+      "systemRemovesAttr": "system なら属性を取り除いて OS 設定に戻す。",
+      "foucSync": "app/layout.tsx —— <head> で同期実行する。",
+      "scopedSelector": ":root ではなく任意のセレクタに定義すると、そのツリー内だけに適用される。",
+      "scopedAnyElement": "data-theme は <html> 以外の任意の要素にも付けられる",
+      "scopedInside": "この中のコンポーネントだけがダークトークンを使う",
+      "roleTokenWhy": "neutral-0 はダークでは暗い面の色になる。前景色には役割トークンを使う。"
+    }
+  },
+  "componentsIndex": {
+    "title": "コンポーネント",
+    "intro": "カテゴリ別に分類した全コンポーネントのカタログです。",
+    "empty": "登録されたコンポーネントページはまだありません。"
+  },
+  "components": {
+    "spinner": {
+      "description": "読み込み状態を示す回転インジケーター。",
+      "props": {
+        "size": "スピナーのサイズ。'xs' 12px / 'sm' 16px / 'md' 24px / 'lg' 32px。",
+        "label": "スクリーンリーダー用ラベル。省略すると現在のロケールの「読み込み中」が使われます。"
+      },
+      "examples": {
+        "default": "基本",
+        "sizes": "サイズ",
+        "inline": "ボタン内",
+        "inherit": "色の継承"
+      },
+      "do": {
+        "1": "非同期処理が始まったらすぐ表示し、進行中であることを伝えてください。",
+        "2": "label には処理の意味を込めてください(例: 「データを読み込み中」)。"
+      },
+      "dont": {
+        "1": "処理が非常に短い場合(200ms 未満)はスピナーを出してちらつかせないでください。",
+        "2": "スピナーだけで無限に待たせず、タイムアウト後はエラーメッセージを表示してください。"
+      },
+      "a11y": "Spinner は role='status' と aria-label で進行状態を伝えます。色は currentColor を継承するので親の color で調整します。「視差効果を減らす」が有効な場合は停止せず 3 秒周期でゆっくり回転します —— 進行中という合図は残しつつ、目の負担を減らすためです。"
+    },
+    "skeleton": {
+      "description": "コンテンツ読み込み中に置くシマー付きプレースホルダー。",
+      "props": {
+        "width": "幅。数値は px、文字列は CSS 値。",
+        "height": "高さ。",
+        "variant": "形状。'rectangular'(既定)/ 'text'(1em の高さ)/ 'circle'。"
+      },
+      "examples": {
+        "default": "基本",
+        "text": "テキスト行",
+        "circle": "円形(アバター)",
+        "card": "カードパターン"
+      },
+      "do": {
+        "1": "実際のコンテンツに近い幅・高さにしてレイアウトの飛びを減らしてください。",
+        "2": "複数行を異なる width にすると自然な文章らしさが出ます。"
+      },
+      "dont": {
+        "1": "1 秒未満の速い応答には Skeleton より Spinner が適しています。",
+        "2": "固定ピクセルだけだとレスポンシブが崩れます。% や fr を活用してください。"
+      },
+      "a11y": "Skeleton は aria-hidden='true' が付いておりスクリーンリーダーは無視します。実際のコンテンツが読み込まれたら自然に差し替わるように使ってください。"
+    },
+    "alert": {
+      "description": "利用者にフィードバックを伝える通知バナー。4 種の variant と既定アイコンを内蔵しています。",
+      "props": {
+        "variant": "通知の種類。'info' / 'success' / 'warning' / 'danger'。",
+        "title": "通知のタイトル(任意)。",
+        "children": "通知の本文。",
+        "icon": "カスタムアイコン。未指定なら variant ごとの既定アイコンが表示されます。"
+      },
+      "examples": {
+        "default": "基本 info",
+        "variants": "Variant",
+        "withTitle": "タイトルあり",
+        "save": "保存完了"
+      },
+      "do": {
+        "1": "エラー通知では、利用者が次に何をすべきかを案内してください。",
+        "2": "warning と danger は即座に知らせる必要がある場面だけに使ってください。"
+      },
+      "dont": {
+        "1": "Alert をトーストのように自動で消さないでください。それは Toast の役割です。",
+        "2": "同じ variant の Alert を 1 画面に 5 個以上置くと読み飛ばされます。"
+      },
+      "a11y": "warning と danger は role='alert' で即時通知、info と success は role='status' で非侵襲的な通知として扱われます。適切な ARIA が自動で付与されます。"
+    },
+    "avatar": {
+      "description": "画像 + 名前のイニシャルにフォールバックするアバター。5 種のサイズと円形/角形。",
+      "props": {
+        "src": "画像 URL。",
+        "name": "名前。alt とイニシャルのフォールバックに使います。イニシャルは書記素(grapheme)単位で切るため絵文字が壊れません。",
+        "alt": "画像の alt(指定時はこちらが優先)。",
+        "size": "サイズ。'xs'〜'xl'。",
+        "shape": "形状。'circle'(既定)/ 'square'。"
+      },
+      "examples": {
+        "default": "基本",
+        "fallback": "画像がない場合",
+        "sizes": "サイズ",
+        "userList": "ユーザー一覧"
+      },
+      "do": {
+        "1": "画像の読み込みに失敗したときイニシャルのフォールバックが働くよう、name は必ず渡してください。",
+        "2": "ユーザー一覧など繰り返す場面では size を揃えて整列を保ってください。"
+      },
+      "dont": {
+        "1": "alt なしで src だけを置くと、スクリーンリーダーに意味が伝わりません。",
+        "2": "任意の画像を size なしでそのまま入れて比率を崩さないでください。"
+      },
+      "a11y": "Avatar は img の alt または aria-label で意味を伝えます。イニシャルのフォールバックは role='img' と aria-label を持ち名前が読み上げられ、name と alt のどちらもない場合は現在のロケールの「ユーザーアバター」が使われます。src が新しい値に変わると以前の失敗状態を捨てて再試行します。"
+    },
+    "badge": {
+      "description": "状態やカウントを示す小さなラベル。",
+      "props": {
+        "variant": "見た目のスタイル。'neutral' / 'primary' / 'success' / 'warning' / 'danger' / 'info'。",
+        "size": "サイズ。'sm' または 'md'(既定)。",
+        "dot": "true ならテキストなしでドットだけを表示します。children を一緒に渡すと画面上は隠れますが、スクリーンリーダーにはそのまま読み上げられます。",
+        "children": "バッジの内容。dot と併用すると画面上は隠れ、スクリーンリーダーにだけ読み上げられます。"
+      },
+      "examples": {
+        "default": "基本",
+        "variants": "Variant",
+        "dot": "Dot",
+        "notification": "通知カウント",
+        "dotWithText": "Dot + スクリーンリーダー用テキスト"
+      },
+      "do": {
+        "1": "状態の意味と色を一致させてください(success=完了、danger=エラー)。",
+        "2": "長いカウントは「99+」のように丸めてラベルが崩れないようにしてください。"
+      },
+      "dont": {
+        "1": "Badge をクリックできるアクションとして使わないでください。それは Button の役割です。",
+        "2": "1 行に 5 個以上 Badge を並べると視線が散ります。"
+      },
+      "a11y": "Badge はテキストの内容が意味を伝えます。ドット形態でも children を渡せば視覚的に隠れたままスクリーンリーダーに残るので、<Badge dot>3</Badge> の「3」が消えることはありません。",
+      "code": {
+        "dotSr": "見えるのは点だけだが、'3' はスクリーンリーダーに読み上げられる。"
+      }
+    },
+    "carousel": {
+      "description": "スライドを 1 枚ずつ見せるカルーセル。自動再生・インジケーター・矢印と再生/停止ボタンに対応します。",
+      "props": {
+        "items": "スライドの内容の配列。",
+        "index": "現在のインデックス(controlled)。範囲外の値は実際のスライド範囲に補正されます。",
+        "defaultIndex": "初期インデックス(既定 0)。",
+        "onChange": "変更ハンドラ。",
+        "autoPlayInterval": "自動再生の間隔(ms)。0 で無効(既定 0)。",
+        "loop": "無限ループ(既定 true)。",
+        "showArrows": "左右の矢印(既定 true)。",
+        "showIndicators": "ドットインジケーター(既定 true)。",
+        "ariaLabel": "カルーセル領域のアクセシブルなラベル。省略すると現在のロケールの「カルーセル」が使われます。"
+      },
+      "examples": {
+        "default": "基本",
+        "autoplay": "自動再生",
+        "noLoop": "ループなし",
+        "banner": "バナー"
+      },
+      "do": {
+        "1": "自動再生の間隔は最低 4 秒以上にして、読む時間を確保してください。",
+        "2": "スライドは 5 枚以内に抑え、インジケーターで現在位置がわかるようにしてください。"
+      },
+      "dont": {
+        "1": "重要な情報をカルーセルだけに置かないでください。2 枚目以降のクリック率は急減します。",
+        "2": "自動再生を 3 秒未満にしないでください。読み終わる前に切り替わります。"
+      },
+      "a11y": "role='region' と aria-roledescription='carousel' で識別され、画面外のスライドは inert によりタブ順序とアクセシビリティツリーから完全に外れます。インジケーターは tablist の規約(roving tabindex、←→↑↓/Home/End)に従い、24×24 のヒット領域を確保します。自動再生はマウスオーバー・フォーカス・停止ボタンで止められ、OS の「視差効果を減らす」が有効なら最初から再生しません(WCAG 2.2.2)。"
+    },
+    "tabs": {
+      "description": "コンパウンドコンポーネントパターンのタブ。キーボードの矢印移動と横/縦方向に対応します。",
+      "props": {
+        "List": {
+          "aria-label": "タブバー(tablist)のアクセシブルなラベル。1 画面にタブグループが複数あるときは必ず区別してください。"
+        },
+        "Root": {
+          "value": "アクティブなタブ(controlled)。",
+          "defaultValue": "初期のアクティブタブ。省略すると最初の Trigger が自動的に選択されます。",
+          "onChange": "タブ変更ハンドラ。",
+          "orientation": "方向。'horizontal'(既定)/ 'vertical'。矢印キーの割り当ても一緒に変わります。",
+          "children": "Tabs.List と Tabs.Panel。コンパウンド構造を成す子要素です。"
+        },
+        "Trigger": {
+          "value": "トリガーの識別子。",
+          "disabled": "無効化。"
+        }
+      },
+      "examples": {
+        "default": "基本",
+        "vertical": "縦タブ",
+        "disabled": "タブの無効化",
+        "settings": "設定画面"
+      },
+      "do": {
+        "1": "タブは 4 つ以内が読みやすいです。それ以上ならサイドナビを検討してください。",
+        "2": "各タブのラベルは 1〜2 語で短く書いてください。"
+      },
+      "dont": {
+        "1": "タブでページ単位のルーティングをしないでください。タブは同じ文脈内の分類です。",
+        "2": "タブの中にさらにタブを入れ子にしないでください。"
+      },
+      "a11y": "role=tablist/tab/tabpanel と aria-selected/aria-controls で完全な ARIA パターンを実装しています。キーボードは ←→(縦なら ↑↓)で循環移動、Home/End で先頭・末尾へ移動します。defaultValue を省略しても最初のタブが自動選択されるため、roving tabindex が崩れてタブバー全体にキーボードで到達できなくなることはありません。パネルはフォーカスを受けるとフォーカスリングが表示されます。"
+    },
+    "modal": {
+      "description": "オーバーレイのダイアログ。フォーカストラップ、ESC で閉じる、オーバーレイクリックで閉じる、背景のスクロールロック、背景の支援技術ブロックが自動で適用されます。",
+      "props": {
+        "isOpen": "開いているかどうか(必須)。",
+        "onClose": "閉じるハンドラ(必須)。",
+        "title": "タイトル(任意)。",
+        "children": "本文。",
+        "footer": "フッター(ボタン群など)。",
+        "size": "サイズ。'sm' / 'md'(既定)/ 'lg' / 'xl'。",
+        "closeOnOverlayClick": "オーバーレイのクリックで閉じる(既定 true)。押し始めた位置がオーバーレイのときだけ閉じるので、本文でテキストを選択して外で離しても閉じません。",
+        "closeOnEscape": "ESC で閉じる(既定 true)。",
+        "showCloseButton": "閉じるボタンの表示(既定 true)。",
+        "initialFocusRef": "開いたときにフォーカスを受ける要素。省略するとダイアログ内の最初のフォーカス可能要素(通常は閉じるボタン)になります。削除確認のような危険なダイアログで「キャンセル」に先にフォーカスを置くのに使います。"
+      },
+      "examples": {
+        "default": "基本(開閉)",
+        "destructive": "削除確認",
+        "noClose": "強制確認",
+        "long": "スクロールする本文",
+        "initialFocus": "初期フォーカスの指定"
+      },
+      "do": {
+        "1": "title を必ず渡し、ダイアログの目的が伝わるようにしてください。",
+        "2": "危険な操作は footer を secondary(キャンセル)+ danger(確認)で構成し、initialFocusRef でキャンセルにフォーカスを置いてください。"
+      },
+      "dont": {
+        "1": "モーダルの中にさらにモーダルを入れ子にしないでください。利用者は迷子になります。",
+        "2": "情報を伝えるだけの用途でモーダルを濫用しないでください。ページやトーストで足りることが多いです。"
+      },
+      "a11y": "role='dialog' と aria-modal='true' を付与し、フォーカストラップでキーボード移動をダイアログ内に制限します。フォーカストラップは Tab しか止められないため、スクリーンリーダーのローターやスワイプ移動も止められるよう背景に aria-hidden と inert を併用します(トーストのコンテナは除外)。背景のスクロールは iOS Safari でも効くよう position: fixed 方式でロックし、閉じるときに位置を復元します。重なって開いている場合、ESC は最前面のひとつだけに作用します。",
+      "code": {
+        "longScroll": "本文が長い場合はダイアログ内でスクロールする。"
+      }
+    },
+    "tooltip": {
+      "description": "ホバー/フォーカス時に補足説明を出す小さなオーバーレイ。body ポータルに描画されるので overflow の祖先の中でも切れません。",
+      "props": {
+        "content": "ツールチップの内容(必須)。",
+        "children": "トリガー要素(必須、単一の React 要素)。文字列や複数の要素を渡すと、どこを直せばよいか教えるエラーになります。",
+        "placement": "位置。'top'(既定)など 12 種。",
+        "delay": "表示までの遅延(ms、既定 200)。",
+        "disabled": "無効化(既定 false)。開いている間に true になると即座に閉じます。"
+      },
+      "examples": {
+        "default": "基本",
+        "placement": "位置",
+        "delay": "遅延",
+        "shortcut": "ショートカットの案内"
+      },
+      "do": {
+        "1": "Tooltip は補足情報だけに使ってください。重要な情報は常に画面に出ている必要があります。",
+        "2": "ショートカットやアイコンの意味など、短いテキストが適しています。"
+      },
+      "dont": {
+        "1": "Tooltip の中にボタンやリンクなどの操作要素を入れないでください。キーボードで到達できません。",
+        "2": "タッチデバイスでしか出ない重要情報を Tooltip に置かないでください。"
+      },
+      "a11y": "floating-ui の role フックがトリガーの aria-describedby とツールチップの id を同じ値で結ぶため、スクリーンリーダーが説明を読み上げます。キーボードフォーカスでも表示され、ESC で閉じます。モーダル本文やカルーセルのビューポートのような切り取られる祖先の中でも、body ポータル + fixed 戦略で全体が見えます。"
+    },
+    "dropdownMenu": {
+      "description": "クリックで開くドロップダウンメニュー。キーボード操作は WAI-ARIA APG のメニューパターンに従い、body ポータルに描画されます。",
+      "props": {
+        "trigger": "トリガー要素(必須、単一の React 要素)。",
+        "items": "メニュー項目の配列(必須)。DropdownMenuItem[]。",
+        "placement": "メニューの位置(既定 'bottom-start')。"
+      },
+      "examples": {
+        "default": "基本",
+        "destructive": "危険な操作を含む",
+        "disabled": "一部を無効化",
+        "actions": "行アクション"
+      },
+      "do": {
+        "1": "削除などの危険な操作は destructive: true で視覚的な合図を出してください。",
+        "2": "5 個以上の項目があるならカテゴリごとに視覚的な区切りを足してください。"
+      },
+      "dont": {
+        "1": "DropdownMenu にフォーム入力を入れないでください。メニューは操作のためのものです。",
+        "2": "テキストのないアイコンボタンをトリガーにするなら、aria-label を必ず付けてください。"
+      },
+      "a11y": "role='menu' / role='menuitem' を使います。トリガーで ↑/↓ または Enter/Space を押して開くと最初(または最後)の項目へフォーカスが移り、↑/↓ で循環し無効な項目は飛ばします。ESC または外側のクリックで閉じ、フォーカスはトリガーへ戻ります。項目が減っても矢印キーが消えた項目を指すことはありません。overflow の祖先の中でも切れないよう body ポータルに描画します。"
+    },
+    "toast": {
+      "description": "グローバルな通知システム。アプリのルートに ToastProvider を置き、useToast フックから呼び出します。",
+      "props": {
+        "ToastProvider": {
+          "position": "表示位置。'top-left' / 'top-right' / 'top-center' / 'bottom-left' / 'bottom-right'(既定)/ 'bottom-center'。",
+          "maxToasts": "同時に表示する最大数(既定 5)。0 以下を渡しても最低 1 つは保たれます。",
+          "children": "Provider が包むアプリのツリー。トースト自体はこのツリーの外のポータルに描画されます。"
+        },
+        "useToast": {
+          "show": "通常のトースト(toast.show(message, options))。",
+          "success": "成功バリアント。",
+          "warning": "警告バリアント。",
+          "danger": "エラーバリアント。",
+          "info": "情報バリアント。",
+          "dismiss": "特定のトーストを閉じる。"
+        }
+      },
+      "examples": {
+        "default": "成功/失敗",
+        "danger": "エラートースト",
+        "duration": "長い表示時間",
+        "stack": "複数の積み重ね"
+      },
+      "do": {
+        "1": "トーストのメッセージは 1 行で要点だけを伝えてください。",
+        "2": "duration はメッセージの長さに合わせて調整してください。長い文言なら 5000〜7000ms。"
+      },
+      "dont": {
+        "1": "フォームのバリデーションエラーをトーストで知らせないでください。入力欄の横に出す方が正確です。",
+        "2": "同時に 5 個以上のトーストを出さないでください。maxToasts で制限してください。"
+      },
+      "a11y": "トーストのコンテナは中身がなくても常にマウントされたまま role='region' と aria-live='polite' を保ちます —— ライブリージョンが中身より先に存在しないと、スクリーンリーダーが変化を読み上げないためです。warning と danger は即座に知らせる必要があるため role='alert' に格上げされます。コンテナにマウスを乗せるかフォーカスが入ると自動消滅のタイマーが止まり、離れると残り時間から再開します(WCAG 2.2.1)。"
+    },
+    "text": {
+      "description": "本文テキストのコンポーネント。さまざまな size・weight・color トークンに対応します。",
+      "props": {
+        "as": "描画する要素(既定 'p')。",
+        "size": "FontSizeKey(xs〜4xl、既定 base)。",
+        "weight": "FontWeightKey(normal/medium/semibold/bold、既定 normal)。",
+        "color": "セマンティックな色。'default'/'muted'/'primary'/'success'/'warning'/'danger'。",
+        "align": "textAlign。",
+        "truncate": "true なら 1 行で省略記号にします。"
+      },
+      "examples": {
+        "default": "基本",
+        "sizes": "サイズ",
+        "colors": "色",
+        "truncate": "省略"
+      },
+      "do": {
+        "1": "color はセマンティックなキーワードを使って意味を伝えてください(danger=エラー)。",
+        "2": "長い本文は size='base' または 'lg' の既定の行間をそのまま使ってください。"
+      },
+      "dont": {
+        "1": "見出しの階層に Text size='4xl' を使わず Heading コンポーネントを使ってください。意味が違います。",
+        "2": "color に任意の hex を直接入れないでください。セマンティックトークンが優先です。"
+      },
+      "a11y": "Text は既定で p として描画されるため、スクリーンリーダーは段落として読み上げます。as=\"span\" でインラインに使う場合は、意味を補う ARIA が必要になることがあります。"
+    },
+    "heading": {
+      "description": "セクション見出しのコンポーネント。セマンティックなレベル(as)と視覚的なサイズ(size)を分けて指定できます。",
+      "props": {
+        "as": "見出しレベル。'h1'〜'h6'(既定 'h2')。",
+        "size": "視覚的なフォントサイズ。未指定ならレベルに応じて自動で決まります。",
+        "color": "テキストの色(CSS 変数または色の値)。",
+        "align": "textAlign。"
+      },
+      "examples": {
+        "default": "基本 h2",
+        "h1Page": "ページタイトル (h1)",
+        "decoupled": "レベルとサイズの分離",
+        "section": "セクションヘッダー"
+      },
+      "do": {
+        "1": "ページ最上位の見出しは必ず as='h1' でひとつだけ置いてください。",
+        "2": "デザイン上小さく見せたいときは as='h2' size='sm' のように分けて、意味は保ってください。"
+      },
+      "dont": {
+        "1": "見た目を変えるためだけに見出しレベルを飛ばさないでください(h1 → h3 の直行は不可)。",
+        "2": "検索結果のように繰り返し出る項目の見出しに h2 を乱用せず、視覚的な処理にとどめてください。"
+      },
+      "a11y": "Heading はセマンティックな h1〜h6 として描画され、スクリーンリーダーのページ構造の探索に使われます。階層の順序を保ち、利用者がページを素早く俯瞰できるようにしてください。"
+    },
+    "label": {
+      "description": "フォーム入力要素とひも付けるラベルコンポーネント。",
+      "props": {
+        "htmlFor": "ひも付ける input の id。",
+        "required": "必須表示。true で赤い * を追加します。"
+      },
+      "examples": {
+        "default": "基本",
+        "required": "必須表示",
+        "withInput": "Input と一緒に",
+        "fieldset": "fieldset/legend パターン"
+      },
+      "do": {
+        "1": "htmlFor と input の id を正確に一致させてください。クリックでフォーカスが input に移ります。",
+        "2": "Input/Textarea/Select では label prop をそのまま使ってください。Label を別途付ける必要はありません。"
+      },
+      "dont": {
+        "1": "Label を placeholder のように input の中に浮かせないでください。入力すると消えてアクセシビリティを損ないます。",
+        "2": "Label なしで placeholder だけにしないでください。スクリーンリーダーが意味を失います。"
+      },
+      "a11y": "Label は htmlFor で input と明示的にひも付き、クリックでフォーカスが移動し、スクリーンリーダーが入力欄の名前を読み上げます。"
+    },
+    "box": {
+      "description": "汎用のレイアウトコンテナ。as prop で描画する要素を自由に変えられる polymorphic コンポーネントです。",
+      "props": {
+        "as": "描画する HTML 要素またはコンポーネント。既定は div です。",
+        "padding": "4 方向のパディング。SpacingKey(0〜16、xs〜2xl)を受け取ります。",
+        "paddingX": "水平方向のパディング。",
+        "paddingY": "垂直方向のパディング。",
+        "margin": "4 方向のマージン。",
+        "marginX": "水平方向のマージン。",
+        "marginY": "垂直方向のマージン。",
+        "borderRadius": "角丸。RadiusKey(none、sm〜2xl、full)。",
+        "bg": "背景色。CSS 変数や色の値を直接受け取ります。",
+        "display": "display プロパティ。",
+        "width": "幅(CSS 値)。",
+        "height": "高さ(CSS 値)。",
+        "overflow": "overflow プロパティ。",
+        "position": "position プロパティ。"
+      },
+      "examples": {
+        "default": "基本の使い方",
+        "as": "別の要素として描画",
+        "spacing": "パディングの選択肢",
+        "card": "カードパターン"
+      },
+      "do": {
+        "1": "スタイルトークン(SpacingKey、RadiusKey)を使って一貫性を保ってください。",
+        "2": "as prop でセマンティックな要素(section、article)を積極的に使ってください。"
+      },
+      "dont": {
+        "1": "px や % などの任意の単位を padding/margin に直接入れないでください。トークンを使ってください。",
+        "2": "すべてのレイアウトを Box で解決せず、Flex/Stack/Grid から適したものを選んでください。"
+      },
+      "a11y": "Box 自体は div を描画するので意味を持ちません。意味のある領域なら as=\"section\" や as=\"article\" などで適切なセマンティクスを与えてください。"
+    },
+    "flex": {
+      "description": "Flexbox レイアウトのコンポーネント。polymorphic で gap トークンに対応します。",
+      "props": {
+        "as": "描画する要素(既定 div)。",
+        "direction": "flex-direction。'row' 'column' など。",
+        "align": "alignItems。",
+        "justify": "justifyContent。",
+        "wrap": "flexWrap。",
+        "gap": "子要素間の間隔(SpacingKey)。",
+        "columnGap": "列間の間隔。",
+        "rowGap": "行間の間隔。",
+        "flex": "flex の一括指定。"
+      },
+      "examples": {
+        "default": "基本の使い方",
+        "spaceBetween": "両端揃え",
+        "wrap": "折り返し",
+        "header": "ページヘッダー"
+      },
+      "do": {
+        "1": "配置の意図が明確なときに Flex を使ってください。単純な縦横の積み上げは Stack の方が読みやすいです。",
+        "2": "gap トークンを使い、子要素に margin を付けないでください。"
+      },
+      "dont": {
+        "1": "Flex の中で子の width をパーセントで精密計算しないでください。自由度こそ Flex の価値です。",
+        "2": "複雑な 2 次元レイアウトには Grid が向いています。"
+      },
+      "a11y": "Flex は div を描画するので、セマンティクスは as prop で与えてください。横スクロールが起きる場合はキーボード利用者のために overflow: auto を検討してください。"
+    },
+    "stack": {
+      "description": "子要素を一定間隔で積み上げて配置します。最もよく使うレイアウトコンポーネントです。",
+      "props": {
+        "as": "描画する要素。",
+        "spacing": "子要素間の間隔(SpacingKey、既定 md)。",
+        "direction": "積む方向。'column' または 'row'(既定 column)。",
+        "align": "交差軸の揃え。",
+        "justify": "主軸の揃え。"
+      },
+      "examples": {
+        "default": "基本の縦積み",
+        "horizontal": "横方向",
+        "tightening": "間隔の調整",
+        "userBlock": "ユーザーブロック"
+      },
+      "do": {
+        "1": "線形に積むレイアウトはまず Stack を使ってください。Flex より意図が明確です。",
+        "2": "spacing トークンで一貫したリズムを作ってください。"
+      },
+      "dont": {
+        "1": "両端揃えが必要なら Stack より Flex justify=\"space-between\" が明快です。",
+        "2": "縦横が混ざる複雑な配置には、Stack の入れ子より Grid の方が適しています。"
+      },
+      "a11y": "Stack は div を描画するので、意味があるなら as=\"ul\" や as=\"section\" でセマンティクスを足してください。"
+    },
+    "grid": {
+      "description": "CSS Grid レイアウト。columns に数値を渡すと均等分割、文字列を渡すと grid-template-columns としてそのまま使われます。",
+      "props": {
+        "as": "描画する要素。",
+        "columns": "列数(数値)または grid-template-columns の値(文字列)。",
+        "rows": "行数または grid-template-rows の値。",
+        "gap": "セル間の間隔(SpacingKey)。",
+        "columnGap": "列間の間隔。",
+        "rowGap": "行間の間隔。",
+        "align": "セルの垂直方向の揃え。",
+        "justify": "セルの水平方向の揃え。"
+      },
+      "examples": {
+        "default": "均等 3 列",
+        "responsive": "レスポンシブな自動充填",
+        "asymmetric": "非対称な比率",
+        "products": "商品グリッド"
+      },
+      "do": {
+        "1": "同じ大きさのカードを並べるときは columns に数値を渡してください。",
+        "2": "レスポンシブなカードには 'repeat(auto-fill, minmax(...))' を活用してください。"
+      },
+      "dont": {
+        "1": "一方向の積み上げに Grid を使わないでください。Stack の方が軽く明確です。",
+        "2": "任意の px 値を minmax に直接入れず、トークンか意味のある比率を使ってください。"
+      },
+      "a11y": "Grid は視覚的な配置だけを担います。コンテンツの意味はセマンティックな子要素(article、li など)で伝えてください。"
+    },
+    "container": {
+      "description": "コンテンツの最大幅を制限して中央に寄せるコンテナ。maxWidth で sm〜2xl の幅を選びます。",
+      "props": {
+        "as": "描画する要素。",
+        "maxWidth": "最大幅。sm 640px / md 768px / lg 1024px / xl 1280px / 2xl 1536px / full 100%。"
+      },
+      "examples": {
+        "default": "基本 (lg, 1024px)",
+        "narrow": "幅の狭いコンテンツ",
+        "wide": "広いダッシュボード",
+        "page": "ページのメイン"
+      },
+      "do": {
+        "1": "本文の読みやすさのため、長いテキストには maxWidth=\"sm\" または \"md\" を使ってください。",
+        "2": "as=\"main\" でセマンティクスを与え、ページの主要コンテンツであることを示してください。"
+      },
+      "dont": {
+        "1": "ヘッダーやフッターのようにページ幅いっぱいに広げる領域に Container は向きません。",
+        "2": "Container を入れ子にしないでください。1 ページに 1 つが一般的です。"
+      },
+      "a11y": "Container 自体には意味がないので、as=\"main\" や as=\"article\" などページ構造に合う要素を指定してください。"
+    },
+    "input": {
+      "description": "ラベル・ヒント・エラーメッセージを内蔵したテキスト入力コンポーネント。",
+      "props": {
+        "id": "input の id。省略すると内部で一意な id を生成してラベル・ヒント・エラーをひも付けます。",
+        "label": "ラベルのテキスト。指定すると内部で Label コンポーネントが自動描画されます。",
+        "hint": "ヒントメッセージ。エラーがないときに入力欄の下に表示されます。",
+        "error": "エラーメッセージ。空でなければ赤い枠線とともに role='alert' で表示されます。",
+        "required": "必須かどうか。true でラベルに赤い * が付きます。",
+        "type": "input の type 属性。email、password、number など標準の type をすべて使えます。",
+        "placeholder": "値がないときに表示する案内文。",
+        "disabled": "無効状態。"
+      },
+      "examples": {
+        "default": "基本の使い方",
+        "types": "さまざまな type",
+        "hintError": "ヒントとエラー",
+        "disabled": "無効化",
+        "signup": "サインアップフォーム"
+      },
+      "do": {
+        "1": "エラーメッセージは「8 文字以上で入力してください」のように具体的な解決方法を示してください。",
+        "2": "label prop を使えばひも付けは自動です。placeholder でラベルを代用しないでください。"
+      },
+      "dont": {
+        "1": "「エラーが発生しました」のような抽象的なエラーでは、何を直せばよいかわかりません。",
+        "2": "必須項目を * だけで示さず、required prop で意味を明示してください。"
+      },
+      "a11y": "label と id がひも付き、スクリーンリーダーが項目名を正確に読み上げます。id を渡さなくても内部の一意な id でひも付くため、複数並べても参照が衝突しません。エラー状態では aria-invalid='true' が付き、エラーとヒントが aria-describedby でひも付きます。自分で渡した aria-describedby は上書きされず統合されます。"
+    },
+    "textarea": {
+      "description": "複数行のテキスト入力。Input と同じラベル・ヒント・エラーの規約に従います。",
+      "props": {
+        "id": "textarea の id。省略すると内部で一意な id を生成してラベル・ヒント・エラーをひも付けます。",
+        "label": "ラベルのテキスト。",
+        "hint": "ヒントメッセージ。",
+        "error": "エラーメッセージ。",
+        "required": "必須かどうか。",
+        "rows": "初期表示する行数。",
+        "disabled": "無効状態。"
+      },
+      "examples": {
+        "default": "基本の使い方",
+        "withHint": "ヒントあり",
+        "error": "エラー状態",
+        "review": "レビュー投稿"
+      },
+      "do": {
+        "1": "長い入力には rows で十分な視覚的スペースを確保してください。",
+        "2": "文字数制限があるなら hint に「最大 500 文字」のように明示してください。"
+      },
+      "dont": {
+        "1": "単純な 1 行入力に Textarea を使わないでください。Input が適切です。",
+        "2": "resize: none を強制せず、利用者がサイズを調整できるようにしてください。"
+      },
+      "a11y": "Input と同じ規約に従います —— id の自動生成、エラー時の aria-invalid、エラーとヒントの aria-describedby ひも付け、渡された aria-describedby との統合。既定が resize: vertical なので、キーボードだけでもサイズを変えられます。"
+    },
+    "checkbox": {
+      "description": "チェックボックス。Controlled と Uncontrolled の両方に対応します。",
+      "props": {
+        "id": "checkbox の id。省略してもラベルは明示的にひも付きます。",
+        "label": "チェックボックスの横に表示するラベル。",
+        "checked": "チェック状態(controlled)。",
+        "defaultChecked": "初期のチェック状態(uncontrolled)。",
+        "onChange": "変更ハンドラ。第 1 引数に boolean を受け取ります。",
+        "disabled": "無効状態。"
+      },
+      "examples": {
+        "default": "基本の使い方",
+        "controlled": "Controlled",
+        "disabled": "無効化",
+        "agreements": "規約同意のまとまり"
+      },
+      "do": {
+        "1": "チェックボックスは必ず明確な label と一緒に使ってください。",
+        "2": "複数のチェックボックスが 1 グループなら fieldset/legend でまとめて関係を表してください。"
+      },
+      "dont": {
+        "1": "単一の ON/OFF 設定には Switch を使ってください。Checkbox は複数選択のためのものです。",
+        "2": "必須の同意がある場合、disabled で塞がずエラーで案内してください。"
+      },
+      "a11y": "セマンティックな input[type=checkbox] として描画され、キーボードの Space で切り替わります。id を渡さなくても内部の一意な id で label とひも付くため、ラベルのクリックは常に機能します。"
+    },
+    "radio": {
+      "description": "ラジオボタン。同じ name のグループの中からひとつだけ選べます。",
+      "props": {
+        "id": "radio の id。省略してもラベルは明示的にひも付きます。",
+        "name": "ラジオグループの名前。同じグループには同じ name を付けます。",
+        "value": "選択時に onChange へ渡される値。",
+        "label": "ラジオの横に表示するラベル。",
+        "checked": "選択状態(controlled)。",
+        "onChange": "値の変更ハンドラ。第 1 引数に string の value を受け取ります。",
+        "disabled": "無効状態。"
+      },
+      "examples": {
+        "default": "基本のグループ",
+        "controlled": "Controlled",
+        "disabled": "一部を無効化",
+        "payment": "支払い方法の選択"
+      },
+      "do": {
+        "1": "選択肢が 5 つ以下なら Radio の方が Select より使いやすいです。",
+        "2": "同じグループのラジオには同じ name を正確に付けてください。"
+      },
+      "dont": {
+        "1": "選択肢が 2 つでトグル的なら、Radio ではなく Switch が適切です。",
+        "2": "選択が任意でないグループを全て未選択のままにしないでください。既定の選択を用意してください。"
+      },
+      "a11y": "input[type=radio] として描画され、キーボードの矢印でグループ内を移動できます。id を渡さなくても内部の一意な id で label とひも付きます。"
+    },
+    "select": {
+      "description": "ドロップダウン選択。選択肢の一覧を options prop で受け取ります。",
+      "props": {
+        "id": "select の id。省略すると内部で一意な id を生成してラベル・ヒント・エラーをひも付けます。",
+        "label": "ラベルのテキスト。",
+        "options": "選択肢の配列。SelectOption[] 型で value/label/disabled を持ちます。",
+        "placeholder": "先頭の案内オプションのテキスト。value/defaultValue を渡さない場合、このオプションが初期選択になります。",
+        "hint": "ヒントメッセージ。",
+        "error": "エラーメッセージ。",
+        "required": "必須かどうか。",
+        "disabled": "無効状態。"
+      },
+      "examples": {
+        "default": "基本の使い方",
+        "placeholder": "Placeholder オプション",
+        "error": "エラー状態",
+        "country": "国の選択"
+      },
+      "do": {
+        "1": "選択肢が 6 つ以上なら Select が適しています。5 つ以下は Radio の方が読みやすいです。",
+        "2": "既定値が明確でないときだけ placeholder を使ってください。placeholder を渡せば、別途 defaultValue がなくても案内文が先に表示されます。"
+      },
+      "dont": {
+        "1": "選択肢のラベルにコードのような略語だけを使わず、人が理解できる名前を使ってください。",
+        "2": "必須の選択なのに placeholder だけ表示して required prop を省かないでください。"
+      },
+      "a11y": "ネイティブの select 要素を使うため、OS ごとのアクセシビリティとモバイルの操作性がそのまま得られます。id を渡さなくてもラベルがひも付き、エラー時には aria-invalid と aria-describedby が自動で付き、渡された aria-describedby と統合されます。"
+    },
+    "switch": {
+      "description": "ON/OFF が即座に反映されるトグル。Checkbox と違い、設定画面のように即時適用される UX に適しています。",
+      "props": {
+        "id": "switch の id。省略してもラベルは明示的にひも付きます。",
+        "label": "トグルの横に表示するラベル。",
+        "size": "トグルのサイズ。sm 28×16、md 36×20、lg 44×24 ピクセル。",
+        "checked": "状態(controlled)。",
+        "defaultChecked": "初期状態(uncontrolled)。",
+        "onChange": "変更ハンドラ。第 1 引数に boolean を受け取ります。",
+        "disabled": "無効状態。"
+      },
+      "examples": {
+        "default": "基本の使い方",
+        "sizes": "サイズ",
+        "disabled": "無効化",
+        "settings": "設定画面"
+      },
+      "do": {
+        "1": "Switch は即座に反映される ON/OFF に使ってください。フォーム送信後に適用される項目には Checkbox が適切です。",
+        "2": "label は必ず、オンにしたときの動作を名詞で書いてください(例: 「通知を受け取る」)。"
+      },
+      "dont": {
+        "1": "Switch の横に「オン/オフ」というテキストを足さないでください。見た目で状態は十分伝わります。",
+        "2": "複数の Switch をまとめて適用する流れなら、Checkbox + 適用ボタンが適切です。"
+      },
+      "a11y": "input[role=switch] として描画され、スクリーンリーダーはトグルとして認識します。キーボードの Space で切り替わり、aria-checked で状態を伝えます。id を渡さなくてもラベルはひも付きます。"
+    },
+    "button": {
+      "description": "ユーザー操作をトリガーするボタン。4 種の variant と 3 種の size、ローディング・無効・アイコンの状態に対応します。",
+      "props": {
+        "variant": "ボタンの見た目を決めます。primary は最も強調したい操作に使います。",
+        "size": "ボタンのサイズ。'sm' 32px、'md' 40px、'lg' 48px の高さです。",
+        "isLoading": "true にするとスピナーが表示されクリックが無効になります。aria-busy と aria-disabled が自動で付きます。",
+        "disabled": "true にすると見た目も機能も無効になります。",
+        "leftIcon": "テキストの左に表示するアイコンノード。ReactNode を受け取ります。",
+        "rightIcon": "テキストの右に表示するアイコンノード。"
+      },
+      "examples": {
+        "default": "基本の使い方",
+        "variants": "Variant",
+        "sizes": "Size",
+        "states": "状態",
+        "withIcon": "アイコンあり",
+        "realWorld": "実例 —— フォーム送信"
+      },
+      "do": {
+        "1": "ボタンのラベルは「保存」「削除」のように動作が明確に伝わる動詞で書きます。",
+        "2": "削除などの危険な操作は danger variant で視覚的な合図を出します。"
+      },
+      "dont": {
+        "1": "1 ページ・1 セクションに primary variant を複数置かないでください。視線が散ります。",
+        "2": "isLoading と disabled を同時に指定しないでください。isLoading だけで十分に無効化されます。"
+      },
+      "a11y": "セマンティックな <button> として描画され、キーボードの Enter/Space で動作します。isLoading の間は aria-busy='true' と aria-disabled='true' が付きます。disabled になった瞬間ブラウザはフォーカスを body へ飛ばし、キーボード利用者は位置を見失いますが、読み込みが終わったとき、その間に他へフォーカスが移っていなければボタンへ戻します。アイコンだけのボタンには aria-label を足してください。"
+    }
+  },
+  "componentPage": {
+    "import": "Import",
+    "quickLook": "クイックプレビュー",
+    "apiReference": "API リファレンス",
+    "examples": "例",
+    "bestPractices": "ベストプラクティス",
+    "a11yNotes": "アクセシビリティノート",
+    "related": "関連コンポーネント",
+    "tabs": {
+      "default": "基本",
+      "variants": "バリアント",
+      "states": "状態",
+      "real-world": "実例"
+    },
+    "do": "推奨 (DO)",
+    "dont": "非推奨 (DON'T)",
+    "status": {
+      "stable": "Stable",
+      "beta": "Beta",
+      "deprecated": "Deprecated"
+    },
+    "noExamples": "例はまだ用意されていません。",
+    "noBestPractices": "推奨事項はまだありません。",
+    "noRelated": "関連コンポーネントはありません。"
+  },
+  "themeToggle": {
+    "label": "テーマ",
+    "light": "ライト",
+    "dark": "ダーク",
+    "system": "システム設定"
+  },
+  "i18n": {
+    "title": "多言語",
+    "intro": "コンポーネントが自ら読み上げる内蔵文字列の言語を指定します。ko(既定)· en · ja · zh を内蔵し、キー単位で上書きできます。",
+    "why": {
+      "title": "なぜ必要か",
+      "body": "モーダルの「閉じる」、スピナーの「読み込み中」、カルーセルの「次のスライド」のように、コンポーネント自身が作り出すラベルがあります。多くは画面に出ずスクリーンリーダーにしか読まれないため目では気づきにくいのですが、ハードコードされた韓国語は他言語圏の利用者にとってそのまま壁になります。"
+    },
+    "setup": {
+      "title": "設定",
+      "intro": "アプリのルートを DesignSystemProvider で囲み、locale を指定します。",
+      "optional": "必須ではありません。Provider がなくても韓国語で動作するので、既存のコードを変える必要はありません。",
+      "localeList": "対応ロケールの一覧と既定値も定数として export されます。言語選択 UI を作るときはハードコードせず、この値を走査してください。"
+    },
+    "next": {
+      "title": "Next.js App Router",
+      "intro": "Provider はクライアントコンポーネントなので別ファイルに分けてレイアウトから使います。ToastProvider が自身の領域ラベルを内蔵文字列から読むため、DesignSystemProvider は外側に置く必要があります。"
+    },
+    "strings": {
+      "title": "文字列キー",
+      "intro": "下の表はドキュメントに書き写した値ではなく、パッケージが実際に export している値をそのまま読んで作っています。{index} のような波かっこのプレースホルダは実行時に値へ置き換わります。",
+      "caption": "内蔵文字列キーとロケール別の値",
+      "key": "キー",
+      "usedBy": "使用コンポーネント"
+    },
+    "override": {
+      "title": "文字列の上書き",
+      "intro": "strings に変えたいキーだけ渡せば、残りはそのロケールの値がそのまま使われます。",
+      "customLocale": {
+        "title": "内蔵されていない言語",
+        "body": "locale にない言語を使うには、DsStrings 全体を埋めて strings に渡します。近いロケールを展開してから必要なキーだけ変えると、漏れを防げます。"
+      }
+    },
+    "consumer": {
+      "title": "利用側のコンポーネントで使う",
+      "intro": "useDsStrings と useDsFormat で同じ文字列を直接読めます。Provider がなければ既定ロケールの値を返すので、どこで呼んでも安全です。"
+    },
+    "caveats": {
+      "title": "知っておくこと",
+      "noAutoDetect": "ブラウザの言語は自動検出しません。サーバーとクライアントで判断が食い違い SSR のハイドレーション不一致を生むため、locale は必ず明示的に渡してください。",
+      "defaultKo": "既定ロケールは 'ko' です。従来の動作を保つための選択なので、英語を基準にしたい場合は locale=\"en\" を明示してください。",
+      "contentStrings": "これらの文字列はコンポーネント内蔵のラベルだけを扱います。ボタンの文言やモーダルのタイトルなど、あなたが渡すコンテンツはご自身の i18n ツールで翻訳してください。"
+    },
+    "code": {
+      "englishStrings": "この中のすべてのコンポーネントが英語の内蔵文字列を使う",
+      "toastOutside": "ToastProvider は自身の領域ラベルを内蔵文字列から読むため、外側に置く。",
+      "buildPicker": "言語選択 UI を内蔵ロケール一覧からそのまま作る。",
+      "onlyGivenKeys": "指定したキーだけ差し替わり、残りはロケールの値をそのまま使う。",
+      "fillAllKeys": "内蔵されていない言語は全キーを埋めて渡す。",
+      "restOfKeys": "... 残りのキー",
+      "formatResult": "結果"
+    }
+  },
+  "runtimeApi": {
+    "title": "ランタイム API",
+    "intro": "コンポーネント以外にパッケージが export しているもの —— フック 6 種、値リスト定数 16 種、トークン定数、共通型です。",
+    "hooks": {
+      "title": "フック",
+      "intro": "コンポーネント内部で使っていたロジックのうち、再利用の価値があるものを公開しました。デザインシステムにないオーバーレイを自作するとき、Modal と同じ挙動をそのまま得られます。 いずれもクライアントフックなので、Next.js App Router では 'use client' を付けたファイルから使ってください。",
+      "items": {
+        "useBodyScrollLock": {
+          "description": "有効な間 <body> のスクロールをロックします。iOS Safari が overflow: hidden を無視するため、position: fixed とスクロール位置の復元方式を使います。"
+        },
+        "useControllable": {
+          "description": "controlled と uncontrolled をまとめて扱います。途中でモードが変わる(value が値 ↔ undefined を行き来する)と開発モードで警告します。"
+        },
+        "useEscapeKey": {
+          "description": "ESC で閉じる挙動を付けます。内部のスタックにより、重なったオーバーレイのうち最後に有効化された 1 つだけが反応します。"
+        },
+        "useFocusTrap": {
+          "description": "コンテナ内にフォーカスを閉じ込めます。有効化時は initialFocus(なければ最初のフォーカス可能要素)へ移動し、無効化時は直前の要素へ戻します。"
+        },
+        "useInertBackground": {
+          "description": "背景のコンテンツを支援技術から隠します。フォーカストラップは Tab しか止められないため、スクリーンリーダーのローターやスワイプ移動まで止めるにはこれが必要です。"
+        },
+        "usePrefersReducedMotion": {
+          "description": "OS の「視差効果を減らす」設定を読みます。自動再生や自動回転のように自ら動く UI は、これが true なら止めなければなりません(WCAG 2.2.2)。"
+        }
+      }
+    },
+    "constants": {
+      "title": "値リスト定数",
+      "intro": "型だけでは「どんな値が可能か」をコードで走査できません。variant 選択 UI を作るときや、サーバーから来た文字列を検証するときに使います。下の表もこれらの定数を走査して作っています。",
+      "caption": "値リスト定数と実際の値",
+      "headings": {
+        "name": "定数",
+        "component": "コンポーネント",
+        "values": "値"
+      }
+    },
+    "tokenConstants": {
+      "title": "トークン定数",
+      "intro": "デザイントークンを TypeScript から参照します。値はハードコードされた色ではなく CSS 変数の参照文字列なので、テーマを上書きすればこれを使った箇所も一緒に追従します。"
+    },
+    "types": {
+      "title": "共通型",
+      "intro": "パッケージが export する型 38 種です。コンポーネントの Props 型はほとんど公開されますが例外があるため、以下に全部並べます。",
+      "groups": {
+        "componentProps": "コンポーネント Props",
+        "provider": "Provider Props",
+        "data": "補助データ型",
+        "polymorphic": "多相ユーティリティ",
+        "common": "共通の値型",
+        "tokenKeys": "トークンキー",
+        "i18n": "i18n"
+      },
+      "noProps": {
+        "title": "Props 型を export しないコンポーネント",
+        "body": "Box · Flex · Grid · Stack · Container · Text の 6 種は as prop のためジェネリックで、Props 型を export しません。既定要素の型が必要なら React のユーティリティで取り出してください。"
+      },
+      "polymorphic": {
+        "title": "多相コンポーネントを作る",
+        "body": "PolymorphicProps を使えば、as prop に対応する自作コンポーネントをデザインシステムと同じ規約で作れます。"
+      }
+    },
+    "code": {
+      "scrollLockRefCount": "重ねて開いても参照カウントで一度だけロックし、最後のひとつが閉じるときに復元する。",
+      "controllableMode": "value を渡せば controlled、渡さなければ内部状態で動作する。",
+      "escapeTopmost": "重なったオーバーレイのうち、最後に有効化されたひとつだけが反応する。",
+      "focusTrapInitial": "開いたら「キャンセル」にフォーカス、閉じたら直前の要素へ復元。",
+      "inertWhy": "フォーカストラップは Tab しか止められない。ローターやスワイプ移動まで止めるにはこれが要る。",
+      "inertLayers": "data-ds-layer が付いたトーストコンテナなどには触れない。",
+      "reducedMotionSsr": "SSR や matchMedia がない環境では常に false を返す。",
+      "constantsPicker": "variant 選択 UI を値リストからそのまま作る",
+      "constantsValidate": "サーバーから来た文字列が有効な値かを実行時に検証",
+      "tokenConstantsNote": "値は CSS 変数の参照文字列なので、テーマを上書きすればこれも一緒に追従する。",
+      "typesNote": "デザインシステムと同じやり方で as prop に対応するコンポーネントを作る。",
+      "polymorphicNoProps": "この 6 種は Props 型を export しない —— React のユーティリティで取り出す。"
+    }
+  }
+}

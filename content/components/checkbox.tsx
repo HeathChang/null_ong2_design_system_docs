@@ -31,7 +31,7 @@ export const checkboxDoc: ComponentDoc = {
   descriptionKey: 'components.checkbox.description',
   importStatement: `import { Checkbox } from 'null_ong2-design-system';`,
   props: [
-    { name: 'id', type: 'string', default: '—', required: false, descriptionKey: 'components.checkbox.props.id' },
+    { name: 'id', type: 'string', default: 'auto', required: false, descriptionKey: 'components.checkbox.props.id' },
     { name: 'label', type: 'string', default: '—', required: false, descriptionKey: 'components.checkbox.props.label' },
     { name: 'checked', type: 'boolean', default: '—', required: false, descriptionKey: 'components.checkbox.props.checked' },
     { name: 'defaultChecked', type: 'boolean', default: '—', required: false, descriptionKey: 'components.checkbox.props.defaultChecked' },
