@@ -44,10 +44,10 @@ interface BundleRow {
 }
 
 const BUNDLE_ROWS: BundleRow[] = [
-  { importKey: 'button', imports: 'import { Button }', size: '2.44 kB' },
-  { importKey: 'modal', imports: 'import { Modal }', size: '3.87 kB' },
-  { importKey: 'all', imports: 'import * as ds', size: '30.56 kB' },
-  { importKey: 'css', imports: 'styles.css', size: '4.47 kB' },
+  { importKey: 'button', imports: 'import { Button }', size: '1.57 kB' },
+  { importKey: 'modal', imports: 'import { Modal }', size: '2.62 kB' },
+  { importKey: 'all', imports: 'import * as ds', size: '31.87 kB' },
+  { importKey: 'css', imports: 'styles.css', size: '4.46 kB' },
 ];
 
 export default async function HomePage({ params }: HomePageProps) {

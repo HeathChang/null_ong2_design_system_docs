@@ -97,6 +97,12 @@ export const COLOR_GROUPS: ColorGroup[] = [
         dark: 'rgb(17 24 39 / 0.85)',
         descriptionKey: 'tokens.colors.role.surfaceTranslucent',
       },
+      {
+        name: '--ds-color-control-border',
+        light: '#848b98',
+        dark: '#6b7280',
+        descriptionKey: 'tokens.colors.role.controlBorder',
+      },
     ],
   },
   {
@@ -257,17 +263,17 @@ export interface ThemedToken {
   dark: string;
 }
 
-/** 포커스 링은 다크에서 배경 대비를 맞추려고 색과 불투명도가 함께 바뀐다. */
+/** v0.4.0부터 포커스 링은 불투명 색을 참조한다. 두 테마가 같은 참조를 쓰고 색 토큰이 테마별 값을 가진다. */
 export const FOCUS_RING_TOKENS: ThemedToken[] = [
   {
     name: '--ds-focus-ring-color',
-    light: 'rgb(59 130 246 / 0.5)',
-    dark: 'rgb(147 197 253 / 0.6)',
+    light: 'var(--ds-color-primary-500)',
+    dark: 'var(--ds-color-primary-500)',
   },
   {
     name: '--ds-focus-ring-danger-color',
-    light: 'rgb(239 68 68 / 0.5)',
-    dark: 'rgb(252 165 165 / 0.6)',
+    light: 'var(--ds-color-danger)',
+    dark: 'var(--ds-color-danger)',
   },
   {
     name: '--ds-focus-ring',

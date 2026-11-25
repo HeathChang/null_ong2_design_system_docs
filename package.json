@@ -12,7 +12,7 @@
   "dependencies": {
     "next": "14.2.35",
     "next-intl": "^3.26.5",
-    "null_ong2-design-system": "^0.3.1",
+    "null_ong2-design-system": "^0.4.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "shiki": "^1.29.2"

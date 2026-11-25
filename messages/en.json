@@ -45,7 +45,7 @@
       },
       "treeShakable": {
         "title": "Tree-shakable",
-        "description": "Importing only Button costs 2.44 kB. Components you never import never reach the bundle."
+        "description": "Importing only Button costs 1.57 kB. Components you never import never reach the bundle."
       },
       "rscReady": {
         "title": "Import straight into RSC",
@@ -145,7 +145,7 @@
         },
         "3": {
           "question": "Does tree-shaking work?",
-          "answer": "Yes. v0.3.1 removed the generated code bundlers were mistaking for side effects, so it actually works now. import { Button } measures 2.44 kB (minified + brotli)."
+          "answer": "Yes. v0.4.0 also cleaned up the forwardRef calls bundlers were mistaking for side effects, so unused components now drop out of the bundle. import { Button } measures 1.57 kB (minified + brotli)."
         },
         "4": {
           "question": "How do I import the TypeScript types?",
@@ -212,7 +212,8 @@
         "controlKnob": "The color laid on top of a filled control — a checkmark, a switch knob.",
         "overlayBackdrop": "The dim behind a modal.",
         "shimmer": "The skeleton shimmer highlight.",
-        "surfaceTranslucent": "A translucent surface laid over content, such as the carousel arrows."
+        "surfaceTranslucent": "A translucent surface laid over content, such as the carousel arrows.",
+        "controlBorder": "The boundary of inputs, checkboxes and switch tracks. It identifies the control, so it keeps at least 3:1 contrast against the surface."
       }
     },
     "spacing": {
@@ -260,7 +261,7 @@
     },
     "borderFocus": {
       "title": "Border · Focus ring",
-      "intro": "Border defaults and the keyboard focus indicator. The focus ring gets lighter and more opaque in dark mode so it stays visible against a dark background."
+      "intro": "Default borders and the keyboard focus indicator. The focus ring references an opaque color, keeping at least 3:1 contrast against the background in both themes."
     },
     "internal": {
       "body": "{name} is not a design token but a marker confirming the stylesheet actually loaded (value {value}). It backs the one-time development warning about a missing styles.css import, so leave it alone."
@@ -524,6 +525,7 @@
         "isOpen": "Open state (required).",
         "onClose": "Close handler (required).",
         "title": "Title (optional).",
+        "aria-label": "Accessible name for a dialog without a title. Ignored when title is set.",
         "children": "Body content.",
         "footer": "Footer (e.g. button group).",
         "size": "Size. 'sm' / 'md' (default) / 'lg' / 'xl'.",
