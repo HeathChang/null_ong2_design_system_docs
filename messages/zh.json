@@ -45,7 +45,7 @@
       },
       "treeShakable": {
         "title": "可摇树优化",
-        "description": "只导入 Button 时仅 2.44 kB。未使用的组件不会进入打包结果。"
+        "description": "只导入 Button 时仅 1.57 kB。未使用的组件不会进入打包结果。"
       },
       "rscReady": {
         "title": "可直接在 RSC 中导入",
@@ -145,7 +145,7 @@
         },
         "3": {
           "question": "支持 Tree-shaking 吗?",
-          "answer": "支持。v0.3.1 移除了会被打包器误判为副作用的生成代码,现在真正生效。import { Button } 实测 2.44 kB(压缩 + brotli)。"
+          "answer": "支持。v0.4.0 进一步整理了会被打包器误判为副作用的 forwardRef 调用,未使用的组件会从打包结果中剔除。import { Button } 实测 1.57 kB(压缩 + brotli)。"
         },
         "4": {
           "question": "如何导入 TypeScript 类型?",
@@ -212,7 +212,8 @@
         "controlKnob": "叠加在填充控件之上的颜色,如对勾、开关滑块。",
         "overlayBackdrop": "模态框背后的遮罩。",
         "shimmer": "骨架屏的微光高亮。",
-        "surfaceTranslucent": "叠加在内容之上的半透明表面(如轮播箭头)。"
+        "surfaceTranslucent": "叠加在内容之上的半透明表面(如轮播箭头)。",
+        "controlBorder": "输入框、复选框、开关轨道的边界线。它是识别控件的依据,因此与表面的对比度保持在 3:1 以上。"
       }
     },
     "spacing": {
@@ -260,7 +261,7 @@
     },
     "borderFocus": {
       "title": "Border · Focus ring",
-      "intro": "边框默认值与键盘焦点提示。为了在深色背景上仍然可见,焦点环的颜色在深色模式下亮度与不透明度会一并提高。"
+      "intro": "边框默认值与键盘焦点指示。焦点环引用不透明颜色,在两种主题下与背景的对比度都保持在 3:1 以上。"
     },
     "internal": {
       "body": "{name} 不是设计令牌,而是用于确认样式表是否真正加载的标记(取值 {value})。它支撑开发模式下关于缺失 styles.css 导入的一次性提示,请不要覆盖。"
@@ -524,6 +525,7 @@
         "isOpen": "打开状态(必需)。",
         "onClose": "关闭回调(必需)。",
         "title": "标题(可选)。",
+        "aria-label": "无标题时对话框的可访问名称。设置了 title 时忽略。",
         "children": "正文。",
         "footer": "底部(如按钮组)。",
         "size": "尺寸。'sm' / 'md'(默认)/ 'lg' / 'xl'。",

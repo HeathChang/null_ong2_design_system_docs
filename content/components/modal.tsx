@@ -67,6 +67,7 @@ export const modalDoc: ComponentDoc = {
     { name: 'isOpen', type: 'boolean', default: '—', required: true, descriptionKey: 'components.modal.props.isOpen' },
     { name: 'onClose', type: '() => void', default: '—', required: true, descriptionKey: 'components.modal.props.onClose' },
     { name: 'title', type: 'string', default: '—', required: false, descriptionKey: 'components.modal.props.title' },
+    { name: 'aria-label', type: 'string', default: '—', required: false, descriptionKey: 'components.modal.props.aria-label' },
     { name: 'children', type: 'ReactNode', default: '—', required: true, descriptionKey: 'components.modal.props.children' },
     { name: 'footer', type: 'ReactNode', default: '—', required: false, descriptionKey: 'components.modal.props.footer' },
     { name: 'size', type: "'sm' | 'md' | 'lg' | 'xl'", default: "'md'", required: false, descriptionKey: 'components.modal.props.size' },
